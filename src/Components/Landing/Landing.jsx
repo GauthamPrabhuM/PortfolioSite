@@ -23,7 +23,7 @@ export default function Landing(props) {
         <Typewriter
           options={{
             strings: [
-              `&nbsp;Hello, <span style=""> I AM</span> &nbsp;<br/> SURYAANSH`,
+              `&nbsp;Hello, <span style=""> I AM</span> &nbsp;<br/> GAUTHAM`,
             ],
             autoStart: true,
             loop: true,

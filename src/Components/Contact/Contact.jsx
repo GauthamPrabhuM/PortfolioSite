@@ -12,26 +12,23 @@ export default function Contact(props) {
         Get In Touch With Me
       </div>
       <div className="logo_C" id={props.light ? "logo_light" : null}>
-        <a href="https://instagram.com/suryaansh2807" target="__blank">
+        <a href="https://instagram.com/gotham424242" target="__blank">
           <AiOutlineInstagram className="logo" />
         </a>
-        <a href="mailto:suryaansh2002@gmail.com">
+        <a href="mailto:gauthamprabhu9@gmail.com">
           <CgMail className="logo" />
         </a>
-        <a href="https://suryaansh2002.medium.com/" target={"__blank"}>
-          <BsMedium className="logo" />
-        </a>
         <a
-          href="https://www.linkedin.com/in/suryaansh-rathinam-33a86b1b6/"
+          href="https://www.linkedin.com/in/gautham-prabhu-5b2342192/"
           target={"__blank"}
         >
           <FaLinkedinIn className="logo" />
         </a>
-        <a href="https://github.com/suryaansh2002/" target={"__blank"}>
+        <a href="https://github.com/GauthamPrabhuM" target={"__blank"}>
           <BsGithub className="logo" />
         </a>
       </div>
-      <div className="c_text">I'd love to hear from you! </div>
+      <div className="c_text">Feel free to contact me :D  </div>
       <img src={bitmoji} className="bitmoji" />
     </div>
   );

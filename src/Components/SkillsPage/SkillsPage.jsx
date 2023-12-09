@@ -217,9 +217,7 @@ export default function SkillsPage(props) {
       <div className="skillsPage_main" id={light ? "lightid" : null}>
         <div className="skillsPage_header">My Skills</div>
         <div className="skillsPage_text">
-          I've been exploring a lot over the last couple of years, in an attempt
-          to enhance my skill set. Here are some of the skills that I have
-          worked on during this time.
+          Tech stack which I have worked on. 
         </div>
         <div className="skillsPage_cards">
           <SkillsCard light={light} img={c} name="C" stars={4} half={true} />
@@ -265,21 +263,12 @@ export default function SkillsPage(props) {
             stars={4}
             half={false}
           />
-          <SkillsCard light={light} img={express} stars={4} half={false} />
-          <SkillsCard light={light} img={node} stars={4} half={false} />
-          <SkillsCard light={light} img={fastapi} stars={3} half={false} />
-          <SkillsCard light={light} img={next} stars={4} half={false} />
-          <SkillsCard light={light} img={typeorm} stars={3} half={false} />
-          <SkillsCard light={light} img={nest} stars={3} half={false} />
-          <SkillsCard light={light} img={firebase} stars={3} half={true} />
-          <SkillsCard light={light} img={appium} stars={3} half={true} />
           <SkillsCard light={light} img={postgres} stars={3} half={false} />
           <SkillsCard light={light} img={docker} stars={3} half={false} />
           <SkillsCard light={light} img={aws} stars={3} half={false} />
           <SkillsCard light={light} img={django} stars={3} half={true} />
           <SkillsCard light={light} img={html} stars={5} half={false} />
           <SkillsCard light={light} img={css} stars={5} half={false} />
-          <SkillsCard light={light} img={ts} stars={4} half={false} />
           <SkillsCard
             img={light ? react_native : react_native_dark}
             stars={3}
@@ -288,12 +277,8 @@ export default function SkillsPage(props) {
           />
           <SkillsCard light={light} img={php} stars={3} half={true} />
           <SkillsCard light={light} img={bootstrap} stars={5} half={false} />
-          <SkillsCard light={light} img={redux} stars={3} half={true} />
-          <SkillsCard light={light} img={sass} stars={4} half={false} />
           <SkillsCard light={light} img={mysql} stars={4} half={true} />
           <SkillsCard light={light} img={git} stars={5} half={false} />
-          <SkillsCard light={light} img={selenium} stars={4} half={false} />
-          <SkillsCard light={light} img={flutter} stars={2} half={true} />
           <SkillsCard light={light} img={matlab} stars={3} half={false} />
           <SkillsCard light={light} img={canva} stars={3} half={true} />
           <SkillsCard light={light} img={figma} stars={2} half={true} />

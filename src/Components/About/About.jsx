@@ -24,14 +24,10 @@ export default function About(props) {
           <div className="leftBg" id={props.light ? 'light_imgBg':null}></div>
         </div>
         <div className="about_txt">
-          I am Suryaansh Rathinam, a Computer Science Undergrad at Manipal
+          Hi! I am Gautham Prabhu M, a Computer Science Undergrad at Manipal
           Institue of Technology.
-          <br /> Being a Full Stack Developer with experience working with a
-          variety of techstacks, tools and frameworks, on a variety of projects,
-          I am always on the lookout to explore more, learn more and develop my
-          skill set.
-          <br /> Do feel free to reach out to me if you feel you've got
-          something that would interest me or if I can be of any help to you.
+          <br /> I am a passionate and dedicated machine learning student with a deep fascination for the ever-expanding field of artificial intelligence. 
+          <br />I love collaborating with others and feel free to reach out
           <br />
           <a href={resume} download>
             <button

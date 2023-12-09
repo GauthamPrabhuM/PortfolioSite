@@ -45,7 +45,7 @@ import next from "../../Assets/Skills/next.png";
 import typeorm from "../../Assets/Skills/typeorm.png";
 import nest from "../../Assets/Skills/nest.png";
 import postgres from "../../Assets/Skills/postgres.png";
-
+import pytorch from "../../Assets/Skills/pytorch.png";
 import SkillsCard from "./SkillsCard";
 
 export default function Skills(props) {
@@ -151,14 +151,6 @@ export default function Skills(props) {
             stars={4}
             half={false}
           />
-          <SkillsCard light={light} img={express} stars={4} half={false} />
-          <SkillsCard light={light} img={node} stars={4} half={false} />
-          <SkillsCard light={light} img={fastapi} stars={3} half={false} />
-          <SkillsCard light={light} img={next} stars={4} half={false} />
-          <SkillsCard light={light} img={typeorm} stars={3} half={false} />
-          <SkillsCard light={light} img={nest} stars={3} half={false} />
-          <SkillsCard light={light} img={firebase} stars={3} half={true} />
-          <SkillsCard light={light} img={appium} stars={3} half={true} />
           <SkillsCard light={light} img={postgres} stars={3} half={false} />
           <SkillsCard light={light} img={docker} stars={3} half={false} />
           <SkillsCard light={light} img={aws} stars={3} half={false} />
@@ -174,15 +166,12 @@ export default function Skills(props) {
           />
           <SkillsCard light={light} img={php} stars={3} half={true} />
           <SkillsCard light={light} img={bootstrap} stars={5} half={false} />
-          <SkillsCard light={light} img={redux} stars={3} half={true} />
-          <SkillsCard light={light} img={sass} stars={4} half={false} />
           <SkillsCard light={light} img={mysql} stars={4} half={true} />
           <SkillsCard light={light} img={git} stars={5} half={false} />
-          <SkillsCard light={light} img={selenium} stars={4} half={false} />
-          <SkillsCard light={light} img={flutter} stars={2} half={true} />
           <SkillsCard light={light} img={matlab} stars={3} half={false} />
           <SkillsCard light={light} img={canva} stars={3} half={true} />
           <SkillsCard light={light} img={figma} stars={2} half={true} />
+          <SkillsCard light={light} img={pytorch} stars={4} half={false}/>
         </Slider>
       </div>
       <div className="skills_link_container">

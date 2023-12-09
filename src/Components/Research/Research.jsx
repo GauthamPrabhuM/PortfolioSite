@@ -16,9 +16,9 @@ export default function Research(props) {
         <div className="research-card">
           {/* <div className="r-card-border"></div> */}
           <div className="research-title">
-            Analysis and Comparison of Different Frontend Frameworks
+          VIKAS: A Multimodal Framework to Aid in Effective Disaster Management
           </div>
-          <div className="research-author">- Suryaansh Rathinam</div>
+          <div className="research-author">- Gautham Manuru Prabhu, Tanay Gupta, Metta Venkata Srujan, A.R. Soumya, Anshita Palorkar, Anurag Chowdhury</div>
           <div className="research-flex">
             <div className="research-presented">
               {/* <div>
@@ -33,7 +33,7 @@ export default function Research(props) {
               {/* <div><GiArchiveResearch className="research-icon"/></div> */}
               Published in{" "}
               <a
-                href="https://link.springer.com/chapter/10.1007/978-981-99-2264-2_19"
+                href="https://link.springer.com/chapter/10.1007/978-981-99-2264-2_22"
                 target={"_blank"}
               >
                 Springer's CCIS Series (Volume 1804)
@@ -41,57 +41,99 @@ export default function Research(props) {
             </div>
           </div>
 
-          <div>
-            <a href={paper} download>
-              <button
-                className="download_r"
-                id={props.light ? "download_r_light" : null}
-              >
-                <FaFileDownload className="download-icon" /> PDF
-              </button>
-            </a>
-          </div>
+         
         </div>
         <div className="research-card">
           {/* <div className="r-card-border"></div> */}
           <div className="research-title">
-            Survey of the use of AI models and techniques in the analysis and
-            prediction of neuro-degenerative diseases
+          EyeEncrypt: A Cyber-Secured Framework for Retinal Image Segmentation
           </div>
           <div className="research-author">
-            - Dr. Srikanth Prabhu, Suryaansh Rathinam, Chirag Rao, Anurag
-            Choudhary
+            - Govardhan Hegde, Shourya Gupta, Gautham Manuru Prabhu, Dr. Sulatha V Bhandary
           </div>
           <div className="research-flex">
-            <div className="research-presented">
+            <div className="research-published">
               Presented at:{" "}
-              <a href="http://aicecs.in/" target={"_blank"}>
-                AICECS 2023
+              <a href="https://atis2022.com/" target={"_blank"}>
+                ATIS 2022 Conference
               </a>
             </div>
             <div className="research-published">
-              To be published by:{" "}
+              Published in:{" "}
+              <a
+                href="https://link.springer.com/chapter/10.1007/978-981-99-2264-2_9"
+                target={"_blank"}
+              >
+                Springer's CCIS Series (Volume 1804)
+              </a>
+            </div>
+            
+          </div>
+
+        
+        </div>
+      </div>
+      <div className="research-card">
+          {/* <div className="r-card-border"></div> */}
+          <div className="research-title">
+          A Systematic Review of Deep Learning Approaches for Vessel Segmentation in Retinal Fundus Images
+          </div>
+          <div className="research-author">-Govardhan Hegde , Dr. Srikanth Prabhu , Shourya Gupta , Gautham
+Manuru Prabhu , Anshita Palorkar , Metta Venkata Srujan, Dr. Sulatha V Bhandary</div>
+          <div className="research-flex">
+            <div className="research-presented">
+              {/* <div>
+          <MdPresentToAll className="research-icon"/>
+          </div> */}
+              Presented at:{" "}
+              <a href="http://aicecs.in/" target={"_blank"}>
+                AICECS 2023 Conference
+              </a>
+            </div>
+            <div className="research-published">
+              {/* <div><GiArchiveResearch className="research-icon"/></div> */}
+              To be Published in{" "}
               <a
                 href="https://iopscience.iop.org/journal/1742-6596"
                 target={"_blank"}
               >
-                IOP: Journal of Physics
+                IOP: Journal of Physics: Conference Series 
               </a>
             </div>
           </div>
 
-          <div>
-            <a href={paper2} download>
-              <button
-                className="download_r"
-                id={props.light ? "download_r_light" : null}
-              >
-                <FaFileDownload className="download-icon" /> PDF
-              </button>
-            </a>
-          </div>
+         
         </div>
-      </div>
+        <div className="research-card">
+          {/* <div className="r-card-border"></div> */}
+          <div className="research-title">
+          Exploring Design Optimisation Techniques of a Radio Telescope Using Fixed Costing Constraints
+          </div>
+          <div className="research-author">-Aditya Arun Iyer , Gautham Manuru Prabhu , Tanay Gupta, Shrey Deshmukh, Rushit Rivankar</div>
+          <div className="research-flex">
+            <div className="research-presented">
+              {/* <div>
+          <MdPresentToAll className="research-icon"/>
+          </div> */}
+              Presented at:{" "}
+              <a href="http://aicecs.in/" target={"_blank"}>
+                AICECS 2023 Conference
+              </a>
+            </div>
+            <div className="research-published">
+              {/* <div><GiArchiveResearch className="research-icon"/></div> */}
+              To be Published in{" "}
+              <a
+                href="https://iopscience.iop.org/journal/1742-6596"
+                target={"_blank"}
+              >
+                IOP: Journal of Physics: Conference Series 
+              </a>
+            </div>
+          </div>
+
+         
+        </div>
     </div>
   );
 }
