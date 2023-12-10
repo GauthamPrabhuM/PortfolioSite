@@ -1,0 +1,120 @@
+.download_r {
+  font-size: 1.3rem;
+  background-color: rgb(253, 253, 253, 0.8);
+  font-family: "Roboto";
+  padding: 0.5rem 2rem;
+  border-radius: 50px;
+  border: none;
+  margin-top: 1.5rem;
+  transition: 0.5s;
+}
+.download_r:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+#download_r_light {
+  background-color: rgba(8, 0, 44, 0.92);
+  color: white;
+  box-shadow: 2px 4px 4px gray;
+}
+
+a {
+  color: white;
+}
+
+.research-card {
+  position: relative;
+  width: 50vw;
+  margin: 5rem auto;
+  background-color: rgba(255, 255, 255, 0.75);
+  padding: 3rem 1.5rem;
+  border-radius: 1rem;
+  text-align: center;
+  color: rgba(8, 0, 44, 0.92);
+  padding-bottom: 1.5rem;
+}
+
+.r-card-border {
+  width: 51vw;
+  height: 45vh;
+  transform: translate(4%, -3%);
+  position: absolute;
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 1rem;
+}
+
+.research-title {
+  font-size: 1.65rem;
+  font-family: "Roboto", serif;
+  text-transform: uppercase;
+}
+
+.research-author {
+  font-size: 1.25rem;
+  font-family: "Roboto", serif;
+  margin: 1rem;
+  font-style: italic;
+}
+
+.research-published {
+  font-size: 1.25rem;
+  font-family: "Roboto", serif;
+  margin: 1rem;
+}
+
+.research-presented {
+  font-size: 1.25rem;
+  font-family: "Roboto", serif;
+  margin: 1rem;
+}
+.research-presented a,
+.research-published a {
+  color: rgba(8, 0, 44, 0.92);
+  font-style: italic;
+}
+
+#research {
+  margin-bottom: 6rem;
+}
+.research-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.research-icon {
+  font-size: 2rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .download_r {
+    margin-top: 0;
+    font-size: 0.9rem !important;
+    font-family: "Roboto";
+    padding: 0.5rem 2rem;
+    border-radius: 50px;
+  }
+
+  .research-card {
+    position: relative;
+    width: 80vw;
+    margin: 5rem auto;
+    background-color: rgba(255, 255, 255, 0.75);
+    padding: 2rem 1rem;
+    border-radius: 1rem;
+    text-align: center;
+    color: rgba(8, 0, 44, 0.92);
+    padding-bottom: 1rem;
+  }
+
+  .research-title{
+    font-size: 1.1rem;
+  }
+  .research-author, .research-presented,.research-published{
+    font-size: 0.9rem;
+  }
+  .research-flex{
+    display: block;
+  }
+}

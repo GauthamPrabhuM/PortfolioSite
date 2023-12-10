@@ -1,0 +1,158 @@
+.skills_main {
+  background-color: black;
+  min-height: 100vh;
+  background: linear-gradient(25deg, rgb(0, 21, 67) 0%, rgb(0, 0, 0) 60%);
+  color: white;
+}
+.skills_header {
+  font-weight: 600;
+  font-size: 3rem;
+  text-align: center;
+  font-family: "Lato", sans-serif;
+  margin-bottom: 6rem;
+  font-family: "Cinzel", serif;
+  padding-top: 4rem;
+}
+.skills_card_container {
+  display: inline;
+}
+.skills_card {
+  width: 15rem;
+  height: 18rem;
+  background-color: rgba(0, 0, 0, 0.1) !important;
+
+  box-shadow: 5px 5px 20px 0px rgb(55, 55, 103);
+  border-radius: 20px;
+  margin: 0rem 4rem;
+  display: inline-block;
+  background: transparent;
+}
+
+.skills_card_img {
+  height: 13rem;
+  width: 13rem;
+  transition: 1s;
+  margin: 2.5rem 1rem;
+  /* height: 10rem;   */
+}
+.skills_card_text {
+  text-align: center;
+  font-family: "Lato", sans-serif;
+  transition: 1s;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.skills_card:hover .skills_card_img {
+  transform: scale(0.8) translateY(-2rem);
+}
+.skills_card:hover .skills_card_text {
+  transform: scale(0.8) translateY(-4.5rem);
+}
+.skills_card:hover .skills_stars {
+  visibility: visible;
+  transform: translateY(-3rem);
+}
+.skills_stars {
+  font-size: 1.8rem;
+  color: gold;
+  text-align: center;
+  visibility: hidden;
+  transition: 0.4s;
+}
+
+
+#light_star{
+ color: rgb(21, 0, 92) !important; 
+}
+
+.skills_stars .star {
+  margin: 0.2rem;
+}
+.imgslider {
+  overflow-x: hidden;
+  height: max-content;
+  overflow-y: hidden;
+}
+.skills_link_container {
+  text-align: center;
+  margin: 4rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-decoration: underline;
+}
+.skills_link {
+  font-size: 1.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  font-family: "Cinzel", serif;
+  font-family: "Roboto";
+  text-transform: capitalize;
+  color: white;
+}
+
+#skills_link_light {
+  color: black;
+}
+.skills_link:hover {
+  cursor: pointer;
+}
+.arrow {
+  margin-left: 10px;
+  padding-top: 4px;
+  position: absolute;
+  transition: 0.8s;
+}
+
+.skills_link:hover .arrow {
+  transform: translateX(10px);
+}
+
+@media only screen and (max-width: 600px) {
+  .skills_card {
+    width: 60vw;
+    height: 18rem;
+    background-color: rgba(255, 255, 255, 0.4);
+
+    box-shadow: 5px 5px 20px 0px rgb(55, 55, 103);
+    border-radius: 20px;
+    margin: 0rem 5vw;
+    display: inline-block;
+    background: transparent;
+  }
+
+  .skills_card_img {
+    height: 11rem;
+    width: 11rem;
+    transition: 1s;
+    margin: 2.5rem 1.5rem;
+    /* height: 10rem;   */
+  }
+
+  .imgslider {
+    margin-left: -1rem;
+  }
+  .skills_header {
+    font-size: 8vw;
+    padding-top: 6rem;
+  }
+  .skills_link {
+    font-size: 4.5vw;
+    text-decoration: none;
+    font-weight: 400;
+    font-family: "Cinzel", serif;
+    font-family: "Roboto";
+    text-transform: capitalize;
+  }
+  .arrow {
+    margin-left: 10px;
+    padding-top: 8px;
+    position: absolute;
+    transition: 0.8s;
+    font-size: 5vw;
+  }
+
+  .skills_link:hover .arrow {
+    transform: none;
+  }
+}
