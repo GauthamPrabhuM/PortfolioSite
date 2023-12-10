@@ -1,11 +1,7 @@
 import React from "react";
 import "./Research.css";
-import paper from "../../Assets/SuryaanshRathinam_ComparisonOfFrontendFrameworks.pdf";
-import paper2 from "../../Assets/Review_Paper.pdf";
 
-import { GiArchiveResearch } from "react-icons/gi";
-import { MdPresentToAll } from "react-icons/md";
-import { FaFileDownload } from "react-icons/fa";
+
 export default function Research(props) {
   return (
     <div className="projects_main" id={props.light ? "lightid" : null}>

@@ -104,6 +104,7 @@
   transform: translateX(-50%);
   padding-top: 0;
 }
+
 .work_card {
   width: 100px; /* Adjust the width as needed */
   height: 100px; /* Adjust the height as needed */
@@ -118,6 +119,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  object-fit: contain
 }
 
 .work_card_img {
@@ -162,8 +164,8 @@
   }
   
   .work_card {
-    width: 100px; /* Adjust the width to your liking */
-    height: 100px; /* Adjust the height to your liking */
+    width: 40; /* Adjust the width to your liking */
+    height: 40; /* Adjust the height to your liking */
     background-color: #fff; /* Set a background color for the circle */
     border-radius: 50%;
     overflow: hidden;
@@ -174,8 +176,9 @@
   }
   
   .work_card_img {
-    max-width: 100%; /* Ensure the image doesn't exceed the circle size */
-    max-height: 100%; /* Ensure the image doesn't exceed the circle size */
+    max-width: 120%; /* Ensure the image doesn't exceed the circle size */
+    max-height: 120%; /* Ensure the image doesn't exceed the circle size */
+    object-fit:contain
   }  .work_card {
     width: 60vw;
     height: 30vw;
