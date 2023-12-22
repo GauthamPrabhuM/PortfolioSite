@@ -24,7 +24,7 @@ Explore the website sections through the navigation menu.
 Contributions are welcome! Please follow the standard pull request process.
 
 ## Credits
-Template by [Suryaansh](https://github.com/suryaansh2002/Portfolio_3.0)
+Template borrowed from [Suryaansh](https://github.com/suryaansh2002/Portfolio_3.0)
 
 
 ## Contact
