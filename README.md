@@ -1,4 +1,6 @@
 # PortfolioSite
+## Link
+https://gauthammanuruprabhu.netlify.app/
 
 ## Introduction
 This is my personal portfolio website showcasing my projects, skills, and professional journey.
@@ -11,11 +13,6 @@ This is my personal portfolio website showcasing my projects, skills, and profes
 ## Technologies
 - HTML, CSS, JavaScript
 - React, Bootstrap
-
-## Setup and Installation
-1. Clone the repository: `git clone [repo-link]`
-2. Install dependencies: `npm install`
-3. Run the project: `npm start`
 
 ## Usage
 Explore the website sections through the navigation menu.
