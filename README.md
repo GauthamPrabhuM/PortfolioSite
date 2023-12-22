@@ -24,12 +24,12 @@ Explore the website sections through the navigation menu.
 Contributions are welcome! Please follow the standard pull request process.
 
 ## Credits
-Template by [Suryaansh]([(https://github.com/suryaansh2002/Portfolio_3.0)])
+Template by [Suryaansh](https://github.com/suryaansh2002/Portfolio_3.0)
 
 
 ## Contact
-- Email: [email][gauthamprabhu9@gmail.com]
-- LinkedIn: [Linkedin][(https://www.linkedin.com/in/gautham-prabhu-5b2342192/)]
+- Email: [email](gauthamprabhu9@gmail.com)
+- LinkedIn: [Linkedin](https://www.linkedin.com/in/gautham-prabhu-5b2342192/)
 - GitHub: [[GitHub-Profile-Link](https://github.com/GauthamPrabhuM)]
 
 ## Future Plans
