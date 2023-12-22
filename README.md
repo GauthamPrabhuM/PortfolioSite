@@ -28,10 +28,9 @@ Template by [Template-Creator](template-creator-link)
 
 
 ## Contact
-- Email: [Your-Email]
-- LinkedIn: [LinkedIn-Profile-Link]
-- GitHub: [GitHub-Profile-Link]
+- Email: [gauthamprabhu9@gmail.com]
+- LinkedIn: [(https://www.linkedin.com/in/gautham-prabhu-5b2342192/)]
+- GitHub: [[GitHub-Profile-Link](https://github.com/GauthamPrabhuM)]
 
 ## Future Plans
 - Add a blog section
-- Implement a dark mode feature
