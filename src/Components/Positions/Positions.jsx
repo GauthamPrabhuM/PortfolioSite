@@ -9,7 +9,7 @@ export default function Positions(props) {
           <h1>Positions of Responsibility</h1>
           <ol>
             <li> Co-Founder and Technical Head, Project Kalpana (12/2022  - 09/2023)</li>
-            <li>General Secretary and Treasurer, ACM Manipal (08/2022 - 08/2023)</li>
+            <li>General Secretary and Treasurer, Association For Computer Machinery, Manipal (08/2022 - 08/2023)</li>
             <li>Technical Head, The Astronomy Club of Manipal (09/2022 - 09/2023)</li>
           </ol>
         </div>

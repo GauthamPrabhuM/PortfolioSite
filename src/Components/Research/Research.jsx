@@ -115,9 +115,9 @@ export default function Research(props) {
             </div>
             <div className="research-published">
               {/* <div><GiArchiveResearch className="research-icon"/></div> */}
-             To be: Published in{" "}
+             Published in:{" "}
               <a
-                href="https://www.sciencedirect.com/journal/procedia-computer-science/special-issues"
+                href="https://www.sciencedirect.com/science/article/pii/S1877050924008470"
                 target={"_blank"}
               >
                 Procedia- computer-science
@@ -146,7 +146,7 @@ export default function Research(props) {
             </div>
             <div className="research-published">
               {/* <div><GiArchiveResearch className="research-icon"/></div> */}
-               Published in{" "}
+               Published in:{" "}
               <a
                 href="https://iopscience.iop.org/article/10.1088/1742-6596/2571/1/012021"
                 target={"_blank"}

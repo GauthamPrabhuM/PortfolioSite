@@ -1,11 +1,11 @@
 .work_main {
-  background: rgb(0, 0, 0);
   background: linear-gradient(25deg, rgb(0, 21, 67) 0%, rgb(0, 0, 0) 60%);
   min-height: 100vh;
   color: white;
   padding-top: 1rem;
   padding-bottom: 2rem;
 }
+
 .work_header {
   font-weight: 600;
   font-size: 3rem;
@@ -14,241 +14,42 @@
   font-family: "Cinzel", serif;
   padding-top: 2rem;
 }
+/* Work.css */
 
-.card_cont {
-  display: inline-block;
-}
-.work_card {
-  width: 24rem;
-  height: 12rem;
-  border-radius: 20px;
-  padding: 1rem;
-  color: white;
-  font-size: 1.2rem;
-  text-align: center;
-  background-color: rgb(255, 255, 255);
-  border-radius: 50%;
-  z-index: 100;
-  position: relative;
-}
-#work_card_light {
-  background-color: rgb(203, 209, 223) !important;
-  box-shadow: 2px 4px 2px rgba(0, 0, 0, 0.6);
-  color: black !important;
+.work_main {
+  /* ... */
 }
 
-.work_card_container {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 8rem;
-}
-
-#ridecell {
-  height: 20rem;
-  transform: translateY(-20%);
-}
-
-#apt {
-  transform: translateY(0%);
-  height: 12rem;
-}
-
-#santanet {
-  transform: translateY(10%);
-  height: 10rem;
-}
-
-#pefo {
-  transform: translateY(10%);
-  height: 10rem;
-}
-
-.card_bg1 {
-  width: 26.5rem;
-  height: 14.75rem;
-  border-radius: 50%;
-  border: 2px solid rgba(255, 255, 255);
-  position: absolute;
-  transform: translate(0.2rem, -14rem);
-  z-index: 0;
-}
-
-#card_bg1_light {
-  border: 2px solid rgba(0, 0, 0, 0.4);
-}
-.calender {
-  margin-right: 1rem;
-  font-size: 1.5rem;
-}
-
-.dur {
-  color: white;
-  font-size: 1.5rem;
-  margin-top: 2rem;
-  font-family: "Roboto", serif;
-  text-align: center;
-}
-
-.r_more_w {
-  color: white;
-  font-size: 1.2rem;
-  margin-top: 2rem;
-  text-decoration: underline;
-  font-family: "Roboto";
-  color: black;
-  background-color: white;
-  width: fit-content;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  margin-left: 50%;
-  transform: translateX(-50%);
-  padding-top: 0;
-}
 
 .work_card {
-  width: 100px; /* Adjust the width as needed */
-  height: 100px; /* Adjust the height as needed */
-  border-radius: 50%;
-  overflow: hidden;
-  position: relative;
-}
-
-.logo_container {
-  width: 100%;
-  height: 100%;
   display: flex;
+  flex-direction: column; /* Change to column for vertical centering */
   align-items: center;
   justify-content: center;
-  object-fit: contain
+  padding: 40px; /* Increased padding for more space */
 }
 
-.work_card_img {
-  max-width: 100%;
-  max-height: 100%;
-  border-radius: 50%;
+.work_card_logo {
+  width: 150px; /* Increased logo size */
+  margin-bottom: 20px;
 }
 
-#r_more_w_light {
-  color: white;
-  background-color: rgba(8, 0, 44, 0.92);
-  box-shadow: 2px 4px 2px rgba(0, 6, 67, 0.788);
+.work_card_title {
+  font-size: 24px; /* Increased font size */
+  margin-bottom: 10px;
 }
 
-.right_w {
-  font-size: 1.5rem;
-  transform: translateY(30%);
-  margin-left: 0.5rem;
+.work_card_content {
+  flex-grow: 1;
 }
 
-#dur_light{
-  color: black !important;
+
+
+.work_card_duration {
+  display: flex;
+  align-items: center;
 }
-@media only screen and (max-width: 600px) {
-  .work_header {
-    font-size: 6vw;
-  }
-  .card_cont {
-    display: block;
-    width: 90vw;
-    margin-bottom: 2rem;
-  }
-  .work_card_container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin: 20px 0;
-  }
-  
-  .card_cont {
-    position: relative;
-  }
-  
-  .work_card {
-    width: 40; /* Adjust the width to your liking */
-    height: 40; /* Adjust the height to your liking */
-    background-color: #fff; /* Set a background color for the circle */
-    border-radius: 50%;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .work_card_img {
-    max-width: 120%; /* Ensure the image doesn't exceed the circle size */
-    max-height: 120%; /* Ensure the image doesn't exceed the circle size */
-    object-fit:contain
-  }  .work_card {
-    width: 60vw;
-    height: 30vw;
-    margin-left: 15vw;
-  }
-  .dur {
-    text-align: center;
-    font-size: 1.2rem;
-  }
-  .card_bg1 {
-    width: 68vw;
-    height: 40vw;
-    border-radius: 50%;
-    border: 2px solid rgba(255, 255, 255);
-    position: absolute;
-    transform: translate(15vw, -37vw);
-    z-index: 0;
-  }
 
-  #ridecell {
-    height: 50vw;
-    transform: translateY(-20%);
-  }
-
-  #apt {
-    transform: translateY(0%);
-    height: 30vw;
-  }
-
-  #santanet {
-    transform: translateY(10%);
-    height: 25vw;
-  }
-  #cisco {
-    transform: translateY(10%);
-    height: 25vw;
-  }
-
-
-  #pefo {
-    transform: translateY(10%);
-    height: 25vw;
-  }
-
-  .r_more_w {
-    color: white;
-    font-size: 1rem;
-    margin-top: 2rem;
-    text-decoration: underline;
-    font-family: "Roboto";
-    color: black;
-    background-color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    transform: translateX(-40%);
-    padding-top: 0.2rem;
-    /* width: 100vw; */
-    margin-left: 50%;
-  }
-  .right_w {
-    font-size: 1.2rem;
-    transform: translateY(30%);
-    margin-left: 0.5rem;
-  }
-  .work_main {
-    background: rgb(0, 0, 0);
-    background: linear-gradient(25deg, rgb(0, 21, 67) 0%, rgb(0, 0, 0) 60%);
-    min-height: 100vh;
-    color: white;
-    padding-top: 1rem;
-    padding-bottom: 3rem;
-  }
+.calender {
+  margin-right: 5px;
 }

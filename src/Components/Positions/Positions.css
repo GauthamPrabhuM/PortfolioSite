@@ -1,21 +1,19 @@
-/* Positions.css */
-
-
-
 .about_main {
-  height: 40vh;
+  height: 20vh;
   background: rgb(0, 2, 49);
   background: linear-gradient(125deg, rgb(0, 21, 67) 0%, rgb(0, 0, 0) 60%);
   color: white;
-  font-family: "Roboto"
+  font-family: "Roboto";
+  display: flex;
+  align-items: center; /* Vertically center the content */
+  justify-content: center; /* Horizontally center the content */
 }
 
 .about_txt {
   font-size: 1.6rem;
   display: inline-block;
-  height: 50vh;
-  width: 50vw;
-  line-height: 2.7rem;
+  width: 70vw;
+  line-height: 3.7rem;
   font-family: "Roboto";
   text-align: center; /* Center-align the text */
 }
