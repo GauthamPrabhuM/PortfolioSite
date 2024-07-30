@@ -3,7 +3,7 @@ import "./About.css";
 import me from "../../Assets/me.png";
 import me2 from "../../Assets/me2.png";
 import { MdSimCardDownload } from "react-icons/md";
-import resume from "../../Assets/GauthamPrabhuMResume.pdf";
+import resume from "../../Assets/GauthamPrabhuMResumeAug2024.pdf";
 
 export default function About(props) {
   return (
@@ -13,8 +13,10 @@ export default function About(props) {
         <span className="letter">h</span>
         <span className="letter">o</span>
         <span className="letter"> </span>
+        <span className="letter"> </span>
         <span className="letter">a</span>
         <span className="letter">m </span>
+        <span className="letter"> </span>
         <span className="letter"> </span>
         <span className="letter">I </span>
         <span className="letter">? </span>
@@ -24,9 +26,8 @@ export default function About(props) {
           <img src={props.light ? me2 : me} className="me" id={props.light ? 'light_me' : null} alt="Gautham" />
         </div>
         <div className="about_txt">
-          Hi! I am Gautham Prabhu M, a Computer Science Undergrad at Manipal
-          Institute of Technology. I am passionate about my work with a deep fascination for the ever-expanding field of Computer Science. 
-          I love collaborating with others, so feel free to reach out.
+          Hi! I am Gautham Prabhu M, a Software Developer at Cisco. I completed my undergrad from Manipal Institute of Technology, majoring 
+          in Computer Science. I love collaborating, so feel free to reach out.
           <br />
           <a href={resume} download>
             <button
