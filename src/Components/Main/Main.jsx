@@ -12,6 +12,7 @@ import Positions from "../Positions/Positions";
 import Work from "../Work/Work";
 import Header from "../Header/Header";
 import Research from "../Research/Research";
+import Breadcrumb from "../Breadcrumb/Breadcrumb";
 
 export default function Main() {
   const [light, setLight] = useState(false);
@@ -95,6 +96,7 @@ const mobileParticlesConfig = {
   return (
     <div id={light ? "lightid" : null}>
       <Header light={light} setLight={setLight} />
+      <Breadcrumb light={light} />
       <AnimatedCursor /* ...props... */ />
       <Particles id="tsparticles" init={particlesInit} loaded={particlesLoaded} options={{
         particles: getParticlesConfig(),
