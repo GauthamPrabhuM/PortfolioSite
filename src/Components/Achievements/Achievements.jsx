@@ -41,16 +41,6 @@ const achievements = [
         title: "Global Quantum Science & Technology Hackathon 2022",
         description: "Grand Finalist - Ranked among top 16 teams out of 1,600+ participants from 25+ countries",
         year: "2022"
-      },
-      {
-        title: "QETCI Global Quantum Hackathon 2022",
-        description: "Selected as finalist",
-        year: "2022"
-      },
-      {
-        title: "TCS Regional Rural IT Quiz",
-        description: "Achieved 3rd place",
-        year: "2019"
       }
     ]
   },
@@ -67,37 +57,43 @@ const achievements = [
         title: "Summer School on Dynamic Resource Allocation",
         description: "Center for Networked Intelligence, Indian Institute of Science Bengaluru",
         year: "2023"
-      },
-      {
-        title: "Big Data Specialization",
-        description: "University of California, San Diego (Coursera)",
-        year: "2023"
-      },
-      {
-        title: "Deep Learning Specialization",
-        description: "DeepLearning.AI (Coursera)",
-        year: "2022"
       }
     ]
   },
   {
     id: 4,
-    category: "🎯 Academic Recognition",
+    category: "🎤 Oral Presentations & Workshop Talks",
     items: [
       {
-        title: "Presented Research",
-        description: "AI-driven retinal vessel segmentation at Digital Health Symposium, IIT Kharagpur",
+        title: "IISc TCML Workshop",
+        description: "Presented research on machine learning applications at Indian Institute of Science",
         year: "2023"
+      },
+      {
+        title: "SatelTensor Workshop",
+        description: "Workshop talk on tensor-based satellite image processing",
+        year: "2023"
+      },
+      {
+        title: "AI-Driven Digital Transformation",
+        description: "Workshop presentation on implementing AI in digital health systems",
+        year: "2023"
+      }
+    ]
+  },
+  {
+    id: 5,
+    category: "🧠 Quizzing & Competitions",
+    items: [
+      {
+        title: "TCS Regional Rural IT Quiz",
+        description: "Achieved 3rd place in regional competition",
+        year: "2019"
       },
       {
         title: "PCRA Saksham Quiz",
         description: "Represented Karnataka at national-level quiz conducted by Department of Oil and Natural Gas, Government of India",
         year: "2019"
-      },
-      {
-        title: "Bachelor of Technology (CSE)",
-        description: "Manipal Institute of Technology - CGPA: 8.91 with Minor in Big Data Analytics",
-        year: "2024"
       }
     ]
   }
