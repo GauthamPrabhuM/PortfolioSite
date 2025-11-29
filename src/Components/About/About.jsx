@@ -26,13 +26,13 @@ export default function About(props) {
         </div>
         <div className="about_txt">
           <p>
-            Hi! I'm Gautham Prabhu M, an AI Engineer at Cisco Systems, specializing in building intelligent systems, large language models, and agentic AI solutions. I also have strong full-stack software development capabilities and an active interest in quantum computing.
+            Hi! I'm Gautham Prabhu M, an AI Engineer at Cisco Systems, specializing in building intelligent systems, LLMs, and agentic AI solutions. I'm passionate about developing scalable applications that solve real-world problems, with a strong full-stack development foundation and active interests in quantum computing.
           </p>
           <p>
-            I graduated from Manipal Institute of Technology (CGPA: 8.91) with a degree in Computer Science and Engineering, with a minor in Big Data Analytics. My professional experience includes building AI/ML systems for production environments, designing microservices architectures, and conducting research in quantum machine learning for medical imaging applications.
+            I build cutting-edge AI/ML projects in production environments—from AI agents for supply chain automation to computer vision systems for manufacturing quality control. My work spans RAG systems, multimodal learning, quantum machine learning, and distributed systems architecture.
           </p>
           <p>
-            I'm passionate about solving complex engineering problems and exploring the intersection of AI, quantum computing, and distributed systems. I thrive in collaborative environments and enjoy contributing to cutting-edge projects that push technological boundaries.
+            I graduated from Manipal Institute of Technology (CGPA: 8.91) in Computer Science and Engineering, with a minor in Big Data Analytics. I thrive in collaborative environments and am driven by the challenge of pushing technological boundaries.
           </p>
           <a href={resume} download onClick={trackResumeDownload}>
             <button className="download">

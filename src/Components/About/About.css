@@ -100,6 +100,10 @@
   letter-spacing: 0.3px;
   font-weight: 400;
   color: var(--text-secondary);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  max-width: 100%;
 }
 
 .download {

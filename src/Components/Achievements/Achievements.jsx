@@ -65,18 +65,13 @@ const achievements = [
     category: "🎤 Oral Presentations & Workshop Talks",
     items: [
       {
-        title: "IISc TCML Workshop",
-        description: "Presented research on machine learning applications at Indian Institute of Science",
-        year: "2023"
-      },
-      {
-        title: "SatelTensor Workshop",
-        description: "Workshop talk on tensor-based satellite image processing",
+        title: "SatelTensor Workshop & IISc TCML Research Presentation",
+        description: "Presented research on tensor-based satellite image processing and machine learning applications at Indian Institute of Science. Covered multimodal deep learning architectures for geospatial analysis.",
         year: "2023"
       },
       {
         title: "AI-Driven Digital Transformation",
-        description: "Workshop presentation on implementing AI in digital health systems",
+        description: "Workshop presentation on implementing AI in digital health systems with focus on production-grade deployment",
         year: "2023"
       }
     ]

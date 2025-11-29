@@ -99,6 +99,7 @@
   border-radius: var(--radius-lg);
   border-left: 3px solid var(--accent-primary);
   transition: all var(--transition-base);
+  overflow: hidden;
 }
 
 .achievement_item:hover {
@@ -132,6 +133,9 @@
   margin: 0;
   line-height: 1.4;
   flex: 1;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 #lightid .achievement_title {
@@ -160,6 +164,10 @@
   color: var(--text-secondary);
   margin: 0;
   line-height: 1.6;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  max-width: 100%;
 }
 
 #lightid .achievement_description {
