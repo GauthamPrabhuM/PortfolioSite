@@ -26,13 +26,13 @@ export default function About(props) {
         </div>
         <div className="about_txt">
           <p>
-            Hi! I'm Gautham Prabhu M, a Full-Stack Software Developer at Cisco with a passion for building scalable applications and exploring quantum computing.
+            Hi! I'm Gautham Prabhu M, an AI Engineer at Cisco Systems, specializing in building intelligent systems, large language models, and agentic AI solutions. I also have strong full-stack software development capabilities and an active interest in quantum computing.
           </p>
           <p>
-            I graduated from Manipal Institute of Technology with a degree in Computer Science. My experience spans across full-stack development, cloud infrastructure, and research in quantum machine learning.
+            I graduated from Manipal Institute of Technology (CGPA: 8.91) with a degree in Computer Science and Engineering, with a minor in Big Data Analytics. My professional experience includes building AI/ML systems for production environments, designing microservices architectures, and conducting research in quantum machine learning for medical imaging applications.
           </p>
           <p>
-            I thrive in collaborative environments and love solving complex problems. When I'm not coding, you'll find me exploring new technologies or contributing to open-source projects.
+            I'm passionate about solving complex engineering problems and exploring the intersection of AI, quantum computing, and distributed systems. I thrive in collaborative environments and enjoy contributing to cutting-edge projects that push technological boundaries.
           </p>
           <a href={resume} download onClick={trackResumeDownload}>
             <button className="download">

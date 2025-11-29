@@ -9,10 +9,10 @@ const experiences = [
     location: "Bengaluru, Karnataka",
     duration: "Aug 2025 – Present",
     highlights: [
-      "Built AI agents that automate service requests and ServiceNow tickets for Cisco's supply chain infrastructure using natural language understanding",
-      "Developed knowledge base systems using RAG to reduce mean time to resolution (MTTR) for production incidents",
-      "Built a computer vision system to identify gaps and defects in Paladin edge connectors on manufacturing lines",
-      "Integrated SplunkAI observability platform and modernized metrics and trace collection for monitoring and incident resolution"
+      "Leading AI/ML systems development: Built agentic AI solutions using LLMs to automate service requests and incident resolution for Cisco's supply chain infrastructure",
+      "Designed and deployed production-grade RAG systems with knowledge bases to reduce mean time to resolution (MTTR) for critical production incidents",
+      "Developed computer vision and image processing systems (OpenCV, PyTorch) to identify defects in manufacturing quality control",
+      "Full stack infrastructure: Integrated AI observability platforms, modernized metrics collection, and orchestrated microservices on Kubernetes"
     ],
     techStack: ["Python", "FastAPI", "Kubernetes", "Docker", "Splunk", "OpenCV", "LangChain", "LangGraph", "LangSmith"],
     isCurrent: true
@@ -24,10 +24,10 @@ const experiences = [
     location: "Bengaluru, Karnataka",
     duration: "Aug 2024 – Aug 2025",
     highlights: [
-      "Converted legacy services to low-latency microservices on Kubernetes using FastAPI, Cassandra, and Redis",
+      "AI/ML engineering: Built agentic AI systems for failure analysis and predictive maintenance using ML models for anomaly detection and pattern recognition",
+      "Full stack microservices: Converted legacy services to low-latency microservices on Kubernetes using FastAPI, Cassandra, and Redis",
       "Core contributor to Cisco's Quality Transformation Program, leading re-architecture of failure analysis workflows from monolithic to event-driven systems",
-      "Built agentic AI solutions for failure analysis and predictive maintenance, incorporating ML models for anomaly detection",
-      "Set up monitoring and alerting infrastructure using Prometheus and Grafana, including SLA tracking dashboards that improved incident response time"
+      "DevOps and monitoring: Set up comprehensive monitoring infrastructure using Prometheus and Grafana with SLA tracking dashboards"
     ],
     techStack: ["FastAPI", "Cassandra", "Redis", "Kubernetes", "Prometheus", "Grafana", "Python"],
     isCurrent: false
@@ -39,9 +39,9 @@ const experiences = [
     location: "Bengaluru, Karnataka",
     duration: "Jan 2024 – Jun 2024",
     highlights: [
-      "Designed and deployed production-grade backend microservices with circuit breakers, retry logic, and graceful degradation patterns",
-      "Automated CI/CD pipeline using Jenkins, Docker, and Kubernetes, reducing manual deployment time from 6 hours to under 2 minutes (99.45% reduction)",
-      "Automated release note generation, improving cross-team collaboration and reducing manual effort"
+      "Backend engineering: Designed and deployed production-grade microservices with robust error handling, circuit breakers, and retry logic",
+      "DevOps automation: Automated CI/CD pipeline using Jenkins, Docker, and Kubernetes, achieving 99.45% reduction in deployment time (6 hours → 2 minutes)",
+      "Process automation: Automated release note generation and cross-team communication workflows using Python and REST APIs"
     ],
     techStack: ["Python", "Flask", "Jenkins", "Docker", "Kubernetes", "REST APIs", "OpenAPI"],
     isCurrent: false

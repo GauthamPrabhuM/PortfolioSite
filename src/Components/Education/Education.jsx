@@ -10,12 +10,12 @@ const education = [
     field: "Computer Science and Engineering",
     duration: "2020 – 2024",
     cgpa: "8.91",
-    specialization: "Minor Specialization: Big Data Analytics",
+    specialization: "Minor Specialization: Big Data Analytics | AI & Quantum Computing Focus",
     details: [
-      "Strong foundation in Computer Science with focus on AI/ML and Big Data",
-      "Coursework in Quantum Computing, Machine Learning, Advanced Algorithms, and Database Systems",
-      "Participated in research projects and hackathons",
-      "Recipient of multiple awards for academic excellence and project work"
+      "AI/ML Engineer with strong foundation in Artificial Intelligence, Machine Learning, and Big Data Systems",
+      "Advanced coursework: Quantum Computing, Deep Learning, Advanced Algorithms, MLOps, and Distributed Database Systems",
+      "Research focus: Quantum Machine Learning for medical imaging and multimodal deep learning architectures",
+      "Full stack capabilities: Python/FastAPI backends, Docker/Kubernetes orchestration, and cloud infrastructure"
     ]
   },
   {
@@ -125,11 +125,11 @@ export default function Education(props) {
         </div>
       </div>
 
-      {/* Certifications Section */}
+      {/* Certifications Section - Moved to bottom */}
       <div className="certifications_section">
         <div className="education_header">
-          <h2>Certifications & Programs</h2>
-          <p className="education_subtitle">Professional development and specialized training</p>
+          <h2>Certifications & Professional Development</h2>
+          <p className="education_subtitle">Specialized training and continuous learning</p>
         </div>
 
         <div className="certifications_grid">
