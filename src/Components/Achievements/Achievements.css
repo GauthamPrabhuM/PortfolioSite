@@ -1,0 +1,215 @@
+.achievements_main {
+  width: 100%;
+  padding: var(--spacing-3xl) var(--spacing-lg);
+  background: var(--primary-dark);
+  position: relative;
+  z-index: 1;
+}
+
+.achievements_header {
+  text-align: center;
+  margin-bottom: var(--spacing-3xl);
+}
+
+.achievements_header h2 {
+  font-size: var(--font-size-4xl);
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 0 var(--spacing-md) 0;
+  animation: fadeInDown 0.6s ease-out;
+}
+
+.achievements_subtitle {
+  font-size: var(--font-size-lg);
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.achievements_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--spacing-xl);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.achievement_category {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(124, 58, 237, 0.05));
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-xl);
+  backdrop-filter: blur(10px);
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.achievement_category::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary), transparent);
+}
+
+.achievement_category:hover {
+  border-color: rgba(0, 212, 255, 0.5);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-5px);
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(124, 58, 237, 0.1));
+}
+
+#lightid .achievement_category {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.02), rgba(124, 58, 237, 0.02));
+  border-color: rgba(0, 212, 255, 0.15);
+}
+
+#lightid .achievement_category:hover {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.08), rgba(124, 58, 237, 0.08));
+  border-color: rgba(0, 212, 255, 0.4);
+}
+
+.category_title {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--accent-primary);
+  margin: 0 0 var(--spacing-lg) 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+#lightid .category_title {
+  color: var(--accent-secondary);
+}
+
+.achievement_items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.achievement_item {
+  padding: var(--spacing-md);
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius-lg);
+  border-left: 3px solid var(--accent-primary);
+  transition: all var(--transition-base);
+}
+
+.achievement_item:hover {
+  border-left-color: var(--accent-secondary);
+  background: rgba(0, 0, 0, 0.3);
+  transform: translateX(5px);
+}
+
+#lightid .achievement_item {
+  background: rgba(0, 0, 0, 0.05);
+  border-left-color: var(--accent-secondary);
+}
+
+#lightid .achievement_item:hover {
+  background: rgba(0, 0, 0, 0.1);
+  border-left-color: var(--accent-primary);
+}
+
+.achievement_item_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+}
+
+.achievement_title {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.4;
+  flex: 1;
+}
+
+#lightid .achievement_title {
+  color: #1a1a1a;
+}
+
+.achievement_year {
+  display: inline-block;
+  background: rgba(0, 212, 255, 0.15);
+  color: var(--accent-primary);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+#lightid .achievement_year {
+  background: rgba(124, 58, 237, 0.1);
+  color: var(--accent-secondary);
+}
+
+.achievement_description {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.6;
+}
+
+#lightid .achievement_description {
+  color: #666;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .achievements_main {
+    padding: var(--spacing-2xl) var(--spacing-md);
+  }
+
+  .achievements_header h2 {
+    font-size: var(--font-size-3xl);
+  }
+
+  .achievements_grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .achievement_category {
+    padding: var(--spacing-lg);
+  }
+
+  .category_title {
+    font-size: var(--font-size-lg);
+  }
+
+  .achievement_title {
+    font-size: var(--font-size-sm);
+  }
+
+  .achievement_item_header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .achievement_year {
+    align-self: flex-start;
+  }
+}

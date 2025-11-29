@@ -13,6 +13,9 @@ import Work from "../Work/Work";
 import Header from "../Header/Header";
 import Research from "../Research/Research";
 import Breadcrumb from "../Breadcrumb/Breadcrumb";
+import Experience from "../Experience/Experience";
+import Education from "../Education/Education";
+import Achievements from "../Achievements/Achievements";
 
 export default function Main() {
   const [light, setLight] = useState(false);
@@ -108,16 +111,25 @@ const mobileParticlesConfig = {
         <About light={light} />
       </div>
       <div className="section-container">
+        <Education light={light} />
+      </div>
+      <div className="section-container">
+        <Experience light={light} />
+      </div>
+      <div className="section-container">
         <Skills light={light} />
       </div>
       <div className="section-container">
         <Projects light={light} />
       </div>
       <div className="section-container">
-        <Work light={light} />
+        <Research light={light} />
       </div>
       <div className="section-container">
-        <Research light={light} />
+        <Achievements light={light} />
+      </div>
+      <div className="section-container">
+        <Work light={light} />
       </div>
       <div className="section-container">
         <Positions light={light} />
