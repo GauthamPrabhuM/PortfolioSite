@@ -136,10 +136,10 @@ const mobileParticlesConfig = {
         <Projects light={light} />
       </div>
       <div className="section-container">
-        <Contact light={light} />
+        <Certifications light={light} />
       </div>
       <div className="section-container">
-        <Certifications light={light} />
+        <Contact light={light} />
       </div>
     </div>
   

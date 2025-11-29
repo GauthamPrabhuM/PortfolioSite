@@ -21,8 +21,8 @@ export default function Header(props) {
     { label: "Leadership", hash: "/#positions" },
     { label: "Skills", hash: "/#skills" },
     { label: "Projects", hash: "/#projects" },
-    { label: "Contact", hash: "/#contact" },
     { label: "Certifications", hash: "/#certifications" },
+    { label: "Contact", hash: "/#contact" },
   ];
 
   const handleNavClick = (label) => {
