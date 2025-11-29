@@ -7,10 +7,38 @@ import { HiGlobeAlt } from "react-icons/hi";
 import ReactGA from 'react-ga4';
 
 export default function Projects(props) {
+  const projects = [
+    {
+      id: 1,
+      title: "Vikas",
+      description: "A real-time, multimodal solution linking disaster victims and first responders from NDRF: streamlining support to the most vulnerable. Grand finalist in Smart India Hackathon 2022.",
+      image: vikas,
+      github: "https://github.com/GauthamPrabhuM/SIH2K22",
+      live: "https://vikas-066f8f.webflow.io/",
+      tags: ["React", "Node.js", "WebSocket", "Real-time", "Multimodal"]
+    },
+    {
+      id: 2,
+      title: "Quantum Ecosystem for Efficient Detection of Cardiovascular Diseases",
+      description: "A quantum machine learning framework designed to analyze ECG data using quantum ML algorithms. The project harnesses quantum computing for healthcare applications. Funded by Ministry of Electronics and Information Technology and AWS.",
+      github: "https://github.com/GauthamPrabhuM/Quantum-Ecosystem-for-Efficient-Detection-of-Cardiovascular-Diseases",
+      tags: ["Quantum Computing", "Machine Learning", "ECG Analysis", "Healthcare", "Python", "Qiskit"]
+    },
+    {
+      id: 3,
+      title: "Astronomy Club Website",
+      description: "Enhanced and modernized the website of the Astronomy Club of Manipal with improved UI/UX, responsive design, and better content management. Showcases club activities, events, and astronomical resources.",
+      image: astro,
+      github: "https://github.com/Astronomy-Manipal/Astronomy-Manipal.github.io",
+      live: "https://astronomy-manipal.github.io/",
+      tags: ["Web Design", "HTML/CSS", "JavaScript", "Responsive Design"]
+    }
+  ];
+
   const trackProjectClick = (projectName, linkType, url) => {
     ReactGA.event('project_link_click', {
       project_name: projectName,
-      link_type: linkType, // 'github' or 'live_demo'
+      link_type: linkType,
       url: url,
       timestamp: new Date().toISOString(),
     });
@@ -19,96 +47,77 @@ export default function Projects(props) {
   return (
     <div className="projects_main" id={props.light ? "lightid" : null}>
       <div className="projects_header" id="projects">
-        My Projects
+        <h2>Projects & Portfolio</h2>
+        <p className="projects_subtitle">Building impactful solutions through AI, quantum computing, and full-stack development</p>
       </div>
-      <div className="morep">
-        <a href="/projects" id="more_link" onClick={() => trackProjectClick('view_all', 'more_projects', '/projects')}>
-          More Projects...
+      
+      <div className="projects_grid">
+        {projects.map((project) => (
+          <div key={project.id} className="project_card">
+            {project.image && (
+              <div className="project_image">
+                <img 
+                  src={project.image} 
+                  alt={project.title}
+                  className="project_img"
+                />
+              </div>
+            )}
+            
+            <div className="project_content">
+              <h3 className="project_title">{project.title}</h3>
+              
+              <p className="project_description">{project.description}</p>
+              
+              {project.tags && (
+                <div className="project_tags">
+                  {project.tags.map((tag, idx) => (
+                    <span key={idx} className="project_tag">{tag}</span>
+                  ))}
+                </div>
+              )}
+              
+              <div className="project_links">
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project_link"
+                    title="View on GitHub"
+                    onClick={() => trackProjectClick(project.title, 'github', project.github)}
+                  >
+                    <AiFillGithub className="link_icon" />
+                    GitHub
+                  </a>
+                )}
+                {project.live && (
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project_link"
+                    title="View Live Demo"
+                    onClick={() => trackProjectClick(project.title, 'live_demo', project.live)}
+                  >
+                    <HiGlobeAlt className="link_icon" />
+                    Live Demo
+                  </a>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="view_all_projects">
+        <a 
+          href="/projects" 
+          className="view_all_link"
+          onClick={() => trackProjectClick('view_all', 'more_projects', '/projects')}
+        >
+          View All Projects →
         </a>
-      </div>
-      <div className="card_c">
-        {/*Psychup */}
-        <div className="mainc">
-          <div className="proj_card" id={props.light ? "proj_card_light" : null}>
-            <img src={vikas} className="proj_img" alt="Vikas Project" id={props.light ? "proj_img_light" : null}></img>
-            <div className="proj_title">Vikas</div>
-            <div className="proj_text">
-            A real-time, multimodal solution linking disaster victims and first responders from NDRF: streamlining support to the most vulnerable.
-            </div>
-            <div className="icons_c">
-              <a
-                target="__blank"
-                rel="noopener noreferrer"
-                href="https://github.com/GauthamPrabhuM/SIH2K22"
-                onClick={() => trackProjectClick('Vikas', 'github', 'https://github.com/GauthamPrabhuM/SIH2K22')}
-              >
-                <AiFillGithub className="picon" />
-              </a>
-              <a
-                target="__blank"
-                rel="noopener noreferrer"
-                href="https://vikas-066f8f.webflow.io/"
-                onClick={() => trackProjectClick('Vikas', 'live_demo', 'https://vikas-066f8f.webflow.io/')}
-              >
-                <HiGlobeAlt className="picon" />
-              </a>
-            </div>
-          </div>
-          <div className="inner_card"></div>
-        </div>
-
-        {/*Datagrad */}
-
-        <div className="mainc">
-          <div className="proj_card"  id={props.light ? "proj_card_light" : null}>
-            <div className="proj_title">Quantum Ecosystem for Efficient Detection of Cardiovascular Diseases</div>
-            <div className="proj_text">
-            A quantum machine learning framework aimed to analyze ECG Data, harnessing the power of quantum ML algorithms for ECGs. The project was funded by the Ministry of Electronics and Information Technology and AWS.
-            </div>
-            <div className="icons_c2">
-              <a
-                target="__blank"
-                rel="noopener noreferrer"
-                href="https://github.com/GauthamPrabhuM/Quantum-Ecosystem-for-Efficient-Detection-of-Cardiovascular-Diseases"
-                onClick={() => trackProjectClick('Quantum Ecosystem', 'github', 'https://github.com/GauthamPrabhuM/Quantum-Ecosystem-for-Efficient-Detection-of-Cardiovascular-Diseases')}
-              >
-                <AiFillGithub className="picon" />
-              </a>
-            </div>
-          </div>
-          <div className="inner_card"></div>
-        </div>
-
-        {/*Decrypt */}
-
-        <div className="mainc">
-          <div className="proj_card"  id={props.light ? "proj_card_light" : null}>
-            <img src={astro} className="proj_img" alt="Astronomy Club Website" id={props.light ? "proj_img_light" : null}></img>
-            <div className="proj_title">Astronomy Club Website</div>
-            <div className="proj_text">
-              Enhanced the website of the Astronomy Club of Manipal. 
-            </div>
-            <div className="icons_c2">
-              <a
-                target="__blank"
-                rel="noopener noreferrer"
-                href="https://github.com/Astronomy-Manipal/Astronomy-Manipal.github.io"
-                onClick={() => trackProjectClick('Astronomy Club', 'github', 'https://github.com/Astronomy-Manipal/Astronomy-Manipal.github.io')}
-              >
-                <AiFillGithub className="picon" />
-              </a>
-              <a
-                target="__blank"
-                rel="noopener noreferrer"
-                href="https://astronomy-manipal.github.io/"
-                onClick={() => trackProjectClick('Astronomy Club', 'live_demo', 'https://astronomy-manipal.github.io/')}
-              >
-                <HiGlobeAlt className="picon" />
-              </a>
-            </div>
-          </div>
-          <div className="inner_card"></div>
-        </div>
       </div>
     </div>
   );
