@@ -11,11 +11,10 @@ export default function Landing(props) {
       <div className="landing_content">
         <div className="landing_text">
           <h1 className="landing_name">
-            Hi, I'm Gautham
+            Hi, I'm Gautham Manuru Prabhu
           </h1>
           <p className="landing_subtitle">
-            Full-stack developer passionate about building scalable applications,
-            exploring quantum computing, and creating impactful solutions.
+            AI Engineer & Full-Stack Developer crafting intelligent systems, scalable applications, and exploring quantum computing frontiers.
           </p>
           <div className="landing_cta">
             <HashLink smooth to="/#projects" className="landing_btn landing_btn_primary">
@@ -30,7 +29,7 @@ export default function Landing(props) {
           <div className="landing_profile_ring"></div>
           <img
             src={props.light ? main_light : main}
-            alt="Gautham Prabhu"
+            alt="Gautham Manuru Prabhu"
             className="landing_profile_img"
           />
         </div>

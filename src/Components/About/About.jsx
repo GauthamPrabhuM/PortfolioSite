@@ -21,12 +21,12 @@ export default function About(props) {
       <div className="about_content">
         <div className="about_left">
           <div className="about_image_wrapper">
-            <img src={props.light ? me2 : me} className="me" alt="Gautham Prabhu" />
+            <img src={props.light ? me2 : me} className="me" alt="Gautham Manuru Prabhu" />
           </div>
         </div>
         <div className="about_txt">
           <p>
-            Hi! I'm Gautham Prabhu M, an AI Engineer at Cisco Systems, specializing in building intelligent systems, LLMs, and agentic AI solutions. I'm passionate about developing scalable applications that solve real-world problems, with a strong full-stack development foundation and active interests in quantum computing.
+            Hi! I'm Gautham Manuru Prabhu, an AI Engineer at Cisco Systems, specializing in building intelligent systems, LLMs, and agentic AI solutions. I'm passionate about developing scalable applications that solve real-world problems, with a strong full-stack development foundation and active interests in quantum computing.
           </p>
           <p>
             I build cutting-edge AI/ML projects in production environments—from AI agents for supply chain automation to computer vision systems for manufacturing quality control. My work spans RAG systems, multimodal learning, quantum machine learning, and distributed systems architecture.

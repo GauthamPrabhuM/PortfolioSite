@@ -26,6 +26,10 @@ export default function Header(props) {
   const handleNavClick = (label) => {
     setActiveSection(label.toLowerCase());
     setMobileMenuOpen(false);
+    // Scroll to top if Home is clicked
+    if (label.toLowerCase() === "home") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   };
 
   return (
