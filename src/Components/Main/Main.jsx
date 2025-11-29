@@ -8,8 +8,7 @@ import Contact from "../Contact/Contact";
 import Landing from "../Landing/Landing";
 import Projects from "../Projects/Projects";
 import Skills from "../Skills/Skills";
-import Positions from "../Positions/Positions";
-import Work from "../Work/Work";
+import PositionsOfResponsibility from "../PositionsOfResponsibility/PositionsOfResponsibility";
 import Header from "../Header/Header";
 import Research from "../Research/Research";
 import Breadcrumb from "../Breadcrumb/Breadcrumb";
@@ -117,22 +116,19 @@ const mobileParticlesConfig = {
         <Experience light={light} />
       </div>
       <div className="section-container">
-        <Skills light={light} />
-      </div>
-      <div className="section-container">
-        <Projects light={light} />
-      </div>
-      <div className="section-container">
         <Research light={light} />
       </div>
       <div className="section-container">
         <Achievements light={light} />
       </div>
       <div className="section-container">
-        <Work light={light} />
+        <PositionsOfResponsibility light={light} />
       </div>
       <div className="section-container">
-        <Positions light={light} />
+        <Skills light={light} />
+      </div>
+      <div className="section-container">
+        <Projects light={light} />
       </div>
       <div className="section-container">
         <Contact light={light} />
