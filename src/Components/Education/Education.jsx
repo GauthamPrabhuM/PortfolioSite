@@ -70,7 +70,7 @@ export default function Education(props) {
   return (
     <div className="education_main" id={props.light ? "lightid" : null}>
       {/* Academic Education Section */}
-      <div className="education_section">
+      <div className="education_section" id="education">
         <div className="education_header">
           <h2>Education</h2>
           <p className="education_subtitle">Academic qualifications and achievements</p>

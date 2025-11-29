@@ -50,7 +50,7 @@ export default function PositionsOfResponsibility(props) {
 
   return (
     <div className="positions_main" id={props.light ? "lightid" : null}>
-      <div className="positions_header">
+      <div className="positions_header" id="positions">
         <h2>Leadership & Positions of Responsibility</h2>
         <p className="positions_subtitle">
           Building teams, leading initiatives, and driving impact

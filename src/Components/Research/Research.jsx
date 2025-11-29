@@ -73,7 +73,7 @@ const publications = [
 export default function Research(props) {
   return (
     <div className="research_main" id={props.light ? "lightid" : null}>
-      <div className="research_header">
+      <div className="research_header" id="research">
         <h2>Research & Publications</h2>
         <p className="research_subtitle">Peer-reviewed publications and research contributions</p>
       </div>

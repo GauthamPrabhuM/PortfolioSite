@@ -106,7 +106,7 @@ const achievements = [
 export default function Achievements(props) {
   return (
     <div className="achievements_main" id={props.light ? "lightid" : null}>
-      <div className="achievements_header">
+      <div className="achievements_header" id="achievements">
         <h2>Achievements & Awards</h2>
         <p className="achievements_subtitle">Recognition for academic excellence, research, and professional contributions</p>
       </div>

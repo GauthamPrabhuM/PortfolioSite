@@ -97,7 +97,7 @@ export default function Experience(props) {
   return (
     <div className="experience_main" id={props.light ? "lightid" : null}>
       {/* Professional Experience Section */}
-      <div className="experience_section">
+      <div className="experience_section" id="workex">
         <div className="experience_section_header">
           <h2>Professional Experience</h2>
           <p className="experience_subtitle">Roles and responsibilities at Cisco Systems</p>
