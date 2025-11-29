@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import "./index.css";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Header from "./Components/Header/Header";
 import Main from "./Components/Main/Main";
 import SkillsPage from "./Components/SkillsPage/SkillsPage";
 import ProjectsPage from "./Components/ProjectsPage/ProjectsPage";

@@ -4,7 +4,7 @@ import bitmoji from "../../Assets/Skills/bitmoji.png";
 import { AiOutlineInstagram } from "react-icons/ai";
 import { CgMail } from "react-icons/cg";
 import { FaLinkedinIn } from "react-icons/fa";
-import { BsMedium, BsGithub } from "react-icons/bs";
+import { BsGithub } from "react-icons/bs";
 export default function Contact(props) {
   return (
     <div className="contact_main" id={props.light ? "lightid" : null}>

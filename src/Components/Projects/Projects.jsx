@@ -1,10 +1,8 @@
 import React from "react";
 import "./Projects.css";
 import vikas from "../../Assets/Skills/vikas.png";
-import datagrad from "../../Assets/Skills/datagrad.png";
-import decrypt from "../../Assets/Skills/decrypt.png";
 import astro from "../../Assets/Skills/astro.png"
-import { AiFillGithub, AiFillInstagram } from "react-icons/ai";
+import { AiFillGithub } from "react-icons/ai";
 import { HiGlobeAlt } from "react-icons/hi";
 export default function Projects(props) {
   return (
