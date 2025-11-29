@@ -13,37 +13,24 @@ import java from "../../Assets/Skills/java.png";
 import js from "../../Assets/Skills/js.png";
 import react from "../../Assets/Skills/react.png";
 import mongo from "../../Assets/Skills/mongodb.png";
-import express from "../../Assets/Skills/express.png";
-
-import firebase from "../../Assets/Skills/firebase.png";
-import appium from "../../Assets/Skills/appium.png";
 import docker from "../../Assets/Skills/docker.png";
-import django from "../../Assets/Skills/django.png";
 import aws from "../../Assets/Skills/aws.png";
+import django from "../../Assets/Skills/django.png";
 
 import html from "../../Assets/Skills/html.png";
-import css from "../../Assets/Skills/css.png";
+import css_skill from "../../Assets/Skills/css.png";
 import ts from "../../Assets/Skills/typescript.png";
 import react_native from "../../Assets/Skills/r-native.png";
 import react_native_dark from "../../Assets/Skills/r-native_dark.png";
 import bootstrap from "../../Assets/Skills/bootstrap.png";
 import php from "../../Assets/Skills/php.png";
 
-import redux from "../../Assets/Skills/redux.png";
-import sass from "../../Assets/Skills/sass.png";
 import mysql from "../../Assets/Skills/mysql.png";
 import git from "../../Assets/Skills/git.png";
 import matlab from "../../Assets/Skills/matlab.png";
-import selenium from "../../Assets/Skills/selenium.png";
-import flutter from "../../Assets/Skills/flutter.png";
 import canva from "../../Assets/Skills/canva.png";
 import figma from "../../Assets/Skills/figma.png";
-import node from "../../Assets/Skills/node.png";
 
-import fastapi from "../../Assets/Skills/fastapi.png";
-import next from "../../Assets/Skills/next.png";
-import typeorm from "../../Assets/Skills/typeorm.png";
-import nest from "../../Assets/Skills/nest.png";
 import postgres from "../../Assets/Skills/postgres.png";
 import pytorch from "../../Assets/Skills/pytorch.png";
 import SkillsCard from "./SkillsCard";
@@ -102,7 +89,7 @@ export default function Skills(props) {
     }
   }, []);
   return (
-    <div className="skills_main" id={props.light ? "lightid" : null}>
+    <div className="skills_main" id={light ? "lightid" : null}>
       <div className="skills_header" id="skills">
         My Skills
       </div>
@@ -156,7 +143,7 @@ export default function Skills(props) {
           <SkillsCard light={light} img={aws} stars={3} half={false} />
           <SkillsCard light={light} img={django} stars={3} half={true} />
           <SkillsCard light={light} img={html} stars={5} half={false} />
-          <SkillsCard light={light} img={css} stars={5} half={false} />
+          <SkillsCard light={light} img={css_skill} stars={5} half={false} />
           <SkillsCard light={light} img={ts} stars={4} half={false} />
           <SkillsCard
             img={light ? react_native : react_native_dark}
@@ -178,7 +165,6 @@ export default function Skills(props) {
         <Link
           to={"/skills"}
           className="skills_link"
-          id={props.light ? "skills_link_light" : null}
         >
           Checkout my entire skill set...{" "}
           <BsFillArrowRightSquareFill className="arrow" />

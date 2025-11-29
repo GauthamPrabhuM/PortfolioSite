@@ -5,22 +5,67 @@ import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import astro from "../../Assets/Skills/astro.png"
 import vikas from "../../Assets/Skills/vikas.png"
-
-import psychup from "../../Assets/Skills/psych.png";
-import datagrad from "../../Assets/Skills/datagrad.png";
-import decrypt from "../../Assets/Skills/decrypt.png";
-import atlantis from "../../Assets/Skills/atlantis.png";
 import ecommerce from "../../Assets/Skills/ecommerce.png";
-import chattify from "../../Assets/Skills/chattify.png";
-import discussion from "../../Assets/Skills/discussion.png";
-import todo from "../../Assets/Skills/todo.png";
 
-import { AiFillGithub, AiFillInstagram } from "react-icons/ai";
+import { AiFillGithub } from "react-icons/ai";
 import { HiGlobeAlt } from "react-icons/hi";
 import Header from "../Header/Header";
+import ReactGA from 'react-ga4';
 
 export default function ProjectsPage() {
   const [light, setLight] = useState(false);
+
+  const projects = [
+    {
+      id: 1,
+      title: "Vikas",
+      description: "A real-time, multimodal solution linking disaster victims and first responders from NDRF: streamlining support to the most vulnerable. Grand finalist in Smart India Hackathon 2022.",
+      image: vikas,
+      github: "https://github.com/GauthamPrabhuM/SIH2K22",
+      live: "https://vikas-066f8f.webflow.io/",
+      tags: ["React", "Node.js", "WebSocket", "Real-time", "Multimodal"]
+    },
+    {
+      id: 2,
+      title: "Quantum Ecosystem for Efficient Detection of Cardiovascular Diseases",
+      description: "A quantum machine learning framework designed to analyze ECG data using quantum ML algorithms. The project harnesses quantum computing for healthcare applications. Funded by Ministry of Electronics and Information Technology and AWS.",
+      github: "https://github.com/GauthamPrabhuM/Quantum-Ecosystem-for-Efficient-Detection-of-Cardiovascular-Diseases",
+      tags: ["Quantum Computing", "Machine Learning", "ECG Analysis", "Healthcare", "Python", "Qiskit"]
+    },
+    {
+      id: 3,
+      title: "Astronomy Club Website",
+      description: "Enhanced and modernized the website of the Astronomy Club of Manipal with improved UI/UX, responsive design, and better content management. Showcases club activities, events, and astronomical resources.",
+      image: astro,
+      github: "https://github.com/Astronomy-Manipal/Astronomy-Manipal.github.io",
+      live: "https://astronomy-manipal.github.io/",
+      tags: ["Web Design", "HTML/CSS", "JavaScript", "Responsive Design"]
+    },
+    {
+      id: 4,
+      title: "Distributed Banking System",
+      description: "A distributed banking system designed as an easy-to-understand demonstration of how to create distributed applications using sockets and client-server architecture. Implements multi-threaded server and socket communication.",
+      github: "https://github.com/GauthamPrabhuM/distributed-banking-system",
+      tags: ["Java", "Sockets", "Networking", "Client-Server", "Distributed Systems"]
+    },
+    {
+      id: 5,
+      title: "Kritika: An E-commerce Website",
+      description: "A comprehensive e-commerce platform built using Flask to showcase and sell women's handicrafts. Features product catalog, shopping cart, and order management system.",
+      image: ecommerce,
+      github: "https://github.com/GauthamPrabhuM/kritika",
+      tags: ["Flask", "Python", "E-commerce", "Web Development"]
+    }
+  ];
+
+  const trackProjectClick = (projectName, linkType, url) => {
+    ReactGA.event('project_link_click', {
+      project_name: projectName,
+      link_type: linkType,
+      url: url,
+      timestamp: new Date().toISOString(),
+    });
+  };
 
   const particlesInit = useCallback(async (engine) => {
     console.log(engine);
@@ -123,7 +168,7 @@ export default function ProjectsPage() {
     };
   }
   useEffect(() => {
-    if (localStorage.getItem("theme") == "true") {
+    if (localStorage.getItem("theme") === "true") {
       setLight(true);
     }
   }, []);
@@ -188,115 +233,70 @@ export default function ProjectsPage() {
         }}
       />
 
-      <div className="projectsPage_main" id={light ? "lightid" : null}>
-        <div className="projectsPage_header">All Projects</div>
-        <div className="card_c">
-          {/*Psychup */}
-          <div className="mainc">
-            <div className="proj_card" id={light ? "proj_card_light" : null}>
-              <img src={vikas} className="proj_img"  id={light ? "proj_img_light" : null}></img>
-              <div className="proj_title">Vikas</div>
-              <div className="proj_text">
-              A real-time, multimodal solution linking disaster victims and first responders from NDRF: streamlining support to the most vulnerable.
-              </div>
-              <div className="icons_c">
-                <a
-                  target="__blank"
-                  href="https://github.com/GauthamPrabhuM/SIH2K22"
-                >
-                  <AiFillGithub className="picon" />
-                </a>
-                <a target="__blank" href="https://vikas-066f8f.webflow.io/">
-                  <HiGlobeAlt className="picon" />
-                </a>
-              </div>
-            </div>
-            <div className="inner_card"></div>
-          </div>
-
-          {/*Datagrad */}
-
-          <div className="mainc">
-            <div className="proj_card" id={light ? "proj_card_light" : null}>
-            <div className="proj_title">Quantum Ecosystem for Efficient Detection of Cardiovascular Diseases</div>
-              <div className="proj_text">
-              A quantum machine learning framework aimed to analyze ECG Data, harnessing the power of quantum ML algorithms for ECGs. The project was funded by the Ministry of Electronics and Information Technology and AWS.
-
-              </div>
-              <div className="icons_c2">
-              <a
-                target="__blank"
-                href="https://github.com/GauthamPrabhuM/Quantum-Ecosystem-for-Efficient-Detection-of-Cardiovascular-Diseases"
-              >
-                <AiFillGithub className="picon" />
-              </a>
-              </div>
-            </div>
-            <div className="inner_card"></div>
-          </div>
-
-          {/*Decrypt */}
-
-          <div className="mainc">
-            <div className="proj_card"  id={light ? "proj_card_light" : null}>
-              <img src={astro} className="proj_img"  id={light ? "proj_img_light" : null}></img>
-              <div className="proj_title">Astronomy Club Website</div>
-              <div className="proj_text">
-              Enhanced the website of the Astronomy Club of Manipal. 
-              </div>
-              <div className="icons_c2">
-                <a
-                  target="__blank"
-                  href="https://github.com/Astronomy-Manipal/Astronomy-Manipal.github.io"
-                >
-                  <AiFillGithub className="picon" />
-                </a>
-                <a target="__blank" href="https://astronomy-manipal.github.io/">
-                  <HiGlobeAlt className="picon" />
-                </a>
-              </div>
-            </div>
-            <div className="inner_card"></div>
-          </div>
-
-          {/*Atlantis */}
-          <div className="mainc">
-            <div className="proj_card"  id={light ? "proj_card_light" : null}>
-              <div className="proj_title">Distributed Banking System </div>
-              <div className="proj_text">
-              The distributed-bank management system is intended to serve as an easy-to-understand demonstration of how to create a distributed application utilizing sockets and client-server architecture.
-              </div>
-              <div className="icons_c2">
-                {/* <AiFillGithub className="picon" />{" "} */}
-                <a target="__blank" href="https://github.com/GauthamPrabhuM/distributed-banking-system">
-                  <AiFillGithub className="picon" />{" "}
-                </a>
-              </div>
-            </div>
-            <div className="inner_card"></div>
-          </div>
-
-          {/*Ecommerce */}
-          <div className="mainc">
-            <div className="proj_card"  id={light ? "proj_card_light" : null}>
-              <img src={ecommerce} className="proj_img"  id={light ? "proj_img_light" : null}></img>
-              <div className="proj_title">Kritika: An Ecommerce website</div>
-              <div className="proj_text">
-                A basic Ecommerce website built using Flask to showcase women's handicrafts . 
-              </div>
-              <div className="icons_c2">
-                <a
-                  target="__blank"
-                  href="https://github.com/GauthamPrabhuM/kritika"
-                >
-                  <AiFillGithub className="picon" />
-                </a>
-              </div>
-            </div>
-            <div className="inner_card"></div>
-          </div>
+      <div className="projects_page_main" id={light ? "lightid" : null}>
+        <div className="projects_page_header" id="projects">
+          <h2>All Projects</h2>
+          <p className="projects_page_subtitle">Explore my complete portfolio of AI, full-stack, and quantum computing projects</p>
         </div>
 
+        <div className="projects_page_grid">
+          {projects.map((project) => (
+            <div key={project.id} className="project_page_card">
+              {project.image && (
+                <div className="project_page_image">
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="project_page_img"
+                  />
+                </div>
+              )}
+              
+              <div className="project_page_content">
+                <h3 className="project_page_title">{project.title}</h3>
+                
+                <p className="project_page_description">{project.description}</p>
+                
+                {project.tags && (
+                  <div className="project_page_tags">
+                    {project.tags.map((tag, idx) => (
+                      <span key={idx} className="project_page_tag">{tag}</span>
+                    ))}
+                  </div>
+                )}
+                
+                <div className="project_page_links">
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project_page_link"
+                      title="View on GitHub"
+                      onClick={() => trackProjectClick(project.title, 'github', project.github)}
+                    >
+                      <AiFillGithub className="link_page_icon" />
+                      GitHub
+                    </a>
+                  )}
+                  {project.live && (
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project_page_link"
+                      title="View Live Demo"
+                      onClick={() => trackProjectClick(project.title, 'live_demo', project.live)}
+                    >
+                      <HiGlobeAlt className="link_page_icon" />
+                      Live Demo
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </>
   );
