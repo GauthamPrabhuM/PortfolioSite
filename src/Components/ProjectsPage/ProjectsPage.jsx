@@ -3,6 +3,8 @@ import "./ProjectsPage.css";
 import AnimatedCursor from "react-animated-cursor";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
+import astro from "../../Assets/Skills/astro.png"
+import vikas from "../../Assets/Skills/vikas.png"
 
 import psychup from "../../Assets/Skills/psych.png";
 import datagrad from "../../Assets/Skills/datagrad.png";
@@ -192,24 +194,20 @@ export default function ProjectsPage() {
           {/*Psychup */}
           <div className="mainc">
             <div className="proj_card" id={light ? "proj_card_light" : null}>
-              <img src={psychup} className="proj_img"  id={light ? "proj_img_light" : null}></img>
-              <div className="proj_title">Psychup</div>
+              <img src={vikas} className="proj_img"  id={light ? "proj_img_light" : null}></img>
+              <div className="proj_title">Vikas</div>
               <div className="proj_text">
-                It is a project aims to increase knowledge and awareness
-                regarding mental health in India.
+              A real-time, multimodal solution linking disaster victims and first responders from NDRF: streamlining support to the most vulnerable.
               </div>
               <div className="icons_c">
                 <a
                   target="__blank"
-                  href="https://github.com/suryaansh2002/psychup"
+                  href="https://github.com/GauthamPrabhuM/SIH2K22"
                 >
                   <AiFillGithub className="picon" />
                 </a>
-                <a target="__blank" href="https://www.psychup.org.in/">
+                <a target="__blank" href="https://vikas-066f8f.webflow.io/">
                   <HiGlobeAlt className="picon" />
-                </a>
-                <a target="__blank" href="https://instagram.com/psychup_org">
-                  <AiFillInstagram className="picon" />
                 </a>
               </div>
             </div>
@@ -220,22 +218,18 @@ export default function ProjectsPage() {
 
           <div className="mainc">
             <div className="proj_card" id={light ? "proj_card_light" : null}>
-              <img src={datagrad} className="proj_img"  id={light ? "proj_img_light" : null}></img>
-              <div className="proj_title">DataGrad</div>
+            <div className="proj_title">Quantum Ecosystem for Efficient Detection of Cardiovascular Diseases</div>
               <div className="proj_text">
-                It aims to bridge the gap between top MOOCs like Coursera, and
-                students eager to learn new skills.
+              A quantum machine learning framework aimed to analyze ECG Data, harnessing the power of quantum ML algorithms for ECGs. The project was funded by the Ministry of Electronics and Information Technology and AWS.
+
               </div>
               <div className="icons_c2">
-                <a
-                  target="__blank"
-                  href="https://github.com/suryaansh2002/datagrad"
-                >
-                  <AiFillGithub className="picon" />
-                </a>
-                <a target="__blank" href="https://datagrad.netlify.app/">
-                  <HiGlobeAlt className="picon" />
-                </a>
+              <a
+                target="__blank"
+                href="https://github.com/GauthamPrabhuM/Quantum-Ecosystem-for-Efficient-Detection-of-Cardiovascular-Diseases"
+              >
+                <AiFillGithub className="picon" />
+              </a>
               </div>
             </div>
             <div className="inner_card"></div>
@@ -245,20 +239,19 @@ export default function ProjectsPage() {
 
           <div className="mainc">
             <div className="proj_card"  id={light ? "proj_card_light" : null}>
-              <img src={decrypt} className="proj_img"  id={light ? "proj_img_light" : null}></img>
-              <div className="proj_title">Decrypt</div>
+              <img src={astro} className="proj_img"  id={light ? "proj_img_light" : null}></img>
+              <div className="proj_title">Astronomy Club Website</div>
               <div className="proj_text">
-                A website for an annual online cryptic hunt competition
-                conducted by IEEE SBM, with over 500 participants.
+              Enhanced the website of the Astronomy Club of Manipal. 
               </div>
               <div className="icons_c2">
                 <a
                   target="__blank"
-                  href="https://github.com/suryaansh2002/d3crypt_backend"
+                  href="https://github.com/Astronomy-Manipal/Astronomy-Manipal.github.io"
                 >
                   <AiFillGithub className="picon" />
                 </a>
-                <a target="__blank" href="https://d3crypt.ieeemanipal.com/">
+                <a target="__blank" href="https://astronomy-manipal.github.io/">
                   <HiGlobeAlt className="picon" />
                 </a>
               </div>
@@ -269,16 +262,14 @@ export default function ProjectsPage() {
           {/*Atlantis */}
           <div className="mainc">
             <div className="proj_card"  id={light ? "proj_card_light" : null}>
-              <img src={atlantis} className="proj_img"  id={light ? "proj_img_light" : null}></img>
-              <div className="proj_title">Atlantis</div>
+              <div className="proj_title">Distributed Banking System </div>
               <div className="proj_text">
-                A website built using React JS, for IEEE SBM's annual TechWeek
-                2022.
+              The distributed-bank management system is intended to serve as an easy-to-understand demonstration of how to create a distributed application utilizing sockets and client-server architecture.
               </div>
               <div className="icons_c2">
                 {/* <AiFillGithub className="picon" />{" "} */}
-                <a target="__blank" href="https://atlantis.ieeemanipal.com/">
-                  <HiGlobeAlt className="picon" />{" "}
+                <a target="__blank" href="https://github.com/GauthamPrabhuM/distributed-banking-system">
+                  <AiFillGithub className="picon" />{" "}
                 </a>
               </div>
             </div>
@@ -289,105 +280,23 @@ export default function ProjectsPage() {
           <div className="mainc">
             <div className="proj_card"  id={light ? "proj_card_light" : null}>
               <img src={ecommerce} className="proj_img"  id={light ? "proj_img_light" : null}></img>
-              <div className="proj_title">Ecommerce website</div>
+              <div className="proj_title">Kritika: An Ecommerce website</div>
               <div className="proj_text">
-                A basic Ecommerce website built using MongoDB, Express, React
-                JS, and Node JS. Styled using bootstrap.
+                A basic Ecommerce website built using Flask to showcase women's handicrafts . 
               </div>
               <div className="icons_c2">
                 <a
                   target="__blank"
-                  href="https://github.com/suryaansh2002/Ecommerce_site_practice"
+                  href="https://github.com/GauthamPrabhuM/kritika"
                 >
                   <AiFillGithub className="picon" />
-                </a>
-                <a
-                  target="__blank"
-                  href="https://ecommerce.suryaanshrathinam.com/"
-                >
-                  <HiGlobeAlt className="picon" />{" "}
-                </a>
-              </div>
-            </div>
-            <div className="inner_card"></div>
-          </div>
-
-          {/*Chattify */}
-          <div className="mainc">
-            <div className="proj_card"  id={light ? "proj_card_light" : null}>
-              <img src={chattify} className="proj_img"  id={light ? "proj_img_light" : null}></img>
-              <div className="proj_title">Chattify</div>
-              <div className="proj_text">
-                A real time chat Application built using React JS, Firebase for
-                Authentication and{" "}
-                <a href="https://chatengine.io/">Chat Engine</a>
-              </div>
-              <div className="icons_c2">
-                <a
-                  target="__blank"
-                  href="https://github.com/suryaansh2002/Chat-app"
-                >
-                  <AiFillGithub className="picon" />
-                </a>
-                <a target="__blank" href="https://chat.suryaanshrathinam.com/">
-                  <HiGlobeAlt className="picon" />{" "}
-                </a>
-              </div>
-            </div>
-            <div className="inner_card"></div>
-          </div>
-
-          {/*Discussion Rooms */}
-          <div className="mainc">
-            <div className="proj_card"  id={light ? "proj_card_light" : null}>
-              <img src={discussion} className="proj_img"  id={light ? "proj_img_light" : null}></img>
-              <div className="proj_title">Discussion Rooms</div>
-              <div className="proj_text">
-                A discussion rooms application, built with HTML-CSS Frontend and
-                Python (Django) Backend.
-              </div>
-              <div className="icons_c2">
-                <a
-                  target="__blank"
-                  href="https://github.com/suryaansh2002/Discussion_Rooms_Django_App"
-                >
-                  <AiFillGithub className="picon" />
-                </a>
-                <a
-                  target="__blank"
-                  href="https://suryaansh-django-app.herokuapp.com/"
-                >
-                  <HiGlobeAlt className="picon" />{" "}
-                </a>
-              </div>
-            </div>
-            <div className="inner_card"></div>
-          </div>
-
-          {/*To Do*/}
-          <div className="mainc">
-            <div className="proj_card"  id={light ? "proj_card_light" : null}>
-              <img src={todo} className="proj_img"  id={light ? "proj_img_light" : null}></img>
-              <div className="proj_title">To Do App</div>
-              <div className="proj_text">
-                A responsive Todo Web Application built using MERN Stack and
-                Authentication using JWT.
-              </div>
-              <div className="icons_c2">
-                <a
-                  target="__blank"
-                  href="https://github.com/suryaansh2002/To_Do_App"
-                >
-                  <AiFillGithub className="picon" />
-                </a>
-                <a target="__blank" href="https://to-do-app-suryaansh.netlify.app/">
-                  <HiGlobeAlt className="picon" />{" "}
                 </a>
               </div>
             </div>
             <div className="inner_card"></div>
           </div>
         </div>
+
       </div>
     </>
   );

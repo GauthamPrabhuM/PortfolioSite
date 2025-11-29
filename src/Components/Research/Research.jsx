@@ -1,17 +1,41 @@
 import React from "react";
 import "./Research.css";
-import paper from "../../Assets/SuryaanshRathinam_ComparisonOfFrontendFrameworks.pdf";
-import paper2 from "../../Assets/Review_Paper.pdf";
 
-import { GiArchiveResearch } from "react-icons/gi";
-import { MdPresentToAll } from "react-icons/md";
-import { FaFileDownload } from "react-icons/fa";
+
 export default function Research(props) {
   return (
     <div className="projects_main" id={props.light ? "lightid" : null}>
       <div className="projects_header" id="research">
         Research Work
       </div>
+      <div className="research-card">
+          {/* <div className="r-card-border"></div> */}
+          <div className="research-title">
+          QuCardio: Application of Quantum Machine Learning for Detection of Cardiovascular Diseases
+
+          </div>
+          <div className="research-author">Sharanya Prabhu, Shourya Gupta, Gautham Manuru Prabhu, Aarushi Dhanuka, Vivekananda Bhat</div>
+          <div className="research-flex">
+            <div className="research-presented">
+              {/* <div>
+          <MdPresentToAll className="research-icon"/>
+          </div> */}
+              
+            </div>
+            <div className="research-published">
+              {/* <div><GiArchiveResearch className="research-icon"/></div> */}
+             Published in{" "}
+              <a
+                href="https://ieeexplore.ieee.org/document/10335179"
+                target={"_blank"}
+              >
+                IEEE Access 
+              </a>
+            </div>
+          </div>
+
+         
+        </div>
       <div>
         <div className="research-card">
           {/* <div className="r-card-border"></div> */}
@@ -76,10 +100,40 @@ export default function Research(props) {
       <div className="research-card">
           {/* <div className="r-card-border"></div> */}
           <div className="research-title">
-          A Systematic Review of Deep Learning Approaches for Vessel Segmentation in Retinal Fundus Images
+          Addressing Vaccine Misinformation on Social Media by leveraging Transformers and User Association Dynamics
           </div>
-          <div className="research-author">-Govardhan Hegde , Dr. Srikanth Prabhu , Shourya Gupta , Gautham
-Manuru Prabhu , Anshita Palorkar , Metta Venkata Srujan, Dr. Sulatha V Bhandary</div>
+          <div className="research-author">-Chirag Rao, Gautham Manuru Prabhu, Ajay Rajendra, Shourya Gupta, Nisha P. Shetty</div>
+          <div className="research-flex">
+            <div className="research-presented">
+              {/* <div>
+          <MdPresentToAll className="research-icon"/>
+          </div> */}
+              Presented at:{" "}
+              <a href="https://www.icmlde.org/" target={"_blank"}>
+                ICMLDE 2023 Conference
+              </a>
+            </div>
+            <div className="research-published">
+              {/* <div><GiArchiveResearch className="research-icon"/></div> */}
+             Published in:{" "}
+              <a
+                href="https://www.sciencedirect.com/science/article/pii/S1877050924008470"
+                target={"_blank"}
+              >
+                Procedia- computer-science
+              </a>
+            </div>
+          </div>
+
+         
+        </div>
+        <div className="research-card">
+          {/* <div className="r-card-border"></div> */}
+          <div className="research-title">
+          A Systematic Review of Deep Learning Approaches for Vessel Segmentation in Retinal Fundus Images
+
+          </div>
+          <div className="research-author">-Govardhan Hegde, Srikanth Prabhu, Shourya Gupta, Gautham Manuru Prabhu, Anshita Palorkar, Metta Venkata Srujan, Sulatha V Bhandary</div>
           <div className="research-flex">
             <div className="research-presented">
               {/* <div>
@@ -92,15 +146,16 @@ Manuru Prabhu , Anshita Palorkar , Metta Venkata Srujan, Dr. Sulatha V Bhandary<
             </div>
             <div className="research-published">
               {/* <div><GiArchiveResearch className="research-icon"/></div> */}
-              To be Published in{" "}
+               Published in:{" "}
               <a
-                href="https://iopscience.iop.org/journal/1742-6596"
+                href="https://iopscience.iop.org/article/10.1088/1742-6596/2571/1/012021"
                 target={"_blank"}
               >
                 IOP: Journal of Physics: Conference Series 
               </a>
             </div>
           </div>
+          
 
          
         </div>
@@ -122,15 +177,16 @@ Manuru Prabhu , Anshita Palorkar , Metta Venkata Srujan, Dr. Sulatha V Bhandary<
             </div>
             <div className="research-published">
               {/* <div><GiArchiveResearch className="research-icon"/></div> */}
-              To be Published in{" "}
+               Published in{" "}
               <a
-                href="https://iopscience.iop.org/journal/1742-6596"
+                href="https://iopscience.iop.org/article/10.1088/1742-6596/2571/1/012031"
                 target={"_blank"}
               >
                 IOP: Journal of Physics: Conference Series 
               </a>
             </div>
           </div>
+          
 
          
         </div>

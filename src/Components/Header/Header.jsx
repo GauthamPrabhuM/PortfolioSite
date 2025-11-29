@@ -29,6 +29,7 @@ export default function Header(props) {
         <HashLink smooth className="header_link" to={"/#research"}>
           Research Work
         </HashLink>
+        <HashLink smooth className="header_link" to={"/#positions"}>Positions</HashLink>
         <HashLink
           smooth
           className="header_link"

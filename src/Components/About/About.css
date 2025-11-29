@@ -1,178 +1,105 @@
 .about_main {
-  height: 100vh;
-  background: rgb(0, 2, 49);
-  background: linear-gradient(125deg, rgb(0, 21, 67) 0%, rgb(0, 0, 0) 60%);
+  background: rgb(0, 0, 0);
+  background: linear-gradient(25deg, rgb(0, 21, 67) 0%, rgb(0, 0, 0) 60%);
+  min-height: 100vh;
   color: white;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .about_header {
   font-weight: 600;
+  font-size: 3rem;
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   font-family: "Cinzel", serif;
-  padding-top: 4rem;
-  height: 6rem;
+  padding-top: 2rem;
 }
-.left {
-  position: relative;
-  z-index: 100;
+
+.letter {
   display: inline-block;
-  width: 40vw;
+  transition: all 0.3s ease;
 }
+
+.about_content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
 .me {
-  width: 22rem;
-  height: 22rem;
-  box-shadow: 5px 3px 5px;
-  border-radius: 5px;
-  margin-left: 50%;
-  transform: translate(-50%, -3rem);
-  position: relative;
-  z-index: 200;
-}
-#light_me{
-  box-shadow: 5px 3px 5px white;
-
-}
-
-#light_imgBg{
-  border: 2px solid black;
-
-}
-.leftBg {
-  border-radius: 5px;
-  width: 22rem;
-  height: 22rem;
-  background-color: transparent;
-  border: 2px solid white;
-  transform: translate(40%, -110%);
+  width: 300px;
+  height: auto;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .about_txt {
-  font-size: 1.6rem;
-  display: inline-block;
-  height: 50vh;
-  width: 50vw;
-  line-height: 2.7rem;
-  font-family: "Roboto";
+  flex: 2;
+  margin-left: 2rem;
+  font-size: 1.2rem;
+  line-height: 1.6;
 }
 
 .download {
-  margin-top: 4rem;
-  margin-left: 30%;
-  font-size: 1.4rem;
+  display: inline-flex;
+  align-items: center;
   background-color: white;
-  font-family: "Roboto";
+  color: black;
+  font-size: 1rem;
   padding: 0.5rem 1rem;
-  padding-top: 0.2rem;
-  border-radius: 50px;
-}
-#download_light {
-  margin-top: 4rem;
-  margin-left: 30%;
-  font-size: 1.4rem;
-  background-color: rgba(8, 0, 44, 0.92);
-  color: white;
-  box-shadow: 2px 4px 4px gray;
-  border: none;
-  font-family: "Roboto";
-  padding: 0.5rem 1rem;
-  padding-top: 0.2rem;
-  border-radius: 50px;
-}
-.d_icon {
-  margin-left: 0.25rem;
-  font-size: 1.8rem;
-  transform: translateY(15%);
-}
-#d_icon_light {
-  margin-left: 0.25rem;
-  font-size: 1.8rem;
-  transform: translateY(15%);
-  color: white;
-}
-.letter {
-  transition: 0.2s;
-  font-size: 2.5rem;
-}
-.letter:hover {
-  font-size: 3.25rem;
+  border-radius: 20px;
+  margin-top: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-@media only screen and (max-width: 600px) {
-.about_main {
-min-height: 100vh;
-height: auto;
+.download:hover {
+  background-color: #ddd;
 }
-  .about_txt {
-    font-size: 1rem;
-    display: inline-block;
-    height: 50vh;
-    width: 90vw;
-    line-height: 1.5rem;
-    font-family: "Roboto";
-    margin-left: 5vw;
+
+.d_icon {
+  margin-left: 0.5rem;
+}
+
+#lightid .about_main {
+  background: linear-gradient(25deg, rgb(203, 209, 223) 0%, rgb(255, 255, 255) 60%);
+  color: black;
+}
+
+#lightid .download {
+  background-color: rgba(8, 0, 44, 0.92);
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .about_content {
+    flex-direction: column;
+    text-align: center;
   }
 
   .left {
-    width: 100vw;
-    position: relative;
-    z-index: 100;
-    display: inline-block;
-    height: 50vw;
+    margin-bottom: 2rem;
+  }
+
+  .about_txt {
+    margin-left: 0;
   }
 
   .me {
-    width: 50vw;
-    height: 50vw;
-    box-shadow: 5px 3px 5px;
-    border-radius: 5px;
-    margin-left: 50%;
-    transform: translate(-50%, -3rem);
-    position: relative;
-    z-index: 200;
-  }
-
-  .letter:hover {
-    font-size: 7.5vw;
-  }
-
-  .letter {
-    font-size: 7.5vw;
-  }
-
-  .leftBg {
-    width: 50vw;
-    height: 50vw;
-    transform: translate(52.5%, -120%);
-  }
-
-  .download {
-    margin-top: 1.5rem;
-    margin-left: 30%;
-    font-size: 1.1rem;
-    font-family: "Roboto";
-    padding: 0.5rem 1rem;
-    padding-top: 0.1rem;
-    border-radius: 50px;
-  }
-
-  #download_light {
-    margin-top: 1.5rem;
-    margin-left: 30%;
-    font-size: 1.1rem;
-    font-family: "Roboto";
-    padding: 0.5rem 1rem;
-    padding-top: 0.1rem;
-    border-radius: 50px;
-  }
-  
-
-  .d_icon {
-    margin-left: 0.25rem;
-    font-size: 1.3rem;
-    transform: translateY(15%);
-  }
-  .about_main {
-    min-height: 100vh;
+    width: 80%;
   }
 }

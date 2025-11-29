@@ -1,9 +1,9 @@
 import React from "react";
 import "./Projects.css";
-import psychup from "../../Assets/Skills/psych.png";
+import vikas from "../../Assets/Skills/vikas.png";
 import datagrad from "../../Assets/Skills/datagrad.png";
 import decrypt from "../../Assets/Skills/decrypt.png";
-
+import astro from "../../Assets/Skills/astro.png"
 import { AiFillGithub, AiFillInstagram } from "react-icons/ai";
 import { HiGlobeAlt } from "react-icons/hi";
 export default function Projects(props) {
@@ -21,24 +21,22 @@ export default function Projects(props) {
         {/*Psychup */}
         <div className="mainc">
           <div className="proj_card" id={props.light ? "proj_card_light" : null}>
-            <img src={psychup} className="proj_img"   id={props.light ? "proj_img_light" : null}></img>
-            <div className="proj_title">Psychup</div>
+            <img src={vikas} className="proj_img"   id={props.light ? "proj_img_light" : null}></img>
+            <div className="proj_title">Vikas</div>
             <div className="proj_text">
-              It is a project aims to increase knowledge and awareness regarding
-              mental health in India.
+            A real-time, multimodal solution linking disaster victims and first responders from NDRF: streamlining support to the most vulnerable.
+
+
             </div>
             <div className="icons_c">
               <a
                 target="__blank"
-                href="https://github.com/suryaansh2002/psychup"
+                href="https://github.com/GauthamPrabhuM/SIH2K22"
               >
                 <AiFillGithub className="picon" />
               </a>
-              <a target="__blank" href="https://www.psychup.org.in/">
+              <a target="__blank" href="https://vikas-066f8f.webflow.io/">
                 <HiGlobeAlt className="picon" />
-              </a>
-              <a target="__blank" href="https://instagram.com/psychup_org">
-                <AiFillInstagram className="picon" />
               </a>
             </div>
           </div>
@@ -49,21 +47,16 @@ export default function Projects(props) {
 
         <div className="mainc">
           <div className="proj_card"  id={props.light ? "proj_card_light" : null}>
-            <img src={datagrad} className="proj_img"   id={props.light ? "proj_img_light" : null}></img>
-            <div className="proj_title">DataGrad</div>
+            <div className="proj_title">Quantum Ecosystem for Efficient Detection of Cardiovascular Diseases</div>
             <div className="proj_text">
-              It aims to bridge the gap between top MOOCs like Coursera, and
-              students eager to learn new skills.
+            A quantum machine learning framework aimed to analyze ECG Data, harnessing the power of quantum ML algorithms for ECGs. The project was funded by the Ministry of Electronics and Information Technology and AWS.
             </div>
             <div className="icons_c2">
               <a
                 target="__blank"
-                href="https://github.com/suryaansh2002/datagrad"
+                href="https://github.com/GauthamPrabhuM/Quantum-Ecosystem-for-Efficient-Detection-of-Cardiovascular-Diseases"
               >
                 <AiFillGithub className="picon" />
-              </a>
-              <a target="__blank" href="https://datagrad.netlify.app/">
-                <HiGlobeAlt className="picon" />
               </a>
             </div>
           </div>
@@ -74,20 +67,19 @@ export default function Projects(props) {
 
         <div className="mainc">
           <div className="proj_card"  id={props.light ? "proj_card_light" : null}>
-            <img src={decrypt} className="proj_img"  id={props.light ? "proj_img_light" : null}></img>
-            <div className="proj_title">Decrypt</div>
+            <img src={astro} className="proj_img"  id={props.light ? "proj_img_light" : null}></img>
+            <div className="proj_title">Astronomy Club Website</div>
             <div className="proj_text">
-              A website for an annual online cryptic hunt competition conducted
-              by IEEE SBM, with over 500 participants.
+              Enhanced the website of the Astronomy Club of Manipal. 
             </div>
             <div className="icons_c2">
               <a
                 target="__blank"
-                href="https://github.com/suryaansh2002/d3crypt_backend"
+                href="https://github.com/Astronomy-Manipal/Astronomy-Manipal.github.io"
               >
                 <AiFillGithub className="picon" />
               </a>
-              <a target="__blank" href="https://d3crypt.ieeemanipal.com/">
+              <a target="__blank" href="https://astronomy-manipal.github.io/">
                 <HiGlobeAlt className="picon" />
               </a>
             </div>
