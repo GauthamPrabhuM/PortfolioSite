@@ -1,22 +1,26 @@
 .breadcrumb_nav {
-  padding: 12px 0;
-  margin: 10px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  background-color: rgba(0, 0, 0, 0.3);
+  padding: var(--spacing-md) 0;
+  margin: 0;
+  border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+  background: rgba(15, 20, 25, 0.5);
+  backdrop-filter: blur(5px);
+  position: relative;
+  z-index: 50;
 }
 
 #breadcrumb_light {
-  background-color: rgba(255, 255, 255, 0.5);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.5);
+  border-bottom-color: rgba(0, 21, 67, 0.1);
 }
 
 .breadcrumb_container {
   display: flex;
   flex-wrap: wrap;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 20px;
-  font-size: 14px;
+  padding: 0 var(--spacing-xl);
+  font-size: var(--font-size-sm);
+  align-items: center;
 }
 
 .breadcrumb_item {
@@ -30,28 +34,45 @@
 }
 
 .breadcrumb_link {
-  color: #00b4db;
+  color: var(--accent-primary);
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: all var(--transition-fast);
   font-weight: 500;
+  padding: var(--spacing-sm) 0;
+  position: relative;
 }
 
 #breadcrumb_light .breadcrumb_link {
   color: #0066cc;
 }
 
+.breadcrumb_link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-primary);
+  transition: width var(--transition-fast);
+}
+
 .breadcrumb_link:hover {
-  color: #00d4f1;
-  text-decoration: underline;
+  color: var(--accent-tertiary);
+}
+
+.breadcrumb_link:hover::after {
+  width: 100%;
 }
 
 #breadcrumb_light .breadcrumb_link:hover {
-  color: #0052a3;
+  color: #003d99;
 }
 
 .breadcrumb_separator {
-  margin: 0 8px;
+  margin: 0 var(--spacing-md);
   color: rgba(255, 255, 255, 0.5);
+  font-weight: 300;
 }
 
 #breadcrumb_light .breadcrumb_separator {
@@ -59,27 +80,25 @@
 }
 
 .breadcrumb_current {
-  color: rgba(255, 255, 255, 0.9);
-  font-weight: 500;
+  color: var(--accent-primary);
+  font-weight: 600;
 }
 
 #breadcrumb_light .breadcrumb_current {
-  color: rgba(0, 0, 0, 0.8);
+  color: #0066cc;
 }
 
-/* Mobile responsiveness */
 @media (max-width: 768px) {
   .breadcrumb_nav {
-    padding: 8px 0;
-    margin: 5px 0;
+    padding: var(--spacing-sm) 0;
   }
 
   .breadcrumb_container {
-    padding: 0 15px;
-    font-size: 12px;
+    padding: 0 var(--spacing-lg);
+    font-size: var(--font-size-xs);
   }
 
   .breadcrumb_separator {
-    margin: 0 4px;
+    margin: 0 var(--spacing-sm);
   }
 }
