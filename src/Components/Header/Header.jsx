@@ -16,11 +16,13 @@ export default function Header(props) {
     { label: "Education", hash: "/#education" },
     { label: "Work Exp", hash: "/#workex" },
     { label: "Research", hash: "/#research" },
+    { label: "Presentations", hash: "/#presentations" },
     { label: "Achievements", hash: "/#achievements" },
     { label: "Leadership", hash: "/#positions" },
     { label: "Skills", hash: "/#skills" },
     { label: "Projects", hash: "/#projects" },
     { label: "Contact", hash: "/#contact" },
+    { label: "Certifications", hash: "/#certifications" },
   ];
 
   const handleNavClick = (label) => {

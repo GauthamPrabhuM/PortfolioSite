@@ -11,6 +11,8 @@ import Skills from "../Skills/Skills";
 import PositionsOfResponsibility from "../PositionsOfResponsibility/PositionsOfResponsibility";
 import Header from "../Header/Header";
 import Research from "../Research/Research";
+import Presentations from "../Presentations/Presentations";
+import Certifications from "../Certifications/Certifications";
 import Breadcrumb from "../Breadcrumb/Breadcrumb";
 import Experience from "../Experience/Experience";
 import Education from "../Education/Education";
@@ -119,6 +121,9 @@ const mobileParticlesConfig = {
         <Research light={light} />
       </div>
       <div className="section-container">
+        <Presentations light={light} />
+      </div>
+      <div className="section-container">
         <Achievements light={light} />
       </div>
       <div className="section-container">
@@ -132,6 +137,9 @@ const mobileParticlesConfig = {
       </div>
       <div className="section-container">
         <Contact light={light} />
+      </div>
+      <div className="section-container">
+        <Certifications light={light} />
       </div>
     </div>
   
