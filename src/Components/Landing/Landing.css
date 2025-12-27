@@ -174,7 +174,26 @@
 }
 
 #lightid .landing_subtitle {
-  color: var(--text-secondary);
+  color: #4b5563;
+}
+
+#lightid .landing_btn_secondary {
+  color: #0066cc;
+  border-color: #0066cc;
+}
+
+#lightid .landing_btn_secondary:hover {
+  background: rgba(0, 102, 204, 0.1);
+  border-color: #0052a3;
+  color: #0052a3;
+}
+
+#lightid .landing_profile_img {
+  box-shadow: 0 20px 60px rgba(0, 21, 67, 0.15);
+}
+
+#lightid .landing_profile_ring {
+  border-color: rgba(0, 102, 204, 0.2);
 }
 
 @media (max-width: 1024px) {

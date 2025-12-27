@@ -89,6 +89,25 @@
   border-color: rgba(0, 212, 255, 0.4);
 }
 
+#lightid .education_main {
+  background: linear-gradient(135deg, #f5f6f8 0%, #ffffff 100%);
+}
+
+#lightid .education_header h2 {
+  background: linear-gradient(135deg, #0066cc 0%, #003d99 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+#lightid .education_subtitle {
+  color: #4b5563;
+}
+
+#lightid .education_card_marker {
+  border-color: #ffffff;
+}
+
 .education_card_marker {
   position: absolute;
   left: calc(-1.5rem - 6px);
