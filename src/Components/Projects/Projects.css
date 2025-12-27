@@ -212,6 +212,24 @@
   background: linear-gradient(135deg, #f5f6f8 0%, #ffffff 100%);
 }
 
+#lightid .projects_header {
+  background: linear-gradient(135deg, #0066cc 0%, #003d99 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+#lightid .view_all_link {
+  color: #0066cc;
+  border-color: rgba(0, 102, 204, 0.3);
+}
+
+#lightid .view_all_link:hover {
+  color: #003d99;
+  border-color: rgba(0, 102, 204, 0.6);
+  background: rgba(0, 102, 204, 0.05);
+}
+
 #lightid .project_card {
   background: linear-gradient(135deg, rgba(245, 246, 248, 0.8) 0%, rgba(255, 255, 255, 0.9) 100%);
   border-color: rgba(0, 21, 67, 0.1);

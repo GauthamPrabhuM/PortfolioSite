@@ -14,14 +14,14 @@ export default function Header(props) {
     { label: "Home", hash: "/" },
     { label: "About", hash: "/#about" },
     { label: "Education", hash: "/#education" },
-    { label: "Work Exp", hash: "/#workex" },
+    { label: "Experience", hash: "/#workex" },
     { label: "Research", hash: "/#research" },
-    { label: "Presentations", hash: "/#presentations" },
+    { label: "Talks", hash: "/#presentations" },
     { label: "Achievements", hash: "/#achievements" },
     { label: "Leadership", hash: "/#positions" },
     { label: "Skills", hash: "/#skills" },
     { label: "Projects", hash: "/#projects" },
-    { label: "Certifications", hash: "/#certifications" },
+    { label: "Certs", hash: "/#certifications" },
     { label: "Contact", hash: "/#contact" },
   ];
 

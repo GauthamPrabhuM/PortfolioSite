@@ -180,6 +180,13 @@
   background: linear-gradient(135deg, #f5f6f8 0%, #ffffff 100%);
 }
 
+#lightid .projects_page_header {
+  background: linear-gradient(135deg, #0066cc 0%, #003d99 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 #lightid .project_page_card {
   background: linear-gradient(135deg, rgba(245, 246, 248, 0.8) 0%, rgba(255, 255, 255, 0.9) 100%);
   border-color: rgba(0, 21, 67, 0.1);

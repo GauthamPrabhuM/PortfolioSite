@@ -61,11 +61,13 @@
   /* Gradients */
   --gradient-primary: linear-gradient(135deg, #00d4ff 0%, #7c3aed 100%);
   --gradient-dark: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
+  --gradient-light: linear-gradient(135deg, #f5f6f8 0%, #ffffff 100%);
 }
 
-/* Light Mode */
+/* Light Mode - Global Variables Override */
 :root[data-theme="light"],
-body.light-mode {
+body.light-mode,
+#lightid {
   --primary-dark: #ffffff;
   --primary-light: #1a1f2e;
   --secondary-dark: #f5f6f8;
@@ -73,6 +75,13 @@ body.light-mode {
   --text-primary: #0f1419;
   --text-secondary: #4b5563;
   --text-muted: #9ca3af;
+  --gradient-dark: linear-gradient(135deg, #f5f6f8 0%, #ffffff 100%);
+}
+
+/* Light mode body background */
+#lightid {
+  background: var(--gradient-light) !important;
+  color: var(--text-primary);
 }
 
 * {

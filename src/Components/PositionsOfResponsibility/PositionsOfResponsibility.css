@@ -51,10 +51,14 @@
 }
 
 #lightid .positions_header h2 {
-  background: linear-gradient(135deg, #6d28d9 0%, #0891b2 100%);
+  background: linear-gradient(135deg, #0066cc 0%, #003d99 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+#lightid .positions_main {
+  background: linear-gradient(135deg, #f5f6f8 0%, #ffffff 100%);
 }
 
 .positions_subtitle {

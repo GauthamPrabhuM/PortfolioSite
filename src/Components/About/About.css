@@ -138,8 +138,15 @@
   color: #0f1419;
 }
 
+#lightid .about_header {
+  background: linear-gradient(135deg, #0066cc 0%, #003d99 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 #lightid .about_txt {
-  color: var(--text-secondary);
+  color: #4b5563;
 }
 
 #lightid .me {

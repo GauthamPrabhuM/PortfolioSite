@@ -76,6 +76,21 @@
   border-color: rgba(0, 212, 255, 0.4);
 }
 
+#lightid .research_main {
+  background: linear-gradient(135deg, #f5f6f8 0%, #ffffff 100%);
+}
+
+#lightid .research_header h2 {
+  background: linear-gradient(135deg, #0066cc 0%, #003d99 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+#lightid .research_subtitle {
+  color: #4b5563;
+}
+
 .research_card_header {
   display: flex;
   justify-content: flex-end;
