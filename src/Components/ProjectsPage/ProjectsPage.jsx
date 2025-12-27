@@ -18,6 +18,14 @@ export default function ProjectsPage() {
   const projects = [
     {
       id: 1,
+      title: "SplitSense",
+      description: "A comprehensive, secure analytics platform for Splitwise with real-time insights, beautiful visualizations, OAuth authentication, and AI-powered balance predictions. Features spending analysis, anomaly detection, subscription detection, and PDF report generation.",
+      github: "https://github.com/GauthamPrabhuM/SplitSense",
+      live: "https://splitsense.onrender.com",
+      tags: ["FastAPI", "Next.js", "OAuth 2.0", "Analytics", "Python", "TypeScript"]
+    },
+    {
+      id: 2,
       title: "Vikas",
       description: "A real-time, multimodal solution linking disaster victims and first responders from NDRF: streamlining support to the most vulnerable. Grand finalist in Smart India Hackathon 2022.",
       image: vikas,
@@ -26,14 +34,14 @@ export default function ProjectsPage() {
       tags: ["React", "Node.js", "WebSocket", "Real-time", "Multimodal"]
     },
     {
-      id: 2,
+      id: 3,
       title: "Quantum Ecosystem for Efficient Detection of Cardiovascular Diseases",
       description: "A quantum machine learning framework designed to analyze ECG data using quantum ML algorithms. The project harnesses quantum computing for healthcare applications. Funded by Ministry of Electronics and Information Technology and AWS.",
       github: "https://github.com/GauthamPrabhuM/Quantum-Ecosystem-for-Efficient-Detection-of-Cardiovascular-Diseases",
       tags: ["Quantum Computing", "Machine Learning", "ECG Analysis", "Healthcare", "Python", "Qiskit"]
     },
     {
-      id: 3,
+      id: 4,
       title: "Astronomy Club Website",
       description: "Enhanced and modernized the website of the Astronomy Club of Manipal with improved UI/UX, responsive design, and better content management. Showcases club activities, events, and astronomical resources.",
       image: astro,
@@ -42,14 +50,14 @@ export default function ProjectsPage() {
       tags: ["Web Design", "HTML/CSS", "JavaScript", "Responsive Design"]
     },
     {
-      id: 4,
+      id: 5,
       title: "Distributed Banking System",
       description: "A distributed banking system designed as an easy-to-understand demonstration of how to create distributed applications using sockets and client-server architecture. Implements multi-threaded server and socket communication.",
       github: "https://github.com/GauthamPrabhuM/distributed-banking-system",
       tags: ["Java", "Sockets", "Networking", "Client-Server", "Distributed Systems"]
     },
     {
-      id: 5,
+      id: 6,
       title: "Kritika: An E-commerce Website",
       description: "A comprehensive e-commerce platform built using Flask to showcase and sell women's handicrafts. Features product catalog, shopping cart, and order management system.",
       image: ecommerce,

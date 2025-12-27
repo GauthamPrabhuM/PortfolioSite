@@ -5,6 +5,7 @@ import { AiOutlineInstagram } from "react-icons/ai";
 import { CgMail } from "react-icons/cg";
 import { FaLinkedinIn } from "react-icons/fa";
 import { BsGithub } from "react-icons/bs";
+import { SiBuymeacoffee } from "react-icons/si";
 import ReactGA from 'react-ga4';
 
 export default function Contact(props) {
@@ -50,6 +51,15 @@ export default function Contact(props) {
           onClick={() => trackSocialClick('github')}
         >
           <BsGithub className="logo" />
+        </a>
+        <a
+          href="https://buymeacoffee.com/gauthamprabhum"
+          target={"__blank"}
+          rel="noopener noreferrer"
+          onClick={() => trackSocialClick('buymeacoffee')}
+          className="coffee_link"
+        >
+          <SiBuymeacoffee className="logo coffee_icon" />
         </a>
       </div>
       <div className="c_text">Feel free to contact me :D  </div>
