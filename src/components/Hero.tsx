@@ -70,10 +70,9 @@ export function Hero() {
               className="text-5xl sm:text-6xl lg:text-[4.5rem] font-display font-bold leading-[1.08] mb-6"
               style={{ color: 'var(--text-1)', letterSpacing: '-0.03em' }}
             >
-              Hi, I'm{' '}
-              <span className="text-gradient">Gautham</span>
+              Gautham
               <br />
-              Manuru Prabhu.
+              <span className="text-gradient">Manuru Prabhu</span>
             </motion.h1>
 
             {/* Pitch */}
@@ -82,15 +81,15 @@ export function Hero() {
               className="text-lg sm:text-xl leading-relaxed mb-8 max-w-xl"
               style={{ color: 'var(--text-2)' }}
             >
-              Building{' '}
+              I build{' '}
               <span style={{ color: 'var(--text-1)' }} className="font-medium">
                 agentic AI systems
               </span>{' '}
-              that autonomously resolve 20% of supply chain cases at Cisco. ML Researcher at{' '}
+              for Cisco's supply chain and research{' '}
               <span style={{ color: 'var(--text-1)' }} className="font-medium">
-                MiCoSys Lab, SJSU
-              </span>
-              . Six peer-reviewed publications.
+                temporal graph learning
+              </span>{' '}
+              at SJSU.
             </motion.p>
 
             {/* CTAs */}

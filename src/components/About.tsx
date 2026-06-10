@@ -28,7 +28,7 @@ export function About() {
         <SectionHeader
           number="01 — About"
           title="Engineer. Researcher. Builder."
-          subtitle="I design and ship AI systems that move real operational metrics — and publish the science behind them."
+          subtitle="I ship AI systems that move operational metrics — and publish the science behind them."
         />
 
         <div className="grid lg:grid-cols-[1fr_1.7fr] gap-12 lg:gap-16 items-start">
@@ -81,29 +81,14 @@ export function About() {
           <FadeIn delay={0.15} className="flex flex-col gap-5">
             <div className="flex flex-col gap-5 text-base leading-loose" style={{ color: 'var(--text-2)' }}>
               <p>
-                I'm <strong style={{ color: 'var(--text-1)', fontWeight: 600 }}>Gautham Manuru Prabhu</strong>,
-                a software engineer on Cisco's AI Acceleration team inside Supply Chain Operations. Over 18 months
-                I was double-promoted from intern to{' '}
-                <strong style={{ color: 'var(--text-1)', fontWeight: 600 }}>SE2</strong> while building agentic AI
-                systems that autonomously handle{' '}
-                <strong style={{ color: 'var(--text-1)', fontWeight: 600 }}>20% of incoming cases</strong>, cut
-                case volume by 35%, and save roughly{' '}
-                <strong style={{ color: 'var(--text-1)', fontWeight: 600 }}>5,000 engineer-hours</strong> every
-                quarter.
-              </p>
-              <p>
-                In parallel, I'm a{' '}
-                <strong style={{ color: 'var(--text-1)', fontWeight: 600 }}>Research Associate at MiCoSys Lab,
-                San Jose State University</strong>, working on efficient training of Temporal Graph Neural Networks
-                over dynamic graphs with millions of edges. Prior research spans quantum ML for cardiovascular
-                disease, retinal-image segmentation, and transformer-based NLP — six peer-reviewed publications
-                across IEEE Access, Springer, Procedia CS, and IOP.
-              </p>
-              <p>
-                I graduated from{' '}
-                <strong style={{ color: 'var(--text-1)', fontWeight: 600 }}>Manipal Institute of Technology</strong>{' '}
-                (B.Tech CSE, 8.91/10, Top 15%) with a minor in Big Data Analytics. I gravitate toward problems
-                that sit between systems engineering, machine learning, and measurable business impact.
+                I went from intern to{' '}
+                <strong style={{ color: 'var(--text-1)', fontWeight: 600 }}>SE2 in 18 months</strong> on Cisco's
+                AI Acceleration team, shipping agentic systems that save{' '}
+                <strong style={{ color: 'var(--text-1)', fontWeight: 600 }}>~5,000 engineer-hours a quarter</strong>.
+                In parallel, I research efficient temporal graph neural network training at{' '}
+                <strong style={{ color: 'var(--text-1)', fontWeight: 600 }}>MiCoSys Lab, SJSU</strong> — with six
+                peer-reviewed publications across IEEE, Springer, and IOP. I gravitate toward problems at the
+                intersection of systems engineering, machine learning, and measurable impact.
               </p>
             </div>
 

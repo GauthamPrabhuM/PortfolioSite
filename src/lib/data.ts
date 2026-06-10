@@ -32,10 +32,10 @@ export const WORK_EXPERIENCE = [
     period: 'Aug 2025 – Present',
     isCurrent: true,
     highlights: [
-      'Built agentic AI systems (case resolution, knowledge-base indexing, proactive alerts) that autonomously handle 20% of incoming cases, cut case volume 35%, reduced MTTR 40%, and save ~5,000 engineer-hours per quarter.',
-      'Designed failure analysis and predictive maintenance agents under the Quality Transformation Program, improving upstream defect detection across global manufacturing sites.',
-      'Identified coverage gaps in Paladin edge connectors across 10+ production lines; integrated SplunkAI observability into legacy systems for real-time alerting.',
-      'Leading the research-to-production pipeline for LLM-backed agents — retrieval quality, evaluation, and guardrails end-to-end.',
+      'Ship agentic AI for case resolution and knowledge retrieval — 20% of cases resolved autonomously, case volume down 35%, MTTR down 40%.',
+      'Systems save ~5,000 engineer-hours per quarter across global supply chain operations.',
+      'Built failure-analysis and predictive-maintenance agents for the Quality Transformation Program.',
+      'Own the LLM research-to-production pipeline end to end: retrieval quality, evaluation, guardrails.',
     ],
     stack: ['Python', 'FastAPI', 'LangChain', 'LangGraph', 'LangSmith', 'RAG', 'OpenShift', 'ArgoCD', 'Snowflake', 'Docker', 'Kubernetes'],
   },
@@ -47,10 +47,10 @@ export const WORK_EXPERIENCE = [
     period: 'Aug 2024 – Aug 2025',
     isCurrent: false,
     highlights: [
-      'Promoted SE1 → SE2 within 12 months — second promotion on the same team in under 18 months.',
-      'Re-architected legacy failure-analysis workflows into event-driven microservices on Kubernetes using FastAPI, Cassandra, and Redis.',
-      'Built ML anomaly-detection pipelines over manufacturing telemetry with SLA dashboards and alerting (Prometheus + Grafana).',
-      'Hardened the data ingestion and serving layer that the current agentic AI systems run on top of.',
+      'Promoted to SE2 within 12 months.',
+      'Re-architected legacy failure analysis into event-driven microservices on Kubernetes.',
+      'Built ML anomaly detection over manufacturing telemetry, with SLA dashboards and alerting.',
+      'Hardened the ingestion and serving layer the current agentic systems run on.',
     ],
     stack: ['FastAPI', 'Cassandra', 'Redis', 'Kubernetes', 'Prometheus', 'Grafana', 'Python'],
   },
@@ -62,9 +62,9 @@ export const WORK_EXPERIENCE = [
     period: 'Jan 2024 – Aug 2024',
     isCurrent: false,
     highlights: [
-      'Fast-tracked intern → SE1 in 6 months into a full-time role on the AI Acceleration team.',
-      'Automated CI/CD with Jenkins, Docker, and Kubernetes — cut deployment time by 99.45% (6 hours → 2 minutes).',
-      'Won 2nd Runner-Up, Cisco Intern Case Study Competition: NLP-based supplier name standardisation pipeline improving consistency across 50,000+ records (100+ entries).',
+      'Converted to full-time SE1 in 6 months.',
+      'Cut deployment time 99.45% (6 hours → 2 minutes) with Jenkins, Docker, and Kubernetes CI/CD.',
+      '2nd Runner-Up, Cisco Intern Case Study — NLP supplier-name standardisation across 50,000+ records.',
     ],
     stack: ['Python', 'Flask', 'Jenkins', 'Docker', 'Kubernetes', 'REST APIs', 'NLP'],
   },
@@ -81,8 +81,8 @@ export const RESEARCH_EXPERIENCE = [
     advisor: 'Dr. Saptarishi Sengupta',
     isCurrent: true,
     highlights: [
-      'Researching efficient training of Temporal Graph Neural Networks (TGNNs) — scalable learning over dynamic, time-evolving graph structures with millions of edges.',
-      'Investigating memory-efficient, compute-optimised TGNN architectures that reduce training time on large-scale dynamic graphs.',
+      'Efficient training of Temporal Graph Neural Networks over dynamic graphs with millions of edges.',
+      'Memory- and compute-optimised TGNN architectures that cut training time at scale.',
     ],
     stack: ['PyTorch Geometric', 'DGL', 'CUDA', 'Distributed Training'],
   },
@@ -95,8 +95,8 @@ export const RESEARCH_EXPERIENCE = [
     advisor: 'Dr. Subhamoy Mandal, Ms. Pragya Gupta',
     isCurrent: false,
     highlights: [
-      'Proposed ensemble-based feature-fusion for anomaly detection in OCT retinal scans with advanced preprocessing and augmentation pipelines.',
-      'Techniques contributed to a dataset of 3,000+ annotated retinal images; presented at IIT KGP Digital Health Symposium.',
+      'Ensemble feature-fusion for anomaly detection in OCT retinal scans.',
+      'Contributed to a 3,000+ image annotated dataset; presented at the IIT KGP Digital Health Symposium.',
     ],
     stack: ['PyTorch', 'OpenCV', 'scikit-learn'],
   },
@@ -109,8 +109,8 @@ export const RESEARCH_EXPERIENCE = [
     advisor: 'Dr. Vivekananda Bhat',
     isCurrent: false,
     highlights: [
-      'Developed Quantum ML models (QSVC, Pegasos QSVC, QNNs) for cardiovascular disease detection — up to 97% accuracy, 10–14% above classical baselines.',
-      'Research funded by MeitY (Govt. of India) and AWS. Grand Finalist — Top 16 of 1,600+ teams at the Global Quantum Ecosystems Hackathon 2022.',
+      'Quantum ML models for cardiovascular disease detection — 97% accuracy, 10–14% above classical baselines.',
+      'Funded by MeitY (Govt. of India) and AWS; published in IEEE Access (Q1).',
     ],
     stack: ['Qiskit', 'Python', 'Quantum ML'],
   },
@@ -123,24 +123,37 @@ export const RESEARCH_EXPERIENCE = [
     advisor: 'Dr. Srikanth Prabhu, Mr. Govardhan Hegde',
     isCurrent: false,
     highlights: [
-      'Designed deep learning pipelines for retinal vessel segmentation with CLAHE, Gaussian blur, and edge detection across 3,000+ fundus images.',
-      'Integrated Diffie-Hellman & AES-256 cryptographic schemes for secure biomedical imaging at Kasturba Medical College.',
+      'Deep learning pipelines for retinal vessel segmentation across 3,000+ fundus images.',
+      'AES-256 secured biomedical imaging deployed with Kasturba Medical College.',
     ],
     stack: ['PyTorch', 'OpenCV', 'Cryptography'],
   },
 ]
 
 // ── Projects ──────────────────────────────────────────────────
-export const PROJECTS = [
+export interface Project {
+  id: number
+  num: string
+  title: string
+  tagline: string
+  description: string
+  impact: string
+  stack: string[]
+  github?: string
+  live?: string
+  paper?: string
+}
+
+export const PROJECTS: Project[] = [
   {
     id: 1,
     num: '01',
     title: 'SplitSense',
-    tagline: 'Intelligent Splitwise analytics platform',
-    problem: 'Splitwise provides no deep analytics — users can\'t see spending patterns, anomalies, or forecasts across shared expenses.',
-    approach: 'Built a full-stack analytics platform with OAuth 2.0, real-time dashboards, AI-powered balance prediction, anomaly detection, and PDF report generation.',
-    outcome: 'Production deployment on Render with secure OAuth flow, responsive dashboards, and automated insights.',
-    stack: ['FastAPI', 'Next.js', 'OAuth 2.0', 'Python', 'TypeScript', 'PostgreSQL'],
+    tagline: 'Analytics layer for Splitwise',
+    description:
+      'Full-stack platform adding the analytics Splitwise lacks — OAuth 2.0, real-time dashboards, balance forecasting, anomaly detection, and PDF reports.',
+    impact: 'Live in production',
+    stack: ['FastAPI', 'Next.js', 'TypeScript', 'PostgreSQL', 'OAuth 2.0'],
     github: 'https://github.com/GauthamPrabhuM/SplitSense',
     live: 'https://splitsense.onrender.com',
   },
@@ -148,11 +161,11 @@ export const PROJECTS = [
     id: 2,
     num: '02',
     title: 'QuCardio',
-    tagline: 'Quantum ML for cardiovascular disease detection',
-    problem: 'Classical ML models plateau on ECG classification; healthcare needs more accurate, robust diagnostic tools.',
-    approach: 'Implemented QSVC, Pegasos QSVC, and quanvolution-based QNNs on ECG image datasets — first quantum ML application in this clinical domain.',
-    outcome: '97% accuracy — 10–14% above classical baselines. MeitY + AWS funded. Published in IEEE Access (Q1), 50+ citations.',
-    stack: ['Qiskit', 'Python', 'Quantum ML', 'scikit-learn', 'NumPy'],
+    tagline: 'Quantum ML for cardiology',
+    description:
+      'QSVC, Pegasos QSVC, and quanvolutional QNNs for cardiovascular disease detection from ECG data — 97% accuracy, 10–14% above classical baselines.',
+    impact: 'IEEE Access (Q1) · 50+ citations · MeitY + AWS funded',
+    stack: ['Qiskit', 'Python', 'Quantum ML', 'scikit-learn'],
     github: 'https://github.com/GauthamPrabhuM/Quantum-Ecosystem-for-Efficient-Detection-of-Cardiovascular-Diseases',
     paper: 'https://ieeexplore.ieee.org/document/10335179',
   },
@@ -160,10 +173,10 @@ export const PROJECTS = [
     id: 3,
     num: '03',
     title: 'VIKAS',
-    tagline: 'Multimodal disaster response system',
-    problem: 'During disasters, first responders and victims lack a unified, real-time communication layer that handles multiple data modalities simultaneously.',
-    approach: 'Led a team of 6 to build a real-time platform linking NDRF responders with victims, integrating NLP triage, computer vision, and live geolocation.',
-    outcome: 'Grand Finalist — Smart India Hackathon 2022. Top team from 1,000+ national entries. Published in Springer CCIS.',
+    tagline: 'Multimodal disaster response',
+    description:
+      'Real-time platform connecting NDRF responders with disaster victims — NLP triage, computer vision, and live geolocation. Led a team of six.',
+    impact: 'Smart India Hackathon Grand Finalist · Springer CCIS',
     stack: ['React', 'Node.js', 'WebSocket', 'NLP', 'Computer Vision'],
     github: 'https://github.com/GauthamPrabhuM/SIH2K22',
     live: 'https://vikas-066f8f.webflow.io/',
@@ -172,13 +185,11 @@ export const PROJECTS = [
     id: 4,
     num: '04',
     title: 'SatelTensor',
-    tagline: 'Satellite data exploration via tensor decomposition',
-    problem: 'Satellite telemetry data is high-dimensional; standard ML pipelines struggle to extract meaningful spatial-temporal features efficiently.',
-    approach: 'Applied Tucker and CP tensor decomposition to satellite image stacks, reducing dimensionality while preserving spatial-temporal structure.',
-    outcome: 'Presented at the TCML Workshop, IISc Bengaluru 2023.',
-    stack: ['Python', 'NumPy', 'TensorLy', 'Matplotlib'],
-    github: undefined,
-    paper: undefined,
+    tagline: 'Tensor methods for satellite data',
+    description:
+      'Tucker and CP tensor decomposition over satellite image stacks — dimensionality reduction that preserves spatio-temporal structure.',
+    impact: 'TCML Workshop, IISc Bengaluru 2023',
+    stack: ['Python', 'NumPy', 'TensorLy'],
   },
 ]
 

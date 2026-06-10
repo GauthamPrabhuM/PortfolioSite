@@ -60,8 +60,7 @@ export function Contact() {
             <span className="text-gradient">together.</span>
           </h2>
           <p className="text-lg max-w-lg leading-relaxed mb-8" style={{ color: 'var(--text-2)' }}>
-            Open to collaborations on agentic AI, graph ML, systems research, and applied ML.
-            The fastest way to reach me is email.
+            Open to collaborations on agentic AI, graph ML, and applied research. Email is fastest.
           </p>
 
           {/* Primary CTA */}

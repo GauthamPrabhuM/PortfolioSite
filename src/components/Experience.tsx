@@ -196,8 +196,8 @@ export function Experience() {
       <div className="container-narrow">
         <SectionHeader
           number="02 — Experience"
-          title="Where I've worked and what I've built."
-          subtitle="Intern to SE2 at Cisco in 18 months · Research across 3 institutions · 5 research positions."
+          title="Track record."
+          subtitle="Intern to SE2 at Cisco in 18 months · research across four institutions."
         />
 
         {/* Tab switcher */}

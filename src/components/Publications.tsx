@@ -122,7 +122,7 @@ export function Publications() {
         <SectionHeader
           number="05 — Publications"
           title="Peer-reviewed research."
-          subtitle="Six publications spanning quantum ML, medical imaging, disaster response, and NLP — across IEEE Access, Springer, Procedia CS, and IOP."
+          subtitle="Six publications across IEEE Access, Springer, Procedia CS, and IOP."
         >
           <a
             href={PERSONAL.scholar}

@@ -1,17 +1,19 @@
 'use client'
+import type { IconType } from 'react-icons'
+import { FiAward, FiZap, FiUsers, FiBookOpen, FiStar } from 'react-icons/fi'
 import { FadeIn, FadeInStagger, FadeInItem } from './ui/FadeIn'
 import { SectionHeader } from './ui/SectionHeader'
 import { ACHIEVEMENTS } from '@/lib/data'
 
-const CATEGORY_ICONS: Record<string, string> = {
-  'Awards & Recognition': '🏆',
-  'Hackathons & Competitions': '⚡',
-  'Leadership': '🚀',
-  'Schools & Programmes': '📚',
+const CATEGORY_ICONS: Record<string, IconType> = {
+  'Awards & Recognition': FiAward,
+  'Hackathons & Competitions': FiZap,
+  'Leadership': FiUsers,
+  'Schools & Programmes': FiBookOpen,
 }
 
 function AchievementGroup({ group }: { group: typeof ACHIEVEMENTS[0] }) {
-  const icon = CATEGORY_ICONS[group.category] ?? '✦'
+  const Icon = CATEGORY_ICONS[group.category] ?? FiStar
 
   return (
     <FadeIn>
@@ -24,7 +26,12 @@ function AchievementGroup({ group }: { group: typeof ACHIEVEMENTS[0] }) {
           className="flex items-center gap-3 px-5 py-4"
           style={{ background: 'var(--bg-elevated)', borderBottom: '1px solid var(--border)' }}
         >
-          <span className="text-lg" role="img" aria-label={group.category}>{icon}</span>
+          <span
+            className="w-8 h-8 flex items-center justify-center rounded-lg shrink-0"
+            style={{ background: 'var(--accent-dim)', border: '1px solid var(--accent-border)', color: 'var(--accent)' }}
+          >
+            <Icon size={15} />
+          </span>
           <h3 className="text-sm font-display font-semibold" style={{ color: 'var(--text-1)' }}>
             {group.category}
           </h3>
@@ -80,8 +87,8 @@ export function Achievements() {
       <div className="container-narrow">
         <SectionHeader
           number="06 — Achievements"
-          title="Recognition, leadership & honours."
-          subtitle="Awards spanning national competitions, research recognition, and professional milestones."
+          title="Recognition & leadership."
+          subtitle="National competitions, research honours, and professional milestones."
         />
 
         <FadeInStagger className="grid grid-cols-1 lg:grid-cols-2 gap-5">
