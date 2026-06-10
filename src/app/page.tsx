@@ -1,9 +1,10 @@
 import { Navigation } from '@/components/Navigation'
-import { Intro } from '@/components/Intro'
+import { Hero } from '@/components/Hero'
+import { About } from '@/components/About'
 import { Experience } from '@/components/Experience'
 import { Projects } from '@/components/Projects'
-import { Publications } from '@/components/Publications'
 import { Skills } from '@/components/Skills'
+import { Publications } from '@/components/Publications'
 import { Achievements } from '@/components/Achievements'
 import { Contact } from '@/components/Contact'
 
@@ -11,12 +12,13 @@ export default function Page() {
   return (
     <>
       <Navigation />
-      <main className="container-page">
-        <Intro />
+      <main>
+        <Hero />
+        <About />
         <Experience />
         <Projects />
-        <Publications />
         <Skills />
+        <Publications />
         <Achievements />
         <Contact />
       </main>
