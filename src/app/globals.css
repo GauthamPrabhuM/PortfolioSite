@@ -11,6 +11,8 @@
   --font-mono: 'JetBrains Mono';
 
   --accent: #38BDF8;
+  --accent-2: #818CF8;
+  --accent-contrast: #050D1C;
   --accent-dim: rgba(56, 189, 248, 0.09);
   --accent-border: rgba(56, 189, 248, 0.28);
   --accent-glow: rgba(56, 189, 248, 0.18);
@@ -29,28 +31,48 @@
   --border-strong: rgba(255, 255, 255, 0.14);
 
   --nav-bg: rgba(5, 13, 28, 0.82);
+
+  /* Elevation */
+  --shadow-card: none;
+  --shadow-card-hover: 0 8px 32px rgba(0, 0, 0, 0.35);
+
+  /* Semantic badge colors */
+  --c-gold: #F59E0B;
+  --c-indigo: #818CF8;
+  --c-green: #34D399;
+  --c-sky: #38BDF8;
 }
 
 /* ── Light Mode ────────────────────────────────────────────── */
 .light {
-  --bg-base: #F5F7FF;
+  --bg-base: #F8FAFC;
   --bg-surface: #FFFFFF;
-  --bg-elevated: #EEF2FF;
+  --bg-elevated: #F1F5F9;
 
-  --text-1: #0A0F1E;
-  --text-2: #3D4D6A;
-  --text-3: #7A8CAA;
+  --text-1: #0F172A;
+  --text-2: #475569;
+  --text-3: #8494AB;
 
-  --border-subtle: rgba(0, 0, 0, 0.04);
-  --border: rgba(0, 0, 0, 0.08);
-  --border-strong: rgba(0, 0, 0, 0.16);
+  --border-subtle: rgba(15, 23, 42, 0.05);
+  --border: rgba(15, 23, 42, 0.09);
+  --border-strong: rgba(15, 23, 42, 0.18);
 
-  --nav-bg: rgba(245, 247, 255, 0.88);
+  --nav-bg: rgba(255, 255, 255, 0.85);
 
   --accent: #0284C7;
-  --accent-dim: rgba(2, 132, 199, 0.08);
-  --accent-border: rgba(2, 132, 199, 0.25);
-  --accent-glow: rgba(2, 132, 199, 0.15);
+  --accent-2: #6366F1;
+  --accent-contrast: #FFFFFF;
+  --accent-dim: rgba(2, 132, 199, 0.07);
+  --accent-border: rgba(2, 132, 199, 0.28);
+  --accent-glow: rgba(2, 132, 199, 0.14);
+
+  --shadow-card: 0 1px 2px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.03);
+  --shadow-card-hover: 0 12px 32px -8px rgba(15, 23, 42, 0.14), 0 4px 12px rgba(15, 23, 42, 0.06);
+
+  --c-gold: #B45309;
+  --c-indigo: #4F46E5;
+  --c-green: #059669;
+  --c-sky: #0284C7;
 }
 
 /* ── Base ──────────────────────────────────────────────────── */
@@ -92,13 +114,13 @@ a { color: var(--accent); text-decoration: none; }
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: var(--bg-base); }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--accent) 0%, #818CF8 100%);
+  background: linear-gradient(180deg, var(--accent) 0%, var(--accent-2) 100%);
   border-radius: 999px;
 }
 
 /* ── Selection ─────────────────────────────────────────────── */
 ::selection {
-  background: var(--accent-dim);
+  background: color-mix(in srgb, var(--accent) 22%, transparent);
   color: var(--text-1);
 }
 
@@ -114,7 +136,7 @@ a { color: var(--accent); text-decoration: none; }
 /* ── Utilities ─────────────────────────────────────────────── */
 @layer utilities {
   .text-gradient {
-    background: linear-gradient(135deg, var(--accent) 0%, #818CF8 100%);
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -144,12 +166,13 @@ a { color: var(--accent); text-decoration: none; }
     background: var(--bg-surface);
     border: 1px solid var(--border);
     border-radius: 12px;
+    box-shadow: var(--shadow-card);
     transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
   }
 
   .card-base:hover {
     border-color: var(--border-strong);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+    box-shadow: var(--shadow-card-hover);
     transform: translateY(-2px);
   }
 

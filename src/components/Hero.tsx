@@ -33,7 +33,7 @@ export function Hero() {
         />
         <div
           className="absolute bottom-[-10%] left-[-5%] w-[400px] h-[400px] rounded-full opacity-[0.05] blur-[100px]"
-          style={{ background: 'radial-gradient(circle, #818CF8 0%, transparent 70%)' }}
+          style={{ background: 'radial-gradient(circle, var(--accent-2) 0%, transparent 70%)' }}
         />
       </div>
 
@@ -103,7 +103,7 @@ export function Hero() {
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 hover:shadow-glow"
                 style={{
                   background: 'var(--accent)',
-                  color: '#050D1C',
+                  color: 'var(--accent-contrast)',
                 }}
               >
                 See My Work
@@ -178,7 +178,7 @@ export function Hero() {
               <div
                 className="absolute inset-0 rounded-full"
                 style={{
-                  background: 'conic-gradient(from 180deg, var(--accent) 0deg, #818CF8 120deg, transparent 240deg)',
+                  background: 'conic-gradient(from 180deg, var(--accent) 0deg, var(--accent-2) 120deg, transparent 240deg)',
                   padding: '2px',
                   borderRadius: '9999px',
                 }}
@@ -205,7 +205,7 @@ export function Hero() {
                   background: 'var(--bg-surface)',
                   border: '1px solid var(--border-strong)',
                   color: 'var(--text-2)',
-                  boxShadow: '0 4px 16px rgba(0,0,0,0.3)',
+                  boxShadow: 'var(--shadow-card-hover)',
                 }}
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />

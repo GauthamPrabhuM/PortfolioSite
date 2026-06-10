@@ -5,10 +5,10 @@ import { SectionHeader } from './ui/SectionHeader'
 import { PUBLICATIONS, PERSONAL } from '@/lib/data'
 
 const VENUE_COLORS: Record<string, string> = {
-  'Q1 Journal': '#F59E0B',
-  'Conference': '#818CF8',
-  'Workshop': '#34D399',
-  'Peer-Reviewed': '#38BDF8',
+  'Q1 Journal': 'var(--c-gold)',
+  'Conference': 'var(--c-indigo)',
+  'Workshop': 'var(--c-green)',
+  'Peer-Reviewed': 'var(--c-sky)',
 }
 
 function VenueBadge({ type }: { type: string }) {
@@ -17,8 +17,8 @@ function VenueBadge({ type }: { type: string }) {
     <span
       className="inline-flex items-center px-2 py-0.5 rounded-md text-xs font-mono font-medium"
       style={{
-        background: `${color}18`,
-        border: `1px solid ${color}40`,
+        background: `color-mix(in srgb, ${color} 10%, transparent)`,
+        border: `1px solid color-mix(in srgb, ${color} 28%, transparent)`,
         color,
       }}
     >
@@ -40,7 +40,7 @@ function PublicationCard({ pub, index }: { pub: typeof PUBLICATIONS[0]; index: n
         onMouseEnter={e => {
           const t = e.currentTarget
           t.style.borderColor = 'var(--border-strong)'
-          t.style.boxShadow = '0 4px 24px rgba(0,0,0,0.3)'
+          t.style.boxShadow = 'var(--shadow-card-hover)'
         }}
         onMouseLeave={e => {
           const t = e.currentTarget
@@ -64,9 +64,9 @@ function PublicationCard({ pub, index }: { pub: typeof PUBLICATIONS[0]; index: n
               <span
                 className="inline-flex items-center px-2 py-0.5 rounded-md text-xs font-mono font-medium"
                 style={{
-                  background: 'rgba(245, 158, 11, 0.1)',
-                  border: '1px solid rgba(245, 158, 11, 0.3)',
-                  color: '#F59E0B',
+                  background: 'color-mix(in srgb, var(--c-gold) 10%, transparent)',
+                  border: '1px solid color-mix(in srgb, var(--c-gold) 28%, transparent)',
+                  color: 'var(--c-gold)',
                 }}
               >
                 {pub.citations} citations

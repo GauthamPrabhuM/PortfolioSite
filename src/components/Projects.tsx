@@ -35,7 +35,7 @@ function ProjectCard({ project }: { project: Project }) {
       {/* Top accent bar */}
       <div
         className="h-0.5 w-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        style={{ background: 'linear-gradient(90deg, var(--accent) 0%, #818CF8 100%)' }}
+        style={{ background: 'linear-gradient(90deg, var(--accent) 0%, var(--accent-2) 100%)' }}
       />
 
       <div className="flex flex-col flex-1 p-6">

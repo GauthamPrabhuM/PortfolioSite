@@ -69,7 +69,7 @@ export function Contact() {
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-base font-semibold transition-all duration-200"
             style={{
               background: 'var(--accent)',
-              color: '#050D1C',
+              color: 'var(--accent-contrast)',
             }}
             whileHover={{ scale: 1.03, y: -2 }}
             whileTap={{ scale: 0.98 }}
@@ -96,7 +96,7 @@ export function Contact() {
                 onMouseEnter={e => {
                   const t = e.currentTarget
                   t.style.borderColor = 'var(--accent-border)'
-                  t.style.boxShadow = '0 4px 20px rgba(0,0,0,0.3)'
+                  t.style.boxShadow = 'var(--shadow-card-hover)'
                 }}
                 onMouseLeave={e => {
                   const t = e.currentTarget

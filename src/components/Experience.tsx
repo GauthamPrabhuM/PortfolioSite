@@ -41,7 +41,7 @@ function WorkCard({ exp, isLast }: { exp: typeof WORK_EXPERIENCE[0]; isLast: boo
           style={{
             background: 'var(--bg-surface)',
             border: exp.isCurrent ? '1px solid var(--accent-border)' : '1px solid var(--border)',
-            boxShadow: exp.isCurrent ? '0 0 0 1px var(--accent-border), 0 4px 24px rgba(0,0,0,0.3)' : 'none',
+            boxShadow: exp.isCurrent ? '0 0 0 1px var(--accent-border), var(--shadow-card-hover)' : 'var(--shadow-card)',
           }}
         >
           {/* Header */}
@@ -55,9 +55,9 @@ function WorkCard({ exp, isLast }: { exp: typeof WORK_EXPERIENCE[0]; isLast: boo
                   <span
                     className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-mono font-medium"
                     style={{
-                      background: 'rgba(52, 211, 153, 0.1)',
-                      border: '1px solid rgba(52, 211, 153, 0.3)',
-                      color: '#34D399',
+                      background: 'color-mix(in srgb, var(--c-green) 10%, transparent)',
+                      border: '1px solid color-mix(in srgb, var(--c-green) 30%, transparent)',
+                      color: 'var(--c-green)',
                     }}
                   >
                     <span className="w-1 h-1 rounded-full bg-emerald-400 animate-pulse" />

@@ -64,7 +64,7 @@ export function Navigation() {
         className="fixed top-0 left-0 h-[2px] z-[60] transition-all duration-100"
         style={{
           width: `${progress}%`,
-          background: 'linear-gradient(90deg, var(--accent) 0%, #818CF8 100%)',
+          background: 'linear-gradient(90deg, var(--accent) 0%, var(--accent-2) 100%)',
         }}
         aria-hidden="true"
       />
