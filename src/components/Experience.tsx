@@ -7,7 +7,7 @@ import { WORK_EXPERIENCE, RESEARCH_EXPERIENCE, EDUCATION } from '@/lib/data'
 type Tab = 'industry' | 'research' | 'education'
 
 function StackTag({ label }: { label: string }) {
-  return <span className="tag-base">{label}</span>
+  return <span className="chip-neutral">{label}</span>
 }
 
 function TimelineDot({ active }: { active: boolean }) {
@@ -37,12 +37,10 @@ function WorkCard({ exp, isLast }: { exp: typeof WORK_EXPERIENCE[0]; isLast: boo
 
         {/* Card */}
         <div
-          className="flex-1 mb-8 rounded-xl p-5 sm:p-6 transition-all duration-200 hover:border-[var(--border-strong)] hover:-translate-y-0.5"
-          style={{
-            background: 'var(--bg-surface)',
-            border: exp.isCurrent ? '1px solid var(--accent-border)' : '1px solid var(--border)',
-            boxShadow: exp.isCurrent ? '0 0 0 1px var(--accent-border), var(--shadow-card-hover)' : 'var(--shadow-card)',
-          }}
+          className={`flex-1 mb-8 rounded-2xl p-5 sm:p-6 transition-all duration-200 hover:-translate-y-0.5 ${
+            exp.isCurrent ? 'ring-gradient' : 'card-base'
+          }`}
+          style={exp.isCurrent ? { boxShadow: 'var(--shadow-card-hover)' } : undefined}
         >
           {/* Header */}
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
@@ -107,10 +105,7 @@ function ResearchCard({ exp, isLast }: { exp: typeof RESEARCH_EXPERIENCE[0]; isL
           {!isLast && <div className="w-px flex-1 mt-2" style={{ background: 'var(--border)' }} />}
         </div>
 
-        <div
-          className="flex-1 mb-8 rounded-xl p-5 sm:p-6 transition-all duration-200 hover:border-[var(--border-strong)] hover:-translate-y-0.5"
-          style={{ background: 'var(--bg-surface)', border: '1px solid var(--border)' }}
-        >
+        <div className="flex-1 mb-8 rounded-2xl p-5 sm:p-6 card-base hover:-translate-y-0.5">
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-2">
             <div>
               <h3 className="text-base font-display font-semibold mb-1" style={{ color: 'var(--text-1)' }}>

@@ -18,18 +18,15 @@ function AchievementGroup({ group }: { group: typeof ACHIEVEMENTS[0] }) {
   return (
     <FadeIn>
       <div
-        className="rounded-xl overflow-hidden"
-        style={{ border: '1px solid var(--border)' }}
+        className="rounded-2xl overflow-hidden"
+        style={{ border: '1px solid var(--border)', boxShadow: 'var(--shadow-card)' }}
       >
         {/* Category header */}
         <div
           className="flex items-center gap-3 px-5 py-4"
           style={{ background: 'var(--bg-elevated)', borderBottom: '1px solid var(--border)' }}
         >
-          <span
-            className="w-8 h-8 flex items-center justify-center rounded-lg shrink-0"
-            style={{ background: 'var(--accent-dim)', border: '1px solid var(--accent-border)', color: 'var(--accent)' }}
-          >
+          <span className="icon-tile w-8 h-8">
             <Icon size={15} />
           </span>
           <h3 className="text-sm font-display font-semibold" style={{ color: 'var(--text-1)' }}>

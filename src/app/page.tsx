@@ -11,6 +11,7 @@ import { Contact } from '@/components/Contact'
 export default function Page() {
   return (
     <>
+      <div className="aurora" aria-hidden="true" />
       <Navigation />
       <main>
         <Hero />

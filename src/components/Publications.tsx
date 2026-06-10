@@ -31,23 +31,7 @@ function PublicationCard({ pub, index }: { pub: typeof PUBLICATIONS[0]; index: n
   const num = String(index + 1).padStart(2, '0')
 
   return (
-    <div
-        className="group flex gap-5 p-5 sm:p-6 rounded-xl transition-all duration-200 hover:-translate-y-0.5"
-        style={{
-          background: 'var(--bg-surface)',
-          border: '1px solid var(--border)',
-        }}
-        onMouseEnter={e => {
-          const t = e.currentTarget
-          t.style.borderColor = 'var(--border-strong)'
-          t.style.boxShadow = 'var(--shadow-card-hover)'
-        }}
-        onMouseLeave={e => {
-          const t = e.currentTarget
-          t.style.borderColor = 'var(--border)'
-          t.style.boxShadow = 'none'
-        }}
-      >
+    <div className="group card-base flex gap-5 p-5 sm:p-6">
         {/* Number */}
         <span
           className="text-2xl font-display font-bold shrink-0 mt-0.5 select-none"

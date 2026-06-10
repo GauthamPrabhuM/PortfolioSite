@@ -1,9 +1,9 @@
 'use client'
 import type { IconType } from 'react-icons'
-import { motion } from 'framer-motion'
 import { FiGithub, FiExternalLink, FiBookOpen, FiTrendingUp } from 'react-icons/fi'
 import { FadeInStagger, FadeInItem } from './ui/FadeIn'
 import { SectionHeader } from './ui/SectionHeader'
+import { Spotlight } from './ui/Spotlight'
 import { PROJECTS, type Project } from '@/lib/data'
 
 function IconLink({ href, label, Icon }: { href: string; label: string; Icon: IconType }) {
@@ -13,7 +13,7 @@ function IconLink({ href, label, Icon }: { href: string; label: string; Icon: Ic
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className="w-8 h-8 flex items-center justify-center rounded-lg transition-all duration-150 hover:scale-110 hover:text-[var(--accent)] hover:border-[var(--accent-border)]"
+      className="w-9 h-9 flex items-center justify-center rounded-full transition-all duration-150 hover:scale-110 hover:text-[var(--accent)] hover:border-[var(--accent-border)]"
       style={{
         background: 'var(--bg-elevated)',
         border: '1px solid var(--border)',
@@ -27,24 +27,11 @@ function IconLink({ href, label, Icon }: { href: string; label: string; Icon: Ic
 
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <motion.div
-      whileHover={{ y: -4 }}
-      transition={{ duration: 0.2, ease: 'easeOut' }}
-      className="group relative flex flex-col rounded-xl overflow-hidden h-full card-base"
-    >
-      {/* Top accent bar */}
-      <div
-        className="h-0.5 w-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        style={{ background: 'linear-gradient(90deg, var(--accent) 0%, var(--accent-2) 100%)' }}
-      />
-
-      <div className="flex flex-col flex-1 p-6">
+    <Spotlight className="card-base group flex flex-col h-full overflow-hidden">
+      <div className="flex flex-col flex-1 p-7">
         {/* Number + links */}
-        <div className="flex items-center justify-between mb-4">
-          <span
-            className="font-mono text-3xl font-bold leading-none"
-            style={{ color: 'var(--accent)', opacity: 0.25 }}
-          >
+        <div className="flex items-center justify-between mb-5">
+          <span className="font-display text-4xl font-semibold leading-none text-gradient opacity-60">
             {project.num}
           </span>
           <div className="flex items-center gap-2">
@@ -55,35 +42,37 @@ function ProjectCard({ project }: { project: Project }) {
         </div>
 
         {/* Title + tagline */}
-        <h3 className="text-lg font-display font-bold mb-1" style={{ color: 'var(--text-1)' }}>
-          {project.title}
-        </h3>
+        <h3 className="text-xl font-display font-semibold mb-1">{project.title}</h3>
         <p className="text-xs font-mono mb-4" style={{ color: 'var(--text-3)' }}>
           {project.tagline}
         </p>
 
         {/* Description */}
-        <p className="text-sm leading-relaxed flex-1 mb-5" style={{ color: 'var(--text-2)' }}>
+        <p className="text-sm leading-relaxed flex-1 mb-6" style={{ color: 'var(--text-2)' }}>
           {project.description}
         </p>
 
         {/* Impact */}
         <div
-          className="flex items-center gap-2 text-xs font-mono font-medium mb-5 px-3 py-2 rounded-lg"
-          style={{ background: 'var(--accent-dim)', border: '1px solid var(--accent-border)', color: 'var(--accent)' }}
+          className="flex items-center gap-2 text-xs font-mono font-medium mb-5 px-3.5 py-2.5 rounded-xl"
+          style={{
+            background: 'var(--accent-dim)',
+            border: '1px solid var(--accent-border)',
+            color: 'var(--accent)',
+          }}
         >
           <FiTrendingUp size={13} className="shrink-0" />
           {project.impact}
         </div>
 
-        {/* Stack tags */}
+        {/* Stack */}
         <div className="flex flex-wrap gap-1.5 mt-auto">
           {project.stack.map(s => (
-            <span key={s} className="tag-base">{s}</span>
+            <span key={s} className="chip-neutral">{s}</span>
           ))}
         </div>
       </div>
-    </motion.div>
+    </Spotlight>
   )
 }
 

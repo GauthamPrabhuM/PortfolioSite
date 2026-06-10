@@ -88,7 +88,10 @@ export function Navigation() {
             >
               <div
                 className="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-mono font-bold shrink-0 transition-all duration-200 group-hover:scale-105"
-                style={{ background: 'var(--accent-dim)', border: '1px solid var(--accent-border)', color: 'var(--accent)' }}
+                style={{
+                  background: 'linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%)',
+                  color: 'var(--accent-contrast)',
+                }}
               >
                 GP
               </div>

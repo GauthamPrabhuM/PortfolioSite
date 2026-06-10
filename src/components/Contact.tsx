@@ -66,10 +66,11 @@ export function Contact() {
           {/* Primary CTA */}
           <motion.a
             href={`mailto:${PERSONAL.email}`}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-base font-semibold transition-all duration-200"
+            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-base font-semibold transition-all duration-200"
             style={{
-              background: 'var(--accent)',
+              background: 'linear-gradient(110deg, var(--accent) 0%, var(--accent-2) 100%)',
               color: 'var(--accent-contrast)',
+              boxShadow: '0 8px 28px -8px color-mix(in srgb, var(--accent) 55%, transparent)',
             }}
             whileHover={{ scale: 1.03, y: -2 }}
             whileTap={{ scale: 0.98 }}
@@ -88,25 +89,9 @@ export function Contact() {
                 href={href}
                 target={id === 'email' ? undefined : '_blank'}
                 rel="noopener noreferrer"
-                className="group flex items-center gap-4 px-5 py-4 rounded-xl transition-all duration-200 hover:-translate-y-0.5"
-                style={{
-                  background: 'var(--bg-surface)',
-                  border: '1px solid var(--border)',
-                }}
-                onMouseEnter={e => {
-                  const t = e.currentTarget
-                  t.style.borderColor = 'var(--accent-border)'
-                  t.style.boxShadow = 'var(--shadow-card-hover)'
-                }}
-                onMouseLeave={e => {
-                  const t = e.currentTarget
-                  t.style.borderColor = 'var(--border)'
-                  t.style.boxShadow = 'none'
-                }}
-              >
+                className="group card-base flex items-center gap-4 px-5 py-4 hover:-translate-y-0.5">
                 <div
-                  className="w-9 h-9 flex items-center justify-center rounded-lg shrink-0 transition-colors duration-150"
-                  style={{ background: 'var(--accent-dim)', border: '1px solid var(--accent-border)', color: 'var(--accent)' }}
+                  className="icon-tile w-9 h-9"
                 >
                   <Icon size={16} />
                 </div>
