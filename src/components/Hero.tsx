@@ -48,7 +48,8 @@ export function Hero() {
         className="mt-5 text-base sm:text-lg leading-relaxed max-w-xl"
         style={{ color: 'var(--text-2)' }}
       >
-        Agentic AI at Cisco. Temporal graph research at SJSU. Talk to the terminal below.
+        I build agentic AI at Cisco and research temporal graph nets at SJSU. This whole page is
+        keyboard-drivable — there&apos;s a real terminal right below if you&apos;d rather type than scroll.
       </motion.p>
 
       <motion.div

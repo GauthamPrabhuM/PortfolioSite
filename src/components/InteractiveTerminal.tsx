@@ -11,7 +11,15 @@ interface Line {
 const COMMANDS = [
   'help', 'whoami', 'about', 'experience', 'projects', 'skills',
   'papers', 'education', 'contact', 'resume', 'neofetch', 'theme',
-  'social', 'goto', 'clear', 'sudo',
+  'now', 'social', 'goto', 'clear', 'coffee', 'joke', 'sudo',
+]
+
+const JOKES = [
+  'there are 10 kinds of people: those who get binary and those who don’t.',
+  'it works on my machine ¯\\_(ツ)_/¯',
+  'i’d tell you a UDP joke, but you might not get it.',
+  'a SQL query walks into a bar, goes up to two tables and asks: can i join you?',
+  'why do programmers prefer dark mode? because light attracts bugs.',
 ]
 
 const P = (label: string) => (
@@ -40,10 +48,12 @@ export function InteractiveTerminal() {
   function banner(): ReactNode {
     return (
       <div style={{ color: 'var(--text-2)' }}>
-        <span style={{ color: 'var(--accent)' }}>gautham@portfolio</span>
-        <span style={{ color: 'var(--text-3)' }}> · interactive shell</span>
-        <div className="mt-1">
-          Type {P('help')} to see what I can do, or just poke around.
+        <div>hey — I&apos;m <span style={{ color: 'var(--accent)' }}>Gautham</span>. welcome to my little corner of the internet.</div>
+        <div className="mt-1" style={{ color: 'var(--text-3)' }}>
+          built this by hand, no template. type {P('help')} to look around, or {P('whoami')} if you&apos;re in a hurry.
+        </div>
+        <div className="mt-0.5" style={{ color: 'var(--text-3)' }}>
+          <span style={{ color: 'var(--text-2)' }}>↑</span> recalls history · <span style={{ color: 'var(--text-2)' }}>Tab</span> autocompletes
         </div>
       </div>
     )
@@ -76,10 +86,12 @@ export function InteractiveTerminal() {
                 ['education', 'degrees'],
                 ['contact', 'reach me'],
                 ['resume', 'view résumé'],
-                ['social', 'links'],
+                ['now', 'what I’m up to'],
                 ['neofetch', 'system info'],
                 ['theme <x>', 'recolor'],
                 ['goto <sec>', 'jump to section'],
+                ['coffee', '☕'],
+                ['joke', 'groan'],
                 ['clear', 'wipe screen'],
               ].map(([c, d]) => (
                 <div key={c}>{P(c)} <span style={{ color: 'var(--text-3)' }}>— {d}</span></div>
@@ -96,9 +108,9 @@ export function InteractiveTerminal() {
       case 'about':
         return (
           <span style={{ color: 'var(--text-2)' }}>
-            Intern → SE2 in 18 months on Cisco&apos;s AI Acceleration team, shipping agentic systems that
-            save ~5,000 engineer-hours a quarter. In parallel I research efficient temporal graph neural
-            networks at SJSU — 6 peer-reviewed papers across IEEE, Springer &amp; IOP.
+            I like building things people actually use. Joined Cisco as an intern, made SE2 in 18 months —
+            now I build agentic AI for the supply-chain org (it quietly saves a few thousand engineer-hours
+            a quarter). Nights: temporal-GNN research at SJSU, which is where most of my 6 papers came from.
           </span>
         )
       case 'experience':
@@ -209,8 +221,19 @@ export function InteractiveTerminal() {
         )
       case 'clear':
         return 'CLEAR'
+      case 'now':
+        return (
+          <span style={{ color: 'var(--text-2)' }}>
+            Shipping agentic AI at Cisco by day; chipping away at faster temporal-GNN training by night.
+            Always down to talk shop — see {P('contact')}.
+          </span>
+        )
+      case 'coffee':
+        return <span style={{ color: 'var(--text-2)' }}>☕ brewing… ok, refuelled. what were we building?</span>
+      case 'joke':
+        return <span style={{ color: 'var(--text-2)' }}>{JOKES[Math.floor(Math.random() * JOKES.length)]}</span>
       case 'sudo':
-        return <span style={{ color: 'var(--c-gold)' }}>nice try 😄 — this incident will be reported.</span>
+        return <span style={{ color: 'var(--c-gold)' }}>nice try 😄 — i don&apos;t even have root on my own life.</span>
       case 'ls':
         return <span style={{ color: 'var(--text-2)' }}>about  experience  projects  skills  publications  achievements  resume  contact</span>
       default:

@@ -8,7 +8,7 @@ export function Resume() {
     <Section id="resume" label="resume">
       <div className="flex items-center justify-between gap-4 -mt-1 mb-3">
         <p className="text-sm" style={{ color: 'var(--text-2)' }}>
-          The full thing, right here.
+          Prefer the formal version? Here&apos;s the PDF.
         </p>
         <div className="flex items-center gap-2 shrink-0">
           <a

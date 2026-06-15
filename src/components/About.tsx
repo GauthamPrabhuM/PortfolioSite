@@ -9,9 +9,12 @@ export function About() {
   return (
     <Section id="about" label="about">
       <p className="text-[0.95rem] sm:text-base leading-relaxed" style={{ color: 'var(--text-2)' }}>
-        Intern → <strong style={{ color: 'var(--text-1)', fontWeight: 600 }}>SE2 in 18 months</strong> at Cisco, shipping
-        agentic AI that saves <strong style={{ color: 'var(--text-1)', fontWeight: 600 }}>~5,000 eng-hours / quarter</strong>.
-        Researching temporal GNNs at SJSU. 6 peer-reviewed papers.
+        I like building things people actually use. Joined Cisco as an intern and made{' '}
+        <strong style={{ color: 'var(--text-1)', fontWeight: 600 }}>SE2 in 18 months</strong> — these days I build agentic
+        AI for the supply-chain org, the kind that quietly saves{' '}
+        <strong style={{ color: 'var(--text-1)', fontWeight: 600 }}>a few thousand engineer-hours a quarter</strong>. Nights
+        and weekends, I research temporal graph neural nets at SJSU — where most of my{' '}
+        <strong style={{ color: 'var(--text-1)', fontWeight: 600 }}>6 papers</strong> came from.
       </p>
 
       <div className="flex flex-wrap gap-2 mt-4">

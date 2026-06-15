@@ -17,7 +17,8 @@ export function Contact() {
   return (
     <Section id="contact" label="contact">
       <p className="text-base leading-relaxed -mt-1 mb-4 max-w-lg" style={{ color: 'var(--text-2)' }}>
-        Open to work on agentic AI &amp; graph ML. Email is fastest.
+        I&apos;m always up for a chat about agentic AI, graph ML, or whatever you&apos;re building.
+        Email&apos;s the fastest way to reach me — I actually read them.
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
         {CHANNELS.map(({ id, label, value, href, Icon }) => (
@@ -45,7 +46,7 @@ export function Contact() {
           © {new Date().getFullYear()} Gautham Manuru Prabhu · Bengaluru, India
         </p>
         <p className="text-xs font-mono" style={{ color: 'var(--text-3)' }}>
-          built with next.js · catppuccin
+          hand-built · next.js · catppuccin
         </p>
       </div>
     </Section>
