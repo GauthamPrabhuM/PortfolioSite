@@ -1,4 +1,5 @@
 import { Navigation } from '@/components/Navigation'
+import { SideRails } from '@/components/SideRails'
 import { Hero } from '@/components/Hero'
 import { InteractiveTerminal } from '@/components/InteractiveTerminal'
 import { About } from '@/components/About'
@@ -15,6 +16,7 @@ export default function Page() {
     <>
       <div className="aurora" aria-hidden="true" />
       <Navigation />
+      <SideRails />
       <main className="container-prose pb-16">
         <Hero />
         <div className="mt-6">
