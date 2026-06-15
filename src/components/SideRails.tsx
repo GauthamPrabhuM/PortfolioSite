@@ -1,15 +1,23 @@
 'use client'
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { FiStar, FiArrowUpRight } from 'react-icons/fi'
+import { FiStar, FiArrowUpRight, FiEye } from 'react-icons/fi'
 import { PERSONAL } from '@/lib/data'
 
 const GH_USER = 'GauthamPrabhuM'
 const CAREER_START = new Date('2024-01-15') // SE Intern @ Cisco
 
+// ── Now-playing (Last.fm) — fill both to enable; widget hides if blank ──
+const LASTFM = { user: '', apiKey: '' }
+
+// Abacus: free no-auth hit counter (abacus.jasoncameron.dev)
+const ABACUS = 'https://abacus.jasoncameron.dev/hit/gauthamprabhu-portfolio/visits'
+
 interface GhProfile { public_repos: number; followers: number }
 interface GhRepo { name: string; html_url: string; stargazers_count: number; fork: boolean }
 interface GhEvent { type: string; created_at: string; repo: { name: string } }
+interface Contrib { date: string; count: number; level: number }
+interface Track { artist: string; name: string; nowPlaying: boolean }
 
 function useClock() {
   const [now, setNow] = useState<Date | null>(null)
@@ -50,13 +58,19 @@ function timeAgo(iso: string): string {
   return `${Math.floor(s / 86400)}d ago`
 }
 
+const LEVEL_MIX = [0, 30, 50, 72, 100] // % of green per contribution level
+function cellColor(level: number) {
+  if (level <= 0) return 'var(--bg-elevated)'
+  return `color-mix(in srgb, var(--c-green) ${LEVEL_MIX[level] ?? 100}%, transparent)`
+}
+
 function Rail({ side, children, delay }: { side: 'left' | 'right'; children: React.ReactNode; delay: number }) {
   return (
     <motion.aside
       initial={{ opacity: 0, x: side === 'left' ? -12 : 12 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] }}
-      className={`hidden xl:flex fixed top-1/2 -translate-y-1/2 z-30 w-[210px] max-h-[88vh] overflow-y-auto flex-col ${side === 'left' ? 'left-6' : 'right-6'}`}
+      className={`hidden xl:flex fixed top-1/2 -translate-y-1/2 z-30 w-[210px] max-h-[90vh] overflow-y-auto flex-col ${side === 'left' ? 'left-6' : 'right-6'}`}
       style={{
         paddingLeft: side === 'left' ? '0.9rem' : 0,
         paddingRight: side === 'right' ? '0.9rem' : 0,
@@ -79,6 +93,9 @@ export function SideRails() {
   const [lastPush, setLastPush] = useState<{ repo: string; ago: string } | null>(null)
   const [ghFailed, setGhFailed] = useState(false)
   const [weather, setWeather] = useState<{ temp: number; code: number } | null>(null)
+  const [contribs, setContribs] = useState<Contrib[] | null>(null)
+  const [visits, setVisits] = useState<number | null>(null)
+  const [track, setTrack] = useState<Track | null>(null)
 
   useEffect(() => {
     const ac = new AbortController()
@@ -101,15 +118,37 @@ export function SideRails() {
       .then((d: any) => setWeather({ temp: Math.round(d.current_weather.temperature), code: d.current_weather.weathercode }))
       .catch(() => {})
 
+    // Live contribution graph (no auth)
+    j(`https://github-contributions-api.jogruber.de/v4/${GH_USER}?y=last`)
+      .then((d: any) => setContribs(d.contributions?.slice(-91) ?? null))
+      .catch(() => {})
+
+    // Visitor counter (Abacus — no auth)
+    j(ABACUS).then((d: any) => setVisits(d.value)).catch(() => {})
+
+    // Now playing (Last.fm) — only if configured
+    if (LASTFM.user && LASTFM.apiKey) {
+      j(`https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${LASTFM.user}&api_key=${LASTFM.apiKey}&format=json&limit=1`)
+        .then((d: any) => {
+          const t = d.recenttracks?.track?.[0]
+          if (t) setTrack({ artist: t.artist['#text'], name: t.name, nowPlaying: t['@attr']?.nowplaying === 'true' })
+        })
+        .catch(() => {})
+    }
+
     return () => ac.abort()
   }, [])
 
   const time = now ? now.toLocaleTimeString('en-GB', { timeZone: 'Asia/Kolkata', hour12: false }) : '--:--:--'
   const wx = weather ? weatherLabel(weather.code) : null
 
+  // group contributions into week-columns of 7
+  const weeks: Contrib[][] = []
+  if (contribs) for (let i = 0; i < contribs.length; i += 7) weeks.push(contribs.slice(i, i + 7))
+
   return (
     <>
-      {/* ── Left: live status + environment ── */}
+      {/* ── Left: status, environment, music, visitors ── */}
       <Rail side="left" delay={0.6}>
         <p className="text-[0.65rem] font-mono mb-2" style={{ color: 'var(--text-3)' }}>// status</p>
         <div className="flex items-center gap-2 mb-3">
@@ -130,9 +169,31 @@ export function SideRails() {
           <div>session <span style={{ color: 'var(--accent-2)' }} className="tabular-nums">{fmtSession(session)}</span></div>
           <div>stack <span style={{ color: 'var(--accent-2)' }}>python · ts</span></div>
         </div>
+
+        {track && (
+          <>
+            <Divider />
+            <p className="text-[0.65rem] font-mono mb-1.5 flex items-center gap-2" style={{ color: 'var(--text-3)' }}>
+              {track.nowPlaying
+                ? <><span className="eq"><span /><span /><span /><span /></span> now playing</>
+                : <>♪ last played</>}
+            </p>
+            <p className="text-[0.72rem] font-mono truncate" style={{ color: 'var(--text-1)' }}>{track.name}</p>
+            <p className="text-[0.68rem] font-mono truncate" style={{ color: 'var(--text-3)' }}>{track.artist}</p>
+          </>
+        )}
+
+        {visits != null && (
+          <>
+            <Divider />
+            <p className="text-[0.7rem] font-mono flex items-center gap-1.5" style={{ color: 'var(--text-3)' }}>
+              <FiEye size={11} /> <span style={{ color: 'var(--accent)' }} className="tabular-nums">{visits.toLocaleString()}</span> visits
+            </p>
+          </>
+        )}
       </Rail>
 
-      {/* ── Right: live GitHub ── */}
+      {/* ── Right: live GitHub + contribution graph ── */}
       <Rail side="right" delay={0.7}>
         <a href={PERSONAL.github} target="_blank" rel="noreferrer"
           className="text-[0.65rem] font-mono mb-2 inline-flex items-center gap-1 justify-end hover:text-[var(--accent)] transition-colors"
@@ -146,6 +207,23 @@ export function SideRails() {
             <div><span style={{ color: 'var(--accent)' }} className="tabular-nums">{profile.public_repos}</span> <span style={{ color: 'var(--text-3)' }}>repos</span></div>
             <div><span style={{ color: 'var(--accent)' }} className="tabular-nums">{profile.followers}</span> <span style={{ color: 'var(--text-3)' }}>followers</span></div>
           </div>
+        )}
+
+        {weeks.length > 0 && (
+          <>
+            <Divider />
+            <p className="text-[0.65rem] font-mono mb-1.5" style={{ color: 'var(--text-3)' }}>contributions</p>
+            <div className="flex gap-[2px] justify-end" aria-label="GitHub contributions, last 13 weeks">
+              {weeks.map((wk, i) => (
+                <div key={i} className="flex flex-col gap-[2px]">
+                  {wk.map(d => (
+                    <span key={d.date} title={`${d.date}: ${d.count}`}
+                      style={{ width: 8, height: 8, borderRadius: 2, background: cellColor(d.level) }} />
+                  ))}
+                </div>
+              ))}
+            </div>
+          </>
         )}
 
         {repos && repos.length > 0 && (
