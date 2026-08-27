@@ -1,33 +1,29 @@
-import { Navigation } from '@/components/Navigation'
+import { Masthead } from '@/components/Masthead'
 import { Hero } from '@/components/Hero'
-import { InteractiveTerminal } from '@/components/InteractiveTerminal'
-import { About } from '@/components/About'
 import { Experience } from '@/components/Experience'
-import { Projects } from '@/components/Projects'
+import { Research } from '@/components/Research'
 import { Publications } from '@/components/Publications'
-import { Skills } from '@/components/Skills'
-import { Achievements } from '@/components/Achievements'
-import { Contact } from '@/components/Contact'
+import { Education } from '@/components/Education'
+import { Stack } from '@/components/Stack'
+import { Colophon } from '@/components/Colophon'
 
+/*
+  One ground, one column of type, six numbered sections.
+  No aurora, no side rails, no terminal, no theme fork.
+*/
 export default function Page() {
   return (
     <>
-      <div className="grid-bg" aria-hidden="true" />
-      <div className="aurora" aria-hidden="true" />
-      <Navigation />
-      <main className="container-prose pb-20">
+      <Masthead />
+      <main className="wrap">
         <Hero />
-        <div className="mt-9">
-          <InteractiveTerminal />
-        </div>
-        <About />
         <Experience />
-        <Projects />
+        <Research />
         <Publications />
-        <Skills />
-        <Achievements />
-        <Contact />
+        <Education />
+        <Stack />
       </main>
+      <Colophon />
     </>
   )
 }

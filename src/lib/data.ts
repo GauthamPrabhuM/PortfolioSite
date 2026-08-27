@@ -14,12 +14,30 @@ export const PERSONAL = {
   photo: '/assets/me.png',
 }
 
-// ── Hero stats ────────────────────────────────────────────────
+export const NAV_ITEMS = [
+  { id: 'experience', label: 'Experience' },
+  { id: 'research', label: 'Research' },
+  { id: 'publications', label: 'Publications' },
+  { id: 'education', label: 'Education' },
+  { id: 'stack', label: 'Stack' },
+  { id: 'contact', label: 'Contact' },
+]
+
+// ── Hero ──────────────────────────────────────────────────────
+export const HERO = {
+  standfirst:
+    'Agentic AI in production at Cisco. Temporal graph learning in the lab at San José State. The same problem in two denominations.',
+  columns: [
+    "I work on Cisco's AI Acceleration team, inside Supply Chain Operations. I own retrieval quality, evaluation and guardrails for LLM-backed agents that now close 35% of incoming support cases with no human in the loop, and brought mean time to resolution down by 40%. I joined as an intern in January 2024 and was promoted twice in the 18 months that followed. Most of the work is unglamorous: tracing why a retrieval step returned the wrong document.",
+    'Alongside the job I work with Dr. Saptarishi Sengupta at MiCoSys Lab, San José State University, on training Temporal Graph Neural Networks under a fixed compute budget. The budget here is not a metaphor. Six of my papers are peer reviewed, across quantum machine learning, retinal imaging and NLP. My grasp of distributed systems theory is self-taught and uneven, which is part of why I am talking to doctoral programmes.',
+  ],
+}
+
 export const STATS = [
-  { value: '2×', label: 'promotions\nin 18 months' },
-  { value: '6', label: 'peer-reviewed\npapers' },
-  { value: '50+', label: 'citations\non Scholar' },
-  { value: '5k', label: 'engineer-hours\nsaved / quarter' },
+  { value: '2×', label: 'Promotions in 18 months' },
+  { value: '6', label: 'Papers, peer reviewed' },
+  { value: '40%', label: 'Off mean time to resolution' },
+  { value: '10,000', label: 'Engineer-hours back each quarter' },
 ]
 
 // ── Professional experience ───────────────────────────────────
@@ -29,201 +47,98 @@ export const WORK_EXPERIENCE = [
     title: 'Software Engineer 2, AI Acceleration',
     company: 'Cisco Systems Inc.',
     location: 'Bengaluru, India',
-    period: 'Aug 2025 – Present',
+    from: 'Aug 2025 –',
+    to: 'Present',
     isCurrent: true,
     highlights: [
-      'Ship agentic AI for case resolution and knowledge retrieval: 20% of cases resolved autonomously, case volume down 35%, MTTR down 40%.',
-      'Systems save ~5,000 engineer-hours per quarter across global supply chain operations.',
-      'Built failure-analysis and predictive-maintenance agents for the Quality Transformation Program.',
-      'Own the LLM research-to-production pipeline end to end: retrieval quality, evaluation, guardrails.',
+      'Four agents run in production today: service-request resolution, knowledge-base indexing, case follow-up, and proactive alerting. Between them they close 35% of incoming cases with no human in the loop, took 40% off mean time to resolution, and return roughly 10,000 engineer-hours a quarter to the supply chain organisation.',
+      'Under the Quality Transformation Program I built failure-analysis and predictive-maintenance agents for the manufacturing side. They root-caused 70% of failures that previously went undiagnosed, improved upstream defect detection and brought down repeat failure rates across global sites, which matters more than the case numbers do, because a defect caught upstream never becomes a case.',
+      'I also found coverage gaps in Paladin edge connectors across 10 production lines, and wired SplunkAI observability into legacy systems that had none. I now own the research-to-production path for these agents end to end: retrieval quality, evaluation, guardrails. Retrieval is the part that decides whether anyone trusts the agent.',
     ],
-    stack: ['Python', 'FastAPI', 'LangChain', 'LangGraph', 'LangSmith', 'RAG', 'OpenShift', 'ArgoCD', 'Snowflake', 'Docker', 'Kubernetes'],
+    stack: ['Python', 'FastAPI', 'Agentic AI', 'LLMs', 'RAG', 'LangChain', 'LangGraph', 'LangSmith', 'SplunkAI', 'Docker', 'Kubernetes', 'OpenShift', 'ArgoCD', 'PostgreSQL', 'Snowflake'],
   },
   {
     id: 2,
-    title: 'Software Engineer 1, Supply Chain Ops',
+    title: 'Software Engineer 1, Supply Chain Operations',
     company: 'Cisco Systems Inc.',
     location: 'Bengaluru, India',
-    period: 'Aug 2024 – Aug 2025',
+    from: 'Aug 2024 –',
+    to: 'Aug 2025',
     isCurrent: false,
     highlights: [
-      'Promoted to SE2 within 12 months.',
-      'Re-architected legacy failure analysis into event-driven microservices on Kubernetes.',
-      'Built ML anomaly detection over manufacturing telemetry, with SLA dashboards and alerting.',
-      'Hardened the ingestion and serving layer the current agentic systems run on.',
+      'Promoted from SE1 to SE2 in 12 months, the second promotion on the same team inside 18.',
+      'The year was a rewrite. Legacy failure-analysis workflows became event-driven microservices on Kubernetes, built with FastAPI, Cassandra and Redis. I added anomaly detection over manufacturing telemetry, and SLA dashboards in Prometheus and Grafana so that an on-call engineer saw a breach before the customer did.',
+      'None of the agents above would run without this layer. It is the least visible thing I have shipped.',
     ],
-    stack: ['FastAPI', 'Cassandra', 'Redis', 'Kubernetes', 'Prometheus', 'Grafana', 'Python'],
+    stack: ['FastAPI', 'Cassandra', 'Redis', 'Kubernetes', 'Prometheus', 'Grafana', 'Python', 'Microservices'],
   },
   {
     id: 3,
-    title: 'SE Intern, Supply Chain Organisation',
+    title: 'Software Engineering Intern, Supply Chain',
     company: 'Cisco Systems Inc.',
     location: 'Bengaluru, India',
-    period: 'Jan 2024 – Aug 2024',
+    from: 'Jan 2024 –',
+    to: 'Aug 2024',
     isCurrent: false,
     highlights: [
-      'Converted to full-time SE1 in 6 months.',
-      'Cut deployment time 99.45% (6 hours → 2 minutes) with Jenkins, Docker, and Kubernetes CI/CD.',
-      '2nd Runner-Up, Cisco Intern Case Study, for an NLP supplier-name standardisation across 50,000+ records.',
+      'I converted from intern to SE1 in six months. The work was ordinary and useful: microservices with circuit breakers and retry logic, and a release pipeline automated with Jenkins, Docker and Kubernetes that took deployments from six hours to two minutes.',
+      "For Cisco's intern case study competition I built an NLP pipeline that standardised supplier names across 50,000 records, and it placed third of more than 100 entries. The model was the easy half. Agreeing on what counted as the same supplier took longer.",
     ],
-    stack: ['Python', 'Flask', 'Jenkins', 'Docker', 'Kubernetes', 'REST APIs', 'NLP'],
+    stack: ['Python', 'Flask', 'Jenkins', 'Docker', 'Kubernetes', 'REST', 'OpenAPI', 'NLP'],
   },
 ]
 
-// ── Research experience ───────────────────────────────────────
+// ── Research appointments ─────────────────────────────────────
 export const RESEARCH_EXPERIENCE = [
   {
     id: 1,
     title: 'Research Associate, MiCoSys Lab',
-    institution: 'San Jose State University',
+    institution: 'San José State University',
     location: 'Remote',
     period: '2025 – Present',
-    advisor: 'Dr. Saptarishi Sengupta',
-    isCurrent: true,
-    highlights: [
-      'Efficient training of Temporal Graph Neural Networks over dynamic graphs with millions of edges.',
-      'Memory- and compute-optimised TGNN architectures that cut training time at scale.',
-    ],
-    stack: ['PyTorch Geometric', 'DGL', 'CUDA', 'Distributed Training'],
+    advisor: 'Advisor: Dr. Saptarishi Sengupta',
+    summary:
+      'The problem is adaptation: models are trained once on a snapshot, and real graphs keep moving. I work on training Temporal Graph Neural Networks over dynamic graphs with millions of edges, under a fixed memory and compute budget, using PyTorch Geometric, DGL and CUDA across several GPUs. So far most of what I have learned is where the obvious approaches break.',
   },
   {
     id: 2,
     title: 'Deep Learning Research Intern, Medical Informatics Lab',
-    institution: 'IIT Kharagpur',
+    institution: 'Indian Institute of Technology, Kharagpur',
     location: 'Remote',
-    period: 'Jun 2023 – Aug 2023',
-    advisor: 'Dr. Subhamoy Mandal, Ms. Pragya Gupta',
-    isCurrent: false,
-    highlights: [
-      'Ensemble feature-fusion for anomaly detection in OCT retinal scans.',
-      'Contributed to a 3,000+ image annotated dataset; presented at the IIT KGP Digital Health Symposium.',
-    ],
-    stack: ['PyTorch', 'OpenCV', 'scikit-learn'],
+    period: 'Jun – Aug 2023',
+    advisor: 'Advisors: Dr. Subhamoy Mandal, Ms. Pragya Gupta',
+    summary:
+      'Optical coherence tomography scans are noisy and the classes are badly unbalanced. I proposed an ensemble feature-fusion approach for anomaly detection, tuning preprocessing, augmentation and colour-space features against a multi-class benchmark, and contributed to a set of 3,000 annotated retinal scans. Careful preprocessing bought more accuracy than a bigger model did.',
   },
   {
     id: 3,
-    title: 'Undergraduate Researcher, Quantum Computing Group',
-    institution: 'MIT Manipal',
+    title: 'Undergraduate Researcher, Cybersecurity & Quantum Computing',
+    institution: 'Manipal Institute of Technology',
     location: 'Manipal, India',
     period: 'Feb 2022 – Nov 2023',
-    advisor: 'Dr. Vivekananda Bhat',
-    isCurrent: false,
-    highlights: [
-      'Quantum ML models for cardiovascular disease detection at 97% accuracy, 10–14% above classical baselines.',
-      'Funded by MeitY (Govt. of India) and AWS; published in IEEE Access (Q1).',
-    ],
-    stack: ['Qiskit', 'Python', 'Quantum ML'],
+    advisor: 'Mentor: Dr. Vivekananda Bhat',
+    summary:
+      'We tested whether quantum models could beat classical baselines at detecting cardiovascular disease from ECG images. QSVC, Pegasos QSVC and a quanvolutional neural network reached 97% accuracy, 10 to 14 points above the classical baselines we trained ourselves. The work was funded by a MeitY and AWS grant, and took us to the top 16 of 1,600 teams at the QETCI hackathon. Whether that margin survives on another dataset is still open.',
   },
   {
     id: 4,
-    title: 'Undergraduate Researcher, Biometrics & Software Engineering',
-    institution: 'MIT Manipal',
+    title: 'Research Assistant, Biometrics & Software Engineering',
+    institution: 'Manipal Institute of Technology',
     location: 'Manipal, India',
     period: 'Jul 2022 – Oct 2023',
-    advisor: 'Dr. Srikanth Prabhu, Mr. Govardhan Hegde',
-    isCurrent: false,
-    highlights: [
-      'Deep learning pipelines for retinal vessel segmentation across 3,000+ fundus images.',
-      'AES-256 secured biomedical imaging deployed with Kasturba Medical College.',
-    ],
-    stack: ['PyTorch', 'OpenCV', 'Cryptography'],
-  },
-]
-
-// ── Projects ──────────────────────────────────────────────────
-export interface Project {
-  id: number
-  num: string
-  title: string
-  tagline: string
-  description: string
-  impact: string
-  stack: string[]
-  github?: string
-  live?: string
-  paper?: string
-}
-
-export const PROJECTS: Project[] = [
-  {
-    id: 1,
-    num: '01',
-    title: 'SplitSense',
-    tagline: 'Analytics layer for Splitwise',
-    description:
-      'Full-stack platform adding the analytics Splitwise lacks: OAuth 2.0, real-time dashboards, balance forecasting, anomaly detection, and PDF reports.',
-    impact: 'Live in production',
-    stack: ['FastAPI', 'Next.js', 'TypeScript', 'PostgreSQL', 'OAuth 2.0'],
-    github: 'https://github.com/GauthamPrabhuM/SplitSense',
-    live: 'https://splitsense.onrender.com',
-  },
-  {
-    id: 2,
-    num: '02',
-    title: 'QuCardio',
-    tagline: 'Quantum ML for cardiology',
-    description:
-      'QSVC, Pegasos QSVC, and quanvolutional QNNs for cardiovascular disease detection from ECG data, hitting 97% accuracy, 10–14% above classical baselines.',
-    impact: 'IEEE Access (Q1) · 50+ citations · MeitY + AWS funded',
-    stack: ['Qiskit', 'Python', 'Quantum ML', 'scikit-learn'],
-    github: 'https://github.com/GauthamPrabhuM/Quantum-Ecosystem-for-Efficient-Detection-of-Cardiovascular-Diseases',
-    paper: 'https://ieeexplore.ieee.org/document/10335179',
-  },
-  {
-    id: 3,
-    num: '03',
-    title: 'VIKAS',
-    tagline: 'Multimodal disaster response',
-    description:
-      'Real-time platform connecting NDRF responders with disaster victims, using NLP triage, computer vision, and live geolocation. Led a team of six.',
-    impact: 'Smart India Hackathon Grand Finalist · Springer CCIS',
-    stack: ['React', 'Node.js', 'WebSocket', 'NLP', 'Computer Vision'],
-    github: 'https://github.com/GauthamPrabhuM/SIH2K22',
-    live: 'https://vikas-066f8f.webflow.io/',
-  },
-  {
-    id: 4,
-    num: '04',
-    title: 'SatelTensor',
-    tagline: 'Tensor methods for satellite data',
-    description:
-      'Tucker and CP tensor decomposition over satellite image stacks, for dimensionality reduction that preserves spatio-temporal structure.',
-    impact: 'TCML Workshop, IISc Bengaluru 2023',
-    stack: ['Python', 'NumPy', 'TensorLy'],
-  },
-]
-
-// ── Skills ────────────────────────────────────────────────────
-export const SKILLS = [
-  {
-    id: 1,
-    category: 'AI / ML',
-    icon: 'Brain',
-    items: ['Agentic AI', 'LLMs', 'RAG', 'LangChain', 'LangGraph', 'LangSmith', 'PyTorch', 'PyTorch Geometric', 'DGL', 'Scikit-learn', 'TensorFlow', 'Qiskit', 'NLP', 'Computer Vision', 'GraphML'],
-  },
-  {
-    id: 2,
-    category: 'Languages',
-    icon: 'Code',
-    items: ['Python', 'C++', 'C', 'Java', 'JavaScript', 'TypeScript'],
-  },
-  {
-    id: 3,
-    category: 'Backend & APIs',
-    icon: 'Server',
-    items: ['FastAPI', 'Flask', 'Django', 'REST APIs', 'gRPC', 'Microservices', 'Celery'],
-  },
-  {
-    id: 4,
-    category: 'Data & Storage',
-    icon: 'Database',
-    items: ['PostgreSQL', 'Snowflake', 'MySQL', 'MongoDB', 'Cassandra', 'Redis', 'Hadoop', 'Spark'],
+    advisor: 'Mentors: Dr. Srikanth Prabhu, Mr. Govardhan Hegde',
+    summary:
+      "Retinal vessel segmentation across 3,000 fundus images, combining CLAHE, Gaussian blur and edge detection. Because the images left Kasturba Medical College's network, we also had to encrypt them properly, so the pipeline carries Diffie–Hellman key exchange and AES-256. Published in Springer LNCS and presented at ATIS. Working next to clinicians changed what I counted as a good result.",
   },
   {
     id: 5,
-    category: 'DevOps & Cloud',
-    icon: 'Cloud',
-    items: ['Docker', 'Kubernetes', 'OpenShift', 'ArgoCD', 'Jenkins', 'GitHub Actions', 'SplunkAI', 'AWS', 'Azure', 'Prometheus', 'Grafana'],
+    title: 'Undergraduate Researcher, NLP & Social Graph Analysis',
+    institution: 'Manipal Institute of Technology',
+    location: 'Manipal, India',
+    period: 'Sep 2022 – Jul 2023',
+    advisor: 'Mentor: Dr. Nisha P. Shetty',
+    summary:
+      'We modelled how vaccine misinformation travels, running BERT and XLNet over a corpus of 10,000 posts alongside a graph model of who repeats whom. Classification passed 90% F1 on the benchmark. The user-association signal did more work than the language model did, which was not what we expected going in.',
   },
 ]
 
@@ -231,126 +146,165 @@ export const SKILLS = [
 export const PUBLICATIONS = [
   {
     id: 1,
-    venue: 'IEEE Access (Q1)',
-    venueType: 'Q1 Journal',
-    title: 'QuCardio: Application of Quantum Machine Learning for Detection of Cardiovascular Diseases',
-    authors: 'S. Prabhu, S. Gupta, G. M. Prabhu, A. V. Dhanuka, K. V. Bhat',
-    ref: 'IEEE Access, vol. 11, pp. 136122–136135, 2023',
-    citations: '50+',
+    num: '01',
+    mark: 'Q1 · IEEE Access',
+    quiet: null,
+    citations: '60+ citations',
+    title:
+      'QuCardio: Application of Quantum Machine Learning for Detection of Cardiovascular Diseases',
+    authorsBefore: 'S. Prabhu, S. Gupta, ',
+    authorsAfter: ', A. V. Dhanuka, K. V. Bhat',
+    venue: 'IEEE Access',
+    ref: ', vol. 11, pp. 136122–136135, 2023',
     doi: '10.1109/ACCESS.2023.3338145',
     link: 'https://ieeexplore.ieee.org/document/10335179',
   },
   {
     id: 2,
-    venue: 'Procedia Computer Science',
-    venueType: 'Conference',
-    title: 'Addressing Vaccine Misinformation on Social Media by Leveraging Transformers and User Association Dynamics',
-    authors: 'Rao, C., Prabhu, G.M., Kumar, A.R., Gupta, S., Shetty, N.P.',
-    ref: 'Procedia CS, vol. 235, pp. 1803–1813, 2024 (ICMLDE 2023)',
+    num: '02',
+    mark: null,
+    quiet: 'Journal · Elsevier',
     citations: null,
+    title:
+      'Addressing Vaccine Misinformation on Social Media by Leveraging Transformers and User Association Dynamics',
+    authorsBefore: 'C. Rao, ',
+    authorsAfter: ', A. R. Kumar, S. Gupta, N. P. Shetty',
+    venue: 'Procedia Computer Science',
+    ref: ' (ICMLDE 2023), vol. 235, pp. 1803–1813, 2024',
     doi: '10.1016/j.procs.2024.04.171',
     link: 'https://www.sciencedirect.com/science/article/pii/S1877050924008470',
   },
   {
     id: 3,
-    venue: 'Springer CCIS',
-    venueType: 'Conference',
-    title: 'VIKAS: A Multimodal Framework to Aid in Effective Disaster Management',
-    authors: 'Prabhu, G.M., Gupta, T., Srujan, M.V., Soumya, A.R., Palorkar, A., Chowdhury, A.',
-    ref: 'ATIS 2022, Springer CCIS, vol. 1804, 2023',
+    num: '03',
+    mark: null,
+    quiet: 'Springer CCIS',
     citations: null,
+    title: 'VIKAS: A Multimodal Framework to Aid in Effective Disaster Management',
+    authorsBefore: '',
+    authorsAfter: ', T. Gupta, M. V. Srujan, A. R. Soumya, A. Palorkar, A. Chowdhury',
+    venue: 'ATIS 2022',
+    ref: ', Springer CCIS, vol. 1804, 2023',
     doi: '10.1007/978-981-99-2264-2_22',
     link: 'https://link.springer.com/chapter/10.1007/978-981-99-2264-2_22',
   },
   {
     id: 4,
-    venue: 'Springer CCIS',
-    venueType: 'Conference',
-    title: 'EyeEncrypt: A Cyber-Secured Framework for Retinal Image Segmentation',
-    authors: 'Hegde, G., Gupta, S., Prabhu, G.M., Bhandary, S.V.',
-    ref: 'ATIS 2022, Springer CCIS, vol. 1804, 2023',
+    num: '04',
+    mark: null,
+    quiet: 'Springer CCIS',
     citations: null,
+    title: 'EyeEncrypt: A Cyber-Secured Framework for Retinal Image Segmentation',
+    authorsBefore: 'G. Hegde, S. Gupta, ',
+    authorsAfter: ', S. V. Bhandary',
+    venue: 'ATIS 2022',
+    ref: ', Springer CCIS, vol. 1804, 2023',
     doi: '10.1007/978-981-99-2264-2_9',
     link: 'https://link.springer.com/chapter/10.1007/978-981-99-2264-2_9',
   },
   {
     id: 5,
-    venue: 'IOP J. Physics: Conference Series',
-    venueType: 'Peer-Reviewed',
-    title: 'A Systematic Review of Deep Learning Approaches for Vessel Segmentation in Retinal Fundus Images',
-    authors: 'Hegde, G., Prabhu, S., Gupta, S., Prabhu, G.M., et al.',
-    ref: 'IOP J. Physics: Conf. Ser., vol. 2571, pp. 012021, 2023',
+    num: '05',
+    mark: null,
+    quiet: 'IOP Journal',
     citations: null,
+    title:
+      'A Systematic Review of Deep Learning Approaches for Vessel Segmentation in Retinal Fundus Images',
+    authorsBefore: 'G. Hegde, S. Prabhu, S. Gupta, ',
+    authorsAfter: ', A. Palorkar, M. V. Srujan, S. V. Bhandary',
+    venue: 'Journal of Physics: Conference Series',
+    ref: ', vol. 2571, p. 012021, 2023',
     doi: '10.1088/1742-6596/2571/1/012021',
     link: 'https://iopscience.iop.org/article/10.1088/1742-6596/2571/1/012021',
   },
   {
     id: 6,
-    venue: 'TCML Workshop, IISc',
-    venueType: 'Workshop',
-    title: 'SatelTensor: Satellite Data Exploration via Tensor Decomposition',
-    authors: 'Prabhu, G.M., Gupta, S.',
-    ref: 'Tensor Computation & ML Workshop, IISc Bengaluru, 2023',
+    num: '06',
+    mark: null,
+    quiet: 'Workshop · IISc',
     citations: null,
+    title: 'SatelTensor: Satellite Data Exploration via Tensor Decomposition',
+    authorsBefore: '',
+    authorsAfter: ', S. Gupta',
+    venue: 'TCML Workshop',
+    ref: ', Indian Institute of Science, Bengaluru, 2023',
     doi: null,
     link: null,
   },
 ]
 
-// ── Achievements ──────────────────────────────────────────────
-export const ACHIEVEMENTS = [
-  {
-    category: 'Awards & Recognition',
-    items: [
-      { title: '2nd Runner-Up, Cisco Intern Case Study Competition', detail: 'NLP-based Supplier Name Standardisation pipeline across 50,000+ records. 100+ entries.', year: '2024' },
-      { title: 'Thayil Lonappan George Memorial Endowment Award', detail: '3rd rank in All India Senior School Certificate Examination (AISSCE) 2020.', year: '2020' },
-      { title: 'Mr. G. Chenthamarakshan Endowment Award', detail: 'Best Project in Computer Science.', year: '2020' },
-      { title: 'NTSE State Scholar', detail: 'National Talent Search Examination. Rank 21 out of 151,000+ participants.', year: '2018' },
-    ],
-  },
-  {
-    category: 'Hackathons & Competitions',
-    items: [
-      { title: 'Grand Finalist, Global Quantum Science & Technology Hackathon', detail: 'Top 16 teams from 1,600+ entries across 25+ countries, in the quantum ML track.', year: '2022' },
-      { title: 'Grand Finalist, Smart India Hackathon', detail: 'Led a team of 6 to build VIKAS, a multimodal disaster-response platform. Top team from 1,000+ national entries.', year: '2022' },
-    ],
-  },
-  {
-    category: 'Leadership',
-    items: [
-      { title: 'Co-founder & Technical Head, Project Kalpana', detail: 'Secured $13,000 grant; led 8-person team building an affordable radio-astronomy platform for undergraduates.', year: '2022–23' },
-      { title: 'General Secretary & Treasurer, ACM Student Chapter, Manipal', detail: 'Organised 12+ workshops and hackathons; grew chapter participation by 35%.', year: '2022–23' },
-      { title: 'Technical Head, Astronomy Club of Manipal', detail: 'Led 5+ technical projects; ran outreach sessions reaching 200+ students.', year: '2021–23' },
-    ],
-  },
-  {
-    category: 'Schools & Programmes',
-    items: [
-      { title: 'ACM Winter School on Optimization for ML & OR', detail: 'Selected participant at IIT Goa.', year: '2023' },
-      { title: 'Summer School on Dynamic Resource Allocation', detail: 'Center for Networked Intelligence, IISc Bengaluru.', year: '2023' },
-      { title: 'Digital Health Symposium', detail: 'Selected presentation at IIT Kharagpur.', year: '2023' },
-    ],
-  },
-]
-
-// ── Education ──────────────────────────────────────────────────
+// ── Education ─────────────────────────────────────────────────
 export const EDUCATION = [
   {
     degree: 'B.Tech, Computer Science & Engineering',
     school: 'Manipal Institute of Technology',
     location: 'Manipal, Karnataka',
     period: '2020 – 2024',
-    grade: '8.91 / 10',
-    gradeLabel: 'CGPA',
-    note: 'Minor in Big Data Analytics · Top 15% of cohort',
+    grade: '8.91',
+    gradeLabel: 'CGPA / 10',
+    note: 'Minor in Big Data Analytics',
+    summary:
+      'I graduated in the top 15% of the cohort, with coursework in artificial intelligence, quantum computing, deep learning, algorithms and distributed systems. I spent most of the four years inside three research labs, which is where the publications came from and where I learned to read a paper properly.',
   },
   {
-    degree: 'High School (AISSCE)',
+    degree: 'All India Senior School Certificate',
     school: 'Little Rock Indian School',
     location: 'Brahmavar, Karnataka',
     period: '2008 – 2020',
-    grade: '95.60%',
-    gradeLabel: 'Score',
-    note: '3rd rank, with two endowment awards · NTSE State Scholar',
+    grade: '95.6%',
+    gradeLabel: 'Aggregate',
+    note: 'Physics, Chemistry, Mathematics & Computer Science',
+    summary:
+      'Third rank nationally in the AISSCE 2020 examinations, which carried the Thayil Lonappan George Memorial Endowment Award, and the G. Chenthamarakshan Award for the best computer science project. NTSE state scholar, ranked 21 of 151,000 candidates.',
   },
+]
+
+// ── Stack ─────────────────────────────────────────────────────
+const L = (name: string, file: string) => ({ name, src: '/assets/logos/' + file })
+
+export const SKILLS = [
+  {
+    id: 1,
+    category: 'Machine Learning',
+    logos: [L('PyTorch', 'pytorch.png'), L('scikit-learn', 'scikit.png'), L('NumPy', 'numpy.png'), L('pandas', 'pandas.png')],
+    items: ['Agentic AI', 'LLMs', 'RAG', 'LangChain', 'LangGraph', 'LangSmith', 'PyTorch', 'PyTorch Geometric', 'DGL', 'TensorFlow', 'Keras', 'scikit-learn', 'Qiskit', 'GraphML', 'NLP', 'Computer Vision'],
+  },
+  {
+    id: 2,
+    category: 'Languages',
+    logos: [L('Python', 'python.png'), L('C++', 'cpp.png'), L('Java', 'java.png'), L('JavaScript', 'js.png'), L('TypeScript', 'typescript.png')],
+    items: ['Python', 'C++', 'C', 'Java', 'JavaScript', 'TypeScript', 'SQL'],
+  },
+  {
+    id: 3,
+    category: 'Services & APIs',
+    logos: [L('FastAPI', 'fastapi.png'), L('Django', 'django.png'), L('React', 'react.png'), L('Next.js', 'next.png')],
+    items: ['FastAPI', 'Flask', 'Django', 'REST', 'gRPC', 'OpenAPI', 'Event-driven microservices', 'React', 'Next.js'],
+  },
+  {
+    id: 4,
+    category: 'Data Stores',
+    logos: [L('PostgreSQL', 'postgres.png'), L('MongoDB', 'mongodb.png'), L('MySQL', 'mysql.png')],
+    items: ['PostgreSQL', 'Snowflake', 'Cassandra', 'Redis', 'MongoDB', 'MySQL', 'Spark', 'Hadoop', 'Celery'],
+  },
+  {
+    id: 5,
+    category: 'Infrastructure',
+    logos: [L('Docker', 'docker.png'), L('Amazon Web Services', 'aws.png'), L('Git', 'git.png'), L('MATLAB', 'matlab.png')],
+    items: ['Docker', 'Kubernetes', 'OpenShift', 'ArgoCD', 'Jenkins', 'GitHub Actions', 'SplunkAI', 'Prometheus', 'Grafana', 'AWS', 'Azure', 'CUDA'],
+  },
+]
+
+// ── Contact ───────────────────────────────────────────────────
+export const CONTACT = {
+  lede:
+    'I am open to collaborations on agentic AI, graph machine learning and applied ML, and I am talking to people about doctoral programmes. Email reaches me fastest. If you are writing about one of the papers, say which one and I will send the code.',
+}
+
+export const CHANNELS = [
+  { label: 'Email', value: PERSONAL.email, href: 'mailto:' + PERSONAL.email, external: false, download: false },
+  { label: 'LinkedIn', value: 'gautham-prabhu-5b2342192', href: PERSONAL.linkedin, external: true, download: false },
+  { label: 'Google Scholar', value: 'Publication record', href: PERSONAL.scholar, external: true, download: false },
+  { label: 'GitHub', value: '@GauthamPrabhuM', href: PERSONAL.github, external: true, download: false },
+  { label: 'Résumé', value: 'PDF, April 2026', href: PERSONAL.resume, external: false, download: true },
 ]

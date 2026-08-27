@@ -1,57 +1,45 @@
-'use client'
-import { useState } from 'react'
-import { FiExternalLink } from 'react-icons/fi'
-import { Section } from './ui/Section'
-import { PUBLICATIONS, PERSONAL } from '@/lib/data'
-
-const FEATURED = 3
+import { SectionHead } from './ui/SectionHead'
+import { PUBLICATIONS } from '@/lib/data'
 
 export function Publications() {
-  const [showAll, setShowAll] = useState(false)
-  const shown = showAll ? PUBLICATIONS : PUBLICATIONS.slice(0, FEATURED)
-
   return (
-    <Section
-      id="publications"
-      label="papers"
-      action={
-        <a href={PERSONAL.scholar} target="_blank" rel="noreferrer" className="sec-action">
-          6 papers · 50+ citations ↗
-        </a>
-      }
-    >
-      {shown.map(p => {
-        const Title = p.link ? 'a' : 'span'
-        return (
-          <div key={p.id} className="entry">
-            <h3 className="entry-title">
-              <Title
-                {...(p.link ? { href: p.link, target: '_blank', rel: 'noreferrer' } : {})}
-                className={p.link ? 'transition-colors hover:text-[var(--accent)]' : undefined}
-                style={{ color: 'inherit' }}
-              >
-                {p.title}
-              </Title>
-            </h3>
-            <p className="entry-org">
-              {p.venue}
-              {p.citations && (
-                <>
-                  <span style={{ color: 'var(--text-3)' }}>{'  ·  '}</span>
-                  <span style={{ color: 'var(--accent)' }}>{p.citations} cites</span>
-                </>
-              )}
-            </p>
-            <p className="text-[0.8rem] mt-1.5" style={{ color: 'var(--text-3)' }}>
-              {p.authors}
-            </p>
-          </div>
-        )
-      })}
+    <section className="sec" id="publications">
+      <SectionHead
+        numeral="III."
+        title="Publications"
+        dek="Six papers, peer reviewed. Author order as published."
+      />
 
-      <button className="disclosure" onClick={() => setShowAll(s => !s)}>
-        {showAll ? '− show fewer' : `+ show all ${PUBLICATIONS.length} papers`}
-      </button>
-    </Section>
+      <ol className="biblio">
+        {PUBLICATIONS.map(p => (
+          <li className="biblio_item" key={p.id}>
+            <div className="biblio_aside">
+              <span className="biblio_num">{p.num}</span>
+              {p.mark ? <span className="mark">{p.mark}</span> : null}
+              {p.quiet ? <span className="quietmark">{p.quiet}</span> : null}
+              {p.citations ? <span className="biblio_cites">{p.citations}</span> : null}
+            </div>
+
+            <div>
+              <h3 className="biblio_title">{p.title}</h3>
+              <p className="biblio_authors">
+                {p.authorsBefore}
+                <strong>G. M. Prabhu</strong>
+                {p.authorsAfter}
+              </p>
+              <p className={p.link ? 'biblio_venue' : 'biblio_venue is_last'}>
+                <em>{p.venue}</em>
+                {p.ref}
+              </p>
+              {p.link ? (
+                <a className="biblio_doi" href={p.link} target="_blank" rel="noreferrer">
+                  doi {p.doi} →
+                </a>
+              ) : null}
+            </div>
+          </li>
+        ))}
+      </ol>
+    </section>
   )
 }
