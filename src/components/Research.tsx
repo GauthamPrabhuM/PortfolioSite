@@ -6,7 +6,7 @@ export function Research() {
     <section className="sec" id="research">
       <SectionHead
         numeral="II."
-        title="Research Appointments"
+        title="Research Experience"
         dek="Five appointments, four labs. Graph learning, quantum machine learning, medical imaging, NLP."
       />
 

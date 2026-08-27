@@ -9,7 +9,7 @@ export const PERSONAL = {
   email: 'gauthamprabhu9@gmail.com',
   github: 'https://github.com/GauthamPrabhuM',
   linkedin: 'https://www.linkedin.com/in/gautham-prabhu-5b2342192/',
-  scholar: 'https://scholar.google.com/citations?user=GdnOL2wAAAAJ',
+  scholar: 'https://scholar.google.com/citations?user=eFGVT2UAAAAJ&hl=en',
   resume: '/assets/GauthamManuruPrabhu_Resume_Apr2026.pdf',
   photo: '/assets/me.png',
 }
@@ -26,18 +26,17 @@ export const NAV_ITEMS = [
 // ── Hero ──────────────────────────────────────────────────────
 export const HERO = {
   standfirst:
-    'Agentic AI in production at Cisco. Temporal graph learning in the lab at San José State. The same problem in two denominations.',
+    'Agentic AI in production at Cisco. Temporal graph learning in the lab at San José State.',
   columns: [
-    "I work on Cisco's AI Acceleration team, inside Supply Chain Operations. I own retrieval quality, evaluation and guardrails for LLM-backed agents that now close 35% of incoming support cases with no human in the loop, and brought mean time to resolution down by 40%. I joined as an intern in January 2024 and was promoted twice in the 18 months that followed. Most of the work is unglamorous: tracing why a retrieval step returned the wrong document.",
-    'Alongside the job I work with Dr. Saptarishi Sengupta at MiCoSys Lab, San José State University, on training Temporal Graph Neural Networks under a fixed compute budget. The budget here is not a metaphor. Six of my papers are peer reviewed, across quantum machine learning, retinal imaging and NLP. My grasp of distributed systems theory is self-taught and uneven, which is part of why I am talking to doctoral programmes.',
+    "I work on Cisco's AI Acceleration team, inside Supply Chain Operations. I own retrieval quality, evaluation and guardrails for LLM-backed agents that now close 35% of incoming support cases with no human in the loop, and brought mean time to resolution down by 40%. I joined as an intern in January 2024 and was promoted twice in the 18 months that followed.",
+    'I work with Dr. Saptarishi Sengupta at MiCoSys Lab, San José State University, on training Temporal Graph Neural Networks over dynamic graphs under a fixed memory and compute budget. Six of my papers are peer reviewed, across quantum machine learning, retinal imaging and NLP.',
   ],
 }
 
 export const STATS = [
   { value: '2×', label: 'Promotions in 18 months' },
   { value: '6', label: 'Papers, peer reviewed' },
-  { value: '40%', label: 'Off mean time to resolution' },
-  { value: '10,000', label: 'Engineer-hours back each quarter' },
+  { value: '60+', label: 'Citations on Google Scholar' },
 ]
 
 // ── Professional experience ───────────────────────────────────
@@ -52,8 +51,8 @@ export const WORK_EXPERIENCE = [
     isCurrent: true,
     highlights: [
       'Four agents run in production today: service-request resolution, knowledge-base indexing, case follow-up, and proactive alerting. Between them they close 35% of incoming cases with no human in the loop, took 40% off mean time to resolution, and return roughly 10,000 engineer-hours a quarter to the supply chain organisation.',
-      'Under the Quality Transformation Program I built failure-analysis and predictive-maintenance agents for the manufacturing side. They root-caused 70% of failures that previously went undiagnosed, improved upstream defect detection and brought down repeat failure rates across global sites, which matters more than the case numbers do, because a defect caught upstream never becomes a case.',
-      'I also found coverage gaps in Paladin edge connectors across 10 production lines, and wired SplunkAI observability into legacy systems that had none. I now own the research-to-production path for these agents end to end: retrieval quality, evaluation, guardrails. Retrieval is the part that decides whether anyone trusts the agent.',
+      'Under the Quality Transformation Program I built failure-analysis and predictive-maintenance agents for the manufacturing side. They root-caused 70% of failures that previously went undiagnosed, improved upstream defect detection and brought down repeat failure rates across global sites.',
+      'I also found coverage gaps in Paladin edge connectors across 10 production lines, and wired SplunkAI observability into legacy systems that had none. I now own the research-to-production path for these agents end to end: retrieval quality, evaluation, guardrails.',
     ],
     stack: ['Python', 'FastAPI', 'Agentic AI', 'LLMs', 'RAG', 'LangChain', 'LangGraph', 'LangSmith', 'SplunkAI', 'Docker', 'Kubernetes', 'OpenShift', 'ArgoCD', 'PostgreSQL', 'Snowflake'],
   },
@@ -68,7 +67,6 @@ export const WORK_EXPERIENCE = [
     highlights: [
       'Promoted from SE1 to SE2 in 12 months, the second promotion on the same team inside 18.',
       'The year was a rewrite. Legacy failure-analysis workflows became event-driven microservices on Kubernetes, built with FastAPI, Cassandra and Redis. I added anomaly detection over manufacturing telemetry, and SLA dashboards in Prometheus and Grafana so that an on-call engineer saw a breach before the customer did.',
-      'None of the agents above would run without this layer. It is the least visible thing I have shipped.',
     ],
     stack: ['FastAPI', 'Cassandra', 'Redis', 'Kubernetes', 'Prometheus', 'Grafana', 'Python', 'Microservices'],
   },
@@ -81,14 +79,14 @@ export const WORK_EXPERIENCE = [
     to: 'Aug 2024',
     isCurrent: false,
     highlights: [
-      'I converted from intern to SE1 in six months. The work was ordinary and useful: microservices with circuit breakers and retry logic, and a release pipeline automated with Jenkins, Docker and Kubernetes that took deployments from six hours to two minutes.',
-      "For Cisco's intern case study competition I built an NLP pipeline that standardised supplier names across 50,000 records, and it placed third of more than 100 entries. The model was the easy half. Agreeing on what counted as the same supplier took longer.",
+      'I converted from intern to SE1 in six months. I built microservices with circuit breakers and retry logic, and a release pipeline automated with Jenkins, Docker and Kubernetes that took deployments from six hours to two minutes.',
+      "For Cisco's intern case study competition I built an NLP pipeline that standardised supplier names across 50,000 records, and it placed third of more than 100 entries.",
     ],
     stack: ['Python', 'Flask', 'Jenkins', 'Docker', 'Kubernetes', 'REST', 'OpenAPI', 'NLP'],
   },
 ]
 
-// ── Research appointments ─────────────────────────────────────
+// ── Research experience ─────────────────────────────────────
 export const RESEARCH_EXPERIENCE = [
   {
     id: 1,
@@ -98,7 +96,7 @@ export const RESEARCH_EXPERIENCE = [
     period: '2025 – Present',
     advisor: 'Advisor: Dr. Saptarishi Sengupta',
     summary:
-      'The problem is adaptation: models are trained once on a snapshot, and real graphs keep moving. I work on training Temporal Graph Neural Networks over dynamic graphs with millions of edges, under a fixed memory and compute budget, using PyTorch Geometric, DGL and CUDA across several GPUs. So far most of what I have learned is where the obvious approaches break.',
+      'The problem is adaptation: models are trained once on a snapshot, and real graphs keep moving. I work on training Temporal Graph Neural Networks over dynamic graphs with millions of edges, under a fixed memory and compute budget, using PyTorch Geometric, DGL and CUDA across several GPUs.',
   },
   {
     id: 2,
@@ -108,7 +106,7 @@ export const RESEARCH_EXPERIENCE = [
     period: 'Jun – Aug 2023',
     advisor: 'Advisors: Dr. Subhamoy Mandal, Ms. Pragya Gupta',
     summary:
-      'Optical coherence tomography scans are noisy and the classes are badly unbalanced. I proposed an ensemble feature-fusion approach for anomaly detection, tuning preprocessing, augmentation and colour-space features against a multi-class benchmark, and contributed to a set of 3,000 annotated retinal scans. Careful preprocessing bought more accuracy than a bigger model did.',
+      'Optical coherence tomography scans are noisy and the classes are badly unbalanced. I proposed an ensemble feature-fusion approach for anomaly detection, tuning preprocessing, augmentation and colour-space features against a multi-class benchmark, and contributed to a set of 3,000 annotated retinal scans.',
   },
   {
     id: 3,
@@ -118,7 +116,7 @@ export const RESEARCH_EXPERIENCE = [
     period: 'Feb 2022 – Nov 2023',
     advisor: 'Mentor: Dr. Vivekananda Bhat',
     summary:
-      'We tested whether quantum models could beat classical baselines at detecting cardiovascular disease from ECG images. QSVC, Pegasos QSVC and a quanvolutional neural network reached 97% accuracy, 10 to 14 points above the classical baselines we trained ourselves. The work was funded by a MeitY and AWS grant, and took us to the top 16 of 1,600 teams at the QETCI hackathon. Whether that margin survives on another dataset is still open.',
+      'We tested whether quantum models could beat classical baselines at detecting cardiovascular disease from ECG images. QSVC, Pegasos QSVC and a quanvolutional neural network reached 97% accuracy, 10 to 14 points above the classical baselines we trained ourselves. The work was funded by a MeitY and AWS grant, and took us to the top 16 of 1,600 teams at the QETCI hackathon.',
   },
   {
     id: 4,
@@ -128,7 +126,7 @@ export const RESEARCH_EXPERIENCE = [
     period: 'Jul 2022 – Oct 2023',
     advisor: 'Mentors: Dr. Srikanth Prabhu, Mr. Govardhan Hegde',
     summary:
-      "Retinal vessel segmentation across 3,000 fundus images, combining CLAHE, Gaussian blur and edge detection. Because the images left Kasturba Medical College's network, we also had to encrypt them properly, so the pipeline carries Diffie–Hellman key exchange and AES-256. Published in Springer LNCS and presented at ATIS. Working next to clinicians changed what I counted as a good result.",
+      "Retinal vessel segmentation across 3,000 fundus images, combining CLAHE, Gaussian blur and edge detection. Because the images left Kasturba Medical College's network, we also had to encrypt them properly, so the pipeline carries Diffie–Hellman key exchange and AES-256. Published in Springer LNCS and presented at ATIS.",
   },
   {
     id: 5,
@@ -138,7 +136,7 @@ export const RESEARCH_EXPERIENCE = [
     period: 'Sep 2022 – Jul 2023',
     advisor: 'Mentor: Dr. Nisha P. Shetty',
     summary:
-      'We modelled how vaccine misinformation travels, running BERT and XLNet over a corpus of 10,000 posts alongside a graph model of who repeats whom. Classification passed 90% F1 on the benchmark. The user-association signal did more work than the language model did, which was not what we expected going in.',
+      'We modelled how vaccine misinformation travels, running BERT and XLNet over a corpus of 10,000 posts alongside a graph model of who repeats whom. Classification passed 90% F1 on the benchmark. The user-association signal did more work than the language model did.',
   },
 ]
 
@@ -298,7 +296,7 @@ export const SKILLS = [
 // ── Contact ───────────────────────────────────────────────────
 export const CONTACT = {
   lede:
-    'I am open to collaborations on agentic AI, graph machine learning and applied ML, and I am talking to people about doctoral programmes. Email reaches me fastest. If you are writing about one of the papers, say which one and I will send the code.',
+    'I am open to collaborations on agentic AI, graph machine learning and applied ML. Email reaches me fastest. If you are writing about one of the papers, say which one and I will send the code.',
 }
 
 export const CHANNELS = [

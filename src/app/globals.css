@@ -164,7 +164,7 @@ section[id] { scroll-margin-top: 104px; }
 .plate_frame img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 12%; filter: sepia(0.24) saturate(0.76) contrast(1.06); }
 .plate_caption { margin-top: 9px; font-size: 11px; letter-spacing: 0.04em; color: var(--color-muted); display: flex; justify-content: space-between; gap: 12px; }
 
-.figures { margin-top: 64px; border-top: 1px solid var(--color-divider); border-bottom: 1px solid var(--color-divider); display: grid; grid-template-columns: repeat(4, 1fr); }
+.figures { margin-top: 64px; border-top: 1px solid var(--color-divider); border-bottom: 1px solid var(--color-divider); display: grid; grid-template-columns: repeat(3, 1fr); }
 .figures_item { padding: 26px 28px 24px; border-left: 1px solid var(--color-divider); }
 .figures_item:first-child { padding-left: 0; border-left: 0; }
 .figures_item:last-child { padding-right: 0; }
