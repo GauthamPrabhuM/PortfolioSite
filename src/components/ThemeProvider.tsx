@@ -3,9 +3,10 @@ import { createContext, useContext, useEffect, useState, type ReactNode } from '
 
 type Theme = 'dark' | 'light'
 
-export type Accent = 'mauve' | 'blue' | 'sky' | 'teal' | 'green' | 'peach' | 'pink' | 'red'
+export type Accent = 'spring' | 'mauve' | 'blue' | 'sky' | 'teal' | 'green' | 'peach' | 'pink' | 'red'
 
 export const ACCENTS: { id: Accent; mocha: string; latte: string }[] = [
+  { id: 'spring', mocha: '#38e08c', latte: '#0b9d5c' },
   { id: 'mauve', mocha: '#cba6f7', latte: '#8839ef' },
   { id: 'blue', mocha: '#89b4fa', latte: '#1e66f5' },
   { id: 'sky', mocha: '#89dceb', latte: '#04a5e5' },
@@ -16,7 +17,7 @@ export const ACCENTS: { id: Accent; mocha: string; latte: string }[] = [
   { id: 'red', mocha: '#f38ba8', latte: '#d20f39' },
 ]
 
-const DEFAULT_ACCENT: Accent = 'mauve'
+const DEFAULT_ACCENT: Accent = 'spring'
 
 const ThemeCtx = createContext<{
   theme: Theme

@@ -1,15 +1,15 @@
 'use client'
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { FiSun, FiMoon, FiDroplet } from 'react-icons/fi'
+import { FiSun, FiMoon, FiDroplet, FiMenu, FiX } from 'react-icons/fi'
 import { useTheme, ACCENTS } from './ThemeProvider'
+import { PERSONAL } from '@/lib/data'
 
 const LINKS = [
   { label: 'about', href: 'about' },
   { label: 'work', href: 'experience' },
   { label: 'projects', href: 'projects' },
   { label: 'papers', href: 'publications' },
-  { label: 'resume', href: 'resume' },
   { label: 'contact', href: 'contact' },
 ]
 
@@ -18,6 +18,7 @@ export function Navigation() {
   const [scrolled, setScrolled] = useState(false)
   const [active, setActive] = useState('')
   const [accentOpen, setAccentOpen] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
   const accentRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -53,15 +54,18 @@ export function Navigation() {
     return () => window.removeEventListener('mousedown', onClick)
   }, [accentOpen])
 
-  const goto = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+  const goto = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+    setMenuOpen(false)
+  }
 
   return (
     <header
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={{
-        background: scrolled ? 'var(--nav-bg)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(14px) saturate(1.4)' : 'none',
-        borderBottom: scrolled ? '1px solid var(--border)' : '1px solid transparent',
+        background: menuOpen ? 'var(--bg-base)' : scrolled ? 'var(--nav-bg)' : 'transparent',
+        backdropFilter: scrolled || menuOpen ? 'blur(14px) saturate(1.4)' : 'none',
+        borderBottom: scrolled || menuOpen ? '1px solid var(--border)' : '1px solid transparent',
       }}
     >
       <div className="container-prose">
@@ -80,12 +84,24 @@ export function Navigation() {
               <button
                 key={l.href}
                 onClick={() => goto(l.href)}
-                className="px-2.5 py-1 rounded-md transition-colors"
-                style={{ color: active === l.href ? 'var(--accent)' : 'var(--text-3)' }}
+                className="px-1 py-1 mx-1.5 transition-colors"
+                style={{
+                  color: active === l.href ? 'var(--accent)' : 'var(--text-3)',
+                  borderBottom: `2px solid ${active === l.href ? 'var(--accent)' : 'transparent'}`,
+                }}
               >
                 {l.label}
               </button>
             ))}
+            <a
+              href={PERSONAL.resume}
+              target="_blank"
+              rel="noreferrer"
+              className="px-2.5 py-1 rounded-md transition-colors hover:text-[var(--accent)]"
+              style={{ color: 'var(--text-3)' }}
+            >
+              resume<span style={{ color: 'var(--text-3)', opacity: 0.6 }}> ↗</span>
+            </a>
           </nav>
 
           <div className="flex items-center gap-2">
@@ -140,8 +156,56 @@ export function Navigation() {
             >
               {theme === 'dark' ? <FiSun size={14} /> : <FiMoon size={14} />}
             </button>
+
+            <button
+              onClick={() => setMenuOpen(o => !o)}
+              className="md:hidden w-8 h-8 flex items-center justify-center rounded-md transition-all duration-200"
+              style={{ background: 'var(--bg-elevated)', border: '1px solid var(--border)', color: 'var(--text-2)' }}
+              aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={menuOpen}
+            >
+              {menuOpen ? <FiX size={15} /> : <FiMenu size={15} />}
+            </button>
           </div>
         </div>
+
+        <AnimatePresence>
+          {menuOpen && (
+            <motion.nav
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="md:hidden overflow-hidden"
+              aria-label="Mobile"
+            >
+              <div
+                className="flex flex-col py-2 font-mono text-sm"
+                style={{ borderTop: '1px solid var(--border)' }}
+              >
+                {LINKS.map(l => (
+                  <button
+                    key={l.href}
+                    onClick={() => goto(l.href)}
+                    className="text-left px-1 py-2.5 transition-colors"
+                    style={{ color: active === l.href ? 'var(--accent)' : 'var(--text-2)' }}
+                  >
+                    <span style={{ color: 'var(--text-3)' }}>~/</span>{l.label}
+                  </button>
+                ))}
+                <a
+                  href={PERSONAL.resume}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="px-1 py-2.5"
+                  style={{ color: 'var(--text-2)' }}
+                >
+                  <span style={{ color: 'var(--text-3)' }}>~/</span>resume ↗
+                </a>
+              </div>
+            </motion.nav>
+          )}
+        </AnimatePresence>
       </div>
     </header>
   )

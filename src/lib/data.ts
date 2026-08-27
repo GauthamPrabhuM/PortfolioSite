@@ -16,23 +16,23 @@ export const PERSONAL = {
 
 // ── Hero stats ────────────────────────────────────────────────
 export const STATS = [
-  { value: '2×', label: 'Promotions in 18 mo' },
-  { value: '6+', label: 'Peer-reviewed papers' },
-  { value: '8.91', label: 'CGPA · Top 15%' },
-  { value: '40%', label: 'MTTR reduction' },
+  { value: '2×', label: 'promotions\nin 18 months' },
+  { value: '6', label: 'peer-reviewed\npapers' },
+  { value: '50+', label: 'citations\non Scholar' },
+  { value: '5k', label: 'engineer-hours\nsaved / quarter' },
 ]
 
 // ── Professional experience ───────────────────────────────────
 export const WORK_EXPERIENCE = [
   {
     id: 1,
-    title: 'Software Engineer 2 — AI Acceleration',
+    title: 'Software Engineer 2, AI Acceleration',
     company: 'Cisco Systems Inc.',
     location: 'Bengaluru, India',
     period: 'Aug 2025 – Present',
     isCurrent: true,
     highlights: [
-      'Ship agentic AI for case resolution and knowledge retrieval — 20% of cases resolved autonomously, case volume down 35%, MTTR down 40%.',
+      'Ship agentic AI for case resolution and knowledge retrieval: 20% of cases resolved autonomously, case volume down 35%, MTTR down 40%.',
       'Systems save ~5,000 engineer-hours per quarter across global supply chain operations.',
       'Built failure-analysis and predictive-maintenance agents for the Quality Transformation Program.',
       'Own the LLM research-to-production pipeline end to end: retrieval quality, evaluation, guardrails.',
@@ -41,7 +41,7 @@ export const WORK_EXPERIENCE = [
   },
   {
     id: 2,
-    title: 'Software Engineer 1 — Supply Chain Ops',
+    title: 'Software Engineer 1, Supply Chain Ops',
     company: 'Cisco Systems Inc.',
     location: 'Bengaluru, India',
     period: 'Aug 2024 – Aug 2025',
@@ -56,7 +56,7 @@ export const WORK_EXPERIENCE = [
   },
   {
     id: 3,
-    title: 'SE Intern — Supply Chain Organisation',
+    title: 'SE Intern, Supply Chain Organisation',
     company: 'Cisco Systems Inc.',
     location: 'Bengaluru, India',
     period: 'Jan 2024 – Aug 2024',
@@ -64,7 +64,7 @@ export const WORK_EXPERIENCE = [
     highlights: [
       'Converted to full-time SE1 in 6 months.',
       'Cut deployment time 99.45% (6 hours → 2 minutes) with Jenkins, Docker, and Kubernetes CI/CD.',
-      '2nd Runner-Up, Cisco Intern Case Study — NLP supplier-name standardisation across 50,000+ records.',
+      '2nd Runner-Up, Cisco Intern Case Study, for an NLP supplier-name standardisation across 50,000+ records.',
     ],
     stack: ['Python', 'Flask', 'Jenkins', 'Docker', 'Kubernetes', 'REST APIs', 'NLP'],
   },
@@ -74,7 +74,7 @@ export const WORK_EXPERIENCE = [
 export const RESEARCH_EXPERIENCE = [
   {
     id: 1,
-    title: 'Research Associate — MiCoSys Lab',
+    title: 'Research Associate, MiCoSys Lab',
     institution: 'San Jose State University',
     location: 'Remote',
     period: '2025 – Present',
@@ -88,7 +88,7 @@ export const RESEARCH_EXPERIENCE = [
   },
   {
     id: 2,
-    title: 'Deep Learning Research Intern — Medical Informatics Lab',
+    title: 'Deep Learning Research Intern, Medical Informatics Lab',
     institution: 'IIT Kharagpur',
     location: 'Remote',
     period: 'Jun 2023 – Aug 2023',
@@ -102,21 +102,21 @@ export const RESEARCH_EXPERIENCE = [
   },
   {
     id: 3,
-    title: 'Undergraduate Researcher — Quantum Computing Group',
+    title: 'Undergraduate Researcher, Quantum Computing Group',
     institution: 'MIT Manipal',
     location: 'Manipal, India',
     period: 'Feb 2022 – Nov 2023',
     advisor: 'Dr. Vivekananda Bhat',
     isCurrent: false,
     highlights: [
-      'Quantum ML models for cardiovascular disease detection — 97% accuracy, 10–14% above classical baselines.',
+      'Quantum ML models for cardiovascular disease detection at 97% accuracy, 10–14% above classical baselines.',
       'Funded by MeitY (Govt. of India) and AWS; published in IEEE Access (Q1).',
     ],
     stack: ['Qiskit', 'Python', 'Quantum ML'],
   },
   {
     id: 4,
-    title: 'Undergraduate Researcher — Biometrics & Software Engineering',
+    title: 'Undergraduate Researcher, Biometrics & Software Engineering',
     institution: 'MIT Manipal',
     location: 'Manipal, India',
     period: 'Jul 2022 – Oct 2023',
@@ -151,7 +151,7 @@ export const PROJECTS: Project[] = [
     title: 'SplitSense',
     tagline: 'Analytics layer for Splitwise',
     description:
-      'Full-stack platform adding the analytics Splitwise lacks — OAuth 2.0, real-time dashboards, balance forecasting, anomaly detection, and PDF reports.',
+      'Full-stack platform adding the analytics Splitwise lacks: OAuth 2.0, real-time dashboards, balance forecasting, anomaly detection, and PDF reports.',
     impact: 'Live in production',
     stack: ['FastAPI', 'Next.js', 'TypeScript', 'PostgreSQL', 'OAuth 2.0'],
     github: 'https://github.com/GauthamPrabhuM/SplitSense',
@@ -163,7 +163,7 @@ export const PROJECTS: Project[] = [
     title: 'QuCardio',
     tagline: 'Quantum ML for cardiology',
     description:
-      'QSVC, Pegasos QSVC, and quanvolutional QNNs for cardiovascular disease detection from ECG data — 97% accuracy, 10–14% above classical baselines.',
+      'QSVC, Pegasos QSVC, and quanvolutional QNNs for cardiovascular disease detection from ECG data, hitting 97% accuracy, 10–14% above classical baselines.',
     impact: 'IEEE Access (Q1) · 50+ citations · MeitY + AWS funded',
     stack: ['Qiskit', 'Python', 'Quantum ML', 'scikit-learn'],
     github: 'https://github.com/GauthamPrabhuM/Quantum-Ecosystem-for-Efficient-Detection-of-Cardiovascular-Diseases',
@@ -175,7 +175,7 @@ export const PROJECTS: Project[] = [
     title: 'VIKAS',
     tagline: 'Multimodal disaster response',
     description:
-      'Real-time platform connecting NDRF responders with disaster victims — NLP triage, computer vision, and live geolocation. Led a team of six.',
+      'Real-time platform connecting NDRF responders with disaster victims, using NLP triage, computer vision, and live geolocation. Led a team of six.',
     impact: 'Smart India Hackathon Grand Finalist · Springer CCIS',
     stack: ['React', 'Node.js', 'WebSocket', 'NLP', 'Computer Vision'],
     github: 'https://github.com/GauthamPrabhuM/SIH2K22',
@@ -187,7 +187,7 @@ export const PROJECTS: Project[] = [
     title: 'SatelTensor',
     tagline: 'Tensor methods for satellite data',
     description:
-      'Tucker and CP tensor decomposition over satellite image stacks — dimensionality reduction that preserves spatio-temporal structure.',
+      'Tucker and CP tensor decomposition over satellite image stacks, for dimensionality reduction that preserves spatio-temporal structure.',
     impact: 'TCML Workshop, IISc Bengaluru 2023',
     stack: ['Python', 'NumPy', 'TensorLy'],
   },
@@ -257,7 +257,7 @@ export const PUBLICATIONS = [
     venueType: 'Conference',
     title: 'VIKAS: A Multimodal Framework to Aid in Effective Disaster Management',
     authors: 'Prabhu, G.M., Gupta, T., Srujan, M.V., Soumya, A.R., Palorkar, A., Chowdhury, A.',
-    ref: 'ATIS 2022 — Springer CCIS, vol. 1804, 2023',
+    ref: 'ATIS 2022, Springer CCIS, vol. 1804, 2023',
     citations: null,
     doi: '10.1007/978-981-99-2264-2_22',
     link: 'https://link.springer.com/chapter/10.1007/978-981-99-2264-2_22',
@@ -268,7 +268,7 @@ export const PUBLICATIONS = [
     venueType: 'Conference',
     title: 'EyeEncrypt: A Cyber-Secured Framework for Retinal Image Segmentation',
     authors: 'Hegde, G., Gupta, S., Prabhu, G.M., Bhandary, S.V.',
-    ref: 'ATIS 2022 — Springer CCIS, vol. 1804, 2023',
+    ref: 'ATIS 2022, Springer CCIS, vol. 1804, 2023',
     citations: null,
     doi: '10.1007/978-981-99-2264-2_9',
     link: 'https://link.springer.com/chapter/10.1007/978-981-99-2264-2_9',
@@ -290,7 +290,7 @@ export const PUBLICATIONS = [
     venueType: 'Workshop',
     title: 'SatelTensor: Satellite Data Exploration via Tensor Decomposition',
     authors: 'Prabhu, G.M., Gupta, S.',
-    ref: 'Tensor Computation & ML Workshop — IISc Bengaluru, 2023',
+    ref: 'Tensor Computation & ML Workshop, IISc Bengaluru, 2023',
     citations: null,
     doi: null,
     link: null,
@@ -302,33 +302,33 @@ export const ACHIEVEMENTS = [
   {
     category: 'Awards & Recognition',
     items: [
-      { title: '2nd Runner-Up — Cisco Intern Case Study Competition', detail: 'NLP-based Supplier Name Standardisation pipeline across 50,000+ records. 100+ entries.', year: '2024' },
+      { title: '2nd Runner-Up, Cisco Intern Case Study Competition', detail: 'NLP-based Supplier Name Standardisation pipeline across 50,000+ records. 100+ entries.', year: '2024' },
       { title: 'Thayil Lonappan George Memorial Endowment Award', detail: '3rd rank in All India Senior School Certificate Examination (AISSCE) 2020.', year: '2020' },
       { title: 'Mr. G. Chenthamarakshan Endowment Award', detail: 'Best Project in Computer Science.', year: '2020' },
-      { title: 'NTSE State Scholar', detail: 'National Talent Search Examination — Rank 21 out of 151,000+ participants.', year: '2018' },
+      { title: 'NTSE State Scholar', detail: 'National Talent Search Examination. Rank 21 out of 151,000+ participants.', year: '2018' },
     ],
   },
   {
     category: 'Hackathons & Competitions',
     items: [
-      { title: 'Grand Finalist — Global Quantum Science & Technology Hackathon', detail: 'Top 16 teams from 1,600+ entries across 25+ countries — quantum ML track.', year: '2022' },
-      { title: 'Grand Finalist — Smart India Hackathon', detail: 'Led a team of 6 to build VIKAS, a multimodal disaster-response platform. Top team from 1,000+ national entries.', year: '2022' },
+      { title: 'Grand Finalist, Global Quantum Science & Technology Hackathon', detail: 'Top 16 teams from 1,600+ entries across 25+ countries, in the quantum ML track.', year: '2022' },
+      { title: 'Grand Finalist, Smart India Hackathon', detail: 'Led a team of 6 to build VIKAS, a multimodal disaster-response platform. Top team from 1,000+ national entries.', year: '2022' },
     ],
   },
   {
     category: 'Leadership',
     items: [
-      { title: 'Co-founder & Technical Head — Project Kalpana', detail: 'Secured $13,000 grant; led 8-person team building an affordable radio-astronomy platform for undergraduates.', year: '2022–23' },
-      { title: 'General Secretary & Treasurer — ACM Student Chapter, Manipal', detail: 'Organised 12+ workshops and hackathons; grew chapter participation by 35%.', year: '2022–23' },
-      { title: 'Technical Head — Astronomy Club of Manipal', detail: 'Led 5+ technical projects; ran outreach sessions reaching 200+ students.', year: '2021–23' },
+      { title: 'Co-founder & Technical Head, Project Kalpana', detail: 'Secured $13,000 grant; led 8-person team building an affordable radio-astronomy platform for undergraduates.', year: '2022–23' },
+      { title: 'General Secretary & Treasurer, ACM Student Chapter, Manipal', detail: 'Organised 12+ workshops and hackathons; grew chapter participation by 35%.', year: '2022–23' },
+      { title: 'Technical Head, Astronomy Club of Manipal', detail: 'Led 5+ technical projects; ran outreach sessions reaching 200+ students.', year: '2021–23' },
     ],
   },
   {
     category: 'Schools & Programmes',
     items: [
-      { title: 'ACM Winter School on Optimization for ML & OR', detail: 'Selected participant — IIT Goa.', year: '2023' },
-      { title: 'Summer School on Dynamic Resource Allocation', detail: 'Center for Networked Intelligence — IISc Bengaluru.', year: '2023' },
-      { title: 'Digital Health Symposium', detail: 'Selected presentation — IIT Kharagpur.', year: '2023' },
+      { title: 'ACM Winter School on Optimization for ML & OR', detail: 'Selected participant at IIT Goa.', year: '2023' },
+      { title: 'Summer School on Dynamic Resource Allocation', detail: 'Center for Networked Intelligence, IISc Bengaluru.', year: '2023' },
+      { title: 'Digital Health Symposium', detail: 'Selected presentation at IIT Kharagpur.', year: '2023' },
     ],
   },
 ]
@@ -351,6 +351,6 @@ export const EDUCATION = [
     period: '2008 – 2020',
     grade: '95.60%',
     gradeLabel: 'Score',
-    note: '3rd rank — recipient of two endowment awards · NTSE State Scholar',
+    note: '3rd rank, with two endowment awards · NTSE State Scholar',
   },
 ]

@@ -1,30 +1,57 @@
 'use client'
+import { useState } from 'react'
 import { FiExternalLink } from 'react-icons/fi'
 import { Section } from './ui/Section'
 import { PUBLICATIONS, PERSONAL } from '@/lib/data'
 
+const FEATURED = 3
+
 export function Publications() {
+  const [showAll, setShowAll] = useState(false)
+  const shown = showAll ? PUBLICATIONS : PUBLICATIONS.slice(0, FEATURED)
+
   return (
-    <Section id="publications" label="publications">
-      <a href={PERSONAL.scholar} target="_blank" rel="noreferrer"
-        className="inline-flex items-center gap-1.5 text-xs font-mono ulink -mt-2 mb-1">
-        6 papers · 50+ citations · Google Scholar <FiExternalLink size={11} />
-      </a>
-      <div className="mt-1">
-        {PUBLICATIONS.map(p => (
-          <div key={p.id} className="row">
-            <div className="row-head">
-              <span className="row-title text-[0.95rem] leading-snug">
-                {p.link
-                  ? <a href={p.link} target="_blank" rel="noreferrer" className="hover:text-[var(--accent)] transition-colors">{p.title}</a>
-                  : p.title}
-              </span>
-              <span className="row-meta">{p.citations ? `${p.citations} cites` : ''}</span>
-            </div>
-            <p className="text-xs font-mono" style={{ color: 'var(--accent-2)' }}>{p.venue}</p>
+    <Section
+      id="publications"
+      label="papers"
+      action={
+        <a href={PERSONAL.scholar} target="_blank" rel="noreferrer" className="sec-action">
+          6 papers · 50+ citations ↗
+        </a>
+      }
+    >
+      {shown.map(p => {
+        const Title = p.link ? 'a' : 'span'
+        return (
+          <div key={p.id} className="entry">
+            <h3 className="entry-title">
+              <Title
+                {...(p.link ? { href: p.link, target: '_blank', rel: 'noreferrer' } : {})}
+                className={p.link ? 'transition-colors hover:text-[var(--accent)]' : undefined}
+                style={{ color: 'inherit' }}
+              >
+                {p.title}
+              </Title>
+            </h3>
+            <p className="entry-org">
+              {p.venue}
+              {p.citations && (
+                <>
+                  <span style={{ color: 'var(--text-3)' }}>{'  ·  '}</span>
+                  <span style={{ color: 'var(--accent)' }}>{p.citations} cites</span>
+                </>
+              )}
+            </p>
+            <p className="text-[0.8rem] mt-1.5" style={{ color: 'var(--text-3)' }}>
+              {p.authors}
+            </p>
           </div>
-        ))}
-      </div>
+        )
+      })}
+
+      <button className="disclosure" onClick={() => setShowAll(s => !s)}>
+        {showAll ? '− show fewer' : `+ show all ${PUBLICATIONS.length} papers`}
+      </button>
     </Section>
   )
 }

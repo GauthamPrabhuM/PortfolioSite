@@ -40,15 +40,17 @@ export function InteractiveTerminal() {
     setLines([{ out: banner() }])
   }, [])
 
-  // Auto-scroll to bottom
+  // Auto-scroll to bottom, but not for the initial banner, which would
+  // scroll its own first line out of view on narrow screens.
   useEffect(() => {
+    if (lines.length <= 1) return
     bodyRef.current?.scrollTo({ top: bodyRef.current.scrollHeight })
   }, [lines])
 
   function banner(): ReactNode {
     return (
       <div style={{ color: 'var(--text-2)' }}>
-        <div>hey — I&apos;m <span style={{ color: 'var(--accent)' }}>Gautham</span>. welcome to my little corner of the internet.</div>
+        <div>hey, I&apos;m <span style={{ color: 'var(--accent)' }}>Gautham</span>. welcome to my little corner of the internet.</div>
         <div className="mt-1" style={{ color: 'var(--text-3)' }}>
           built this by hand, no template. type {P('help')} to look around, or {P('whoami')} if you&apos;re in a hurry.
         </div>
@@ -94,7 +96,7 @@ export function InteractiveTerminal() {
                 ['joke', 'groan'],
                 ['clear', 'wipe screen'],
               ].map(([c, d]) => (
-                <div key={c}>{P(c)} <span style={{ color: 'var(--text-3)' }}>— {d}</span></div>
+                <div key={c}>{P(c)} <span style={{ color: 'var(--text-3)' }}>· {d}</span></div>
               ))}
             </div>
           </div>
@@ -102,14 +104,14 @@ export function InteractiveTerminal() {
       case 'whoami':
         return (
           <span style={{ color: 'var(--text-2)' }}>
-            {PERSONAL.name} — Software Engineer 2 @ Cisco (AI Acceleration) · ML researcher @ MiCoSys Lab, SJSU.
+            {PERSONAL.name} · Software Engineer 2 @ Cisco (AI Acceleration) · ML researcher @ MiCoSys Lab, SJSU.
           </span>
         )
       case 'about':
         return (
           <span style={{ color: 'var(--text-2)' }}>
-            I like building things people actually use. Joined Cisco as an intern, made SE2 in 18 months —
-            now I build agentic AI for the supply-chain org (it quietly saves a few thousand engineer-hours
+            I like building things people actually use. Joined Cisco as an intern, made SE2 in 18 months.
+            Now I build agentic AI for the supply-chain org (it quietly saves a few thousand engineer-hours
             a quarter). Nights: temporal-GNN research at SJSU, which is where most of my 6 papers came from.
           </span>
         )
@@ -119,7 +121,7 @@ export function InteractiveTerminal() {
             {[...WORK_EXPERIENCE, ...RESEARCH_EXPERIENCE].map((e: any) => (
               <div key={e.id + (e.company || e.institution)}>
                 <span style={{ color: 'var(--text-1)' }}>{e.title}</span>{' '}
-                <span style={{ color: 'var(--text-3)' }}>— {e.company || e.institution} · {e.period}</span>
+                <span style={{ color: 'var(--text-3)' }}>· {e.company || e.institution} · {e.period}</span>
               </div>
             ))}
             <div style={{ color: 'var(--text-3)' }} className="pt-1">run {P('goto experience')} for detail.</div>
@@ -131,7 +133,7 @@ export function InteractiveTerminal() {
             {PROJECTS.map(p => (
               <div key={p.id}>
                 <span style={{ color: 'var(--text-1)' }}>{p.title}</span>
-                <span style={{ color: 'var(--text-3)' }}> — {p.tagline}</span>
+                <span style={{ color: 'var(--text-3)' }}> · {p.tagline}</span>
                 {p.github && <> · <a href={p.github} target="_blank" rel="noreferrer" className="ulink">src</a></>}
                 {p.live && <> · <a href={p.live} target="_blank" rel="noreferrer" className="ulink">live</a></>}
                 {p.paper && <> · <a href={p.paper} target="_blank" rel="noreferrer" className="ulink">paper</a></>}
@@ -167,7 +169,7 @@ export function InteractiveTerminal() {
       case 'education':
         return (
           <span style={{ color: 'var(--text-2)' }}>
-            B.Tech CSE, Manipal Institute of Technology (2020–2024) — 8.91/10 CGPA, top 15%, minor in Big Data Analytics.
+            B.Tech CSE, Manipal Institute of Technology (2020–2024) · 8.91/10 CGPA, top 15%, minor in Big Data Analytics.
           </span>
         )
       case 'contact':
@@ -225,7 +227,7 @@ export function InteractiveTerminal() {
         return (
           <span style={{ color: 'var(--text-2)' }}>
             Shipping agentic AI at Cisco by day; chipping away at faster temporal-GNN training by night.
-            Always down to talk shop — see {P('contact')}.
+            Always down to talk shop, see {P('contact')}.
           </span>
         )
       case 'coffee':
@@ -233,11 +235,11 @@ export function InteractiveTerminal() {
       case 'joke':
         return <span style={{ color: 'var(--text-2)' }}>{JOKES[Math.floor(Math.random() * JOKES.length)]}</span>
       case 'sudo':
-        return <span style={{ color: 'var(--c-gold)' }}>nice try 😄 — i don&apos;t even have root on my own life.</span>
+        return <span style={{ color: 'var(--c-gold)' }}>nice try 😄 i don&apos;t even have root on my own life.</span>
       case 'ls':
         return <span style={{ color: 'var(--text-2)' }}>about  experience  projects  skills  publications  achievements  resume  contact</span>
       default:
-        return <span style={{ color: 'var(--c-gold)' }}>command not found: {cmd} — type {P('help')}</span>
+        return <span style={{ color: 'var(--c-gold)' }}>command not found: {cmd} · type {P('help')}</span>
     }
   }
 
@@ -280,9 +282,9 @@ export function InteractiveTerminal() {
         <span className="terminal-dot" style={{ background: '#f38ba8' }} />
         <span className="terminal-dot" style={{ background: '#f9e2af' }} />
         <span className="terminal-dot" style={{ background: '#a6e3a1' }} />
-        <span className="terminal-title">gautham@portfolio:~ — try &apos;help&apos;</span>
+        <span className="terminal-title">gautham@portfolio:~ · try &apos;help&apos;</span>
       </div>
-      <div ref={bodyRef} className="px-4 py-3.5 h-[210px] overflow-y-auto">
+      <div ref={bodyRef} className="px-4 py-3.5 h-[190px] sm:h-[150px] overflow-y-auto">
         {lines.map((l, i) => (
           <div key={i} className="mb-1.5">
             {l.cmd !== undefined && (

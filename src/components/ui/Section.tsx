@@ -2,11 +2,24 @@
 import type { ReactNode } from 'react'
 import { FadeIn } from './FadeIn'
 
-export function Section({ id, label, children }: { id: string; label: string; children: ReactNode }) {
+export function Section({
+  id,
+  label,
+  action,
+  children,
+}: {
+  id: string
+  label: string
+  action?: ReactNode
+  children: ReactNode
+}) {
   return (
     <section id={id} className="section-block">
       <FadeIn>
-        <p className="sec-label">~/<b>{label}</b></p>
+        <div className="sec-head">
+          <p className="sec-label"><span>~/<b>{label}</b></span></p>
+          {action}
+        </div>
         {children}
       </FadeIn>
     </section>
