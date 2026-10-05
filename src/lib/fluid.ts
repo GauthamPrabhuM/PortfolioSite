@@ -243,7 +243,7 @@ void main () {
   float band = exp(-pow(vUv.y / 0.07, 2.0));
   float n = 0.6 * noise(vec2(vUv.x * 11.0, time * 1.6)) + 0.4 * noise(vec2(vUv.x * 29.0, time * 3.3));
   float tongues = smoothstep(0.38, 0.85, n);
-  float bias = 0.45 + 0.55 * smoothstep(0.15, 0.85, vUv.x);
+  float bias = 0.8 + 0.2 * sin(vUv.x * 3.14159);
   float k = band * tongues * bias * amount;
   float side = noise(vec2(vUv.x * 7.0 + 31.0, time * 0.9)) - 0.5;
   vec3 add = mix(vec3(heat), vec3(side * lift * 1.6, lift, 0.0), isVelocity);

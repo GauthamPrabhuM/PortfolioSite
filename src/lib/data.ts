@@ -25,8 +25,6 @@ export const NAV_ITEMS = [
 
 // ── Hero ──────────────────────────────────────────────────────
 export const HERO = {
-  standfirst:
-    'Agentic AI in production at Cisco. Temporal graph learning in the lab at San José State.',
   columns: [
     "I work on Cisco's AI Acceleration team, inside Supply Chain Operations. I own retrieval quality, evaluation and guardrails for LLM-backed agents that now close 35% of incoming support cases with no human in the loop, and brought mean time to resolution down by 40%. I joined as an intern in January 2024 and was promoted twice in the 18 months that followed.",
     'I work with Dr. Saptarishi Sengupta at MiCoSys Lab, San José State University, on training Temporal Graph Neural Networks over dynamic graphs under a fixed memory and compute budget. Six of my papers are peer reviewed, across quantum machine learning, retinal imaging and NLP.',
