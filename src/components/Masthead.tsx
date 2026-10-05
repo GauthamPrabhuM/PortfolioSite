@@ -5,6 +5,7 @@ import { PERSONAL, NAV_ITEMS } from '@/lib/data'
 export function Masthead() {
   const [active, setActive] = useState('')
   const [open, setOpen] = useState(false)
+  const [over, setOver] = useState(true)
 
   useEffect(() => {
     const onScroll = () => {
@@ -15,6 +16,8 @@ export function Masthead() {
         if (el && el.offsetTop <= y) current = n.id
       })
       setActive(current)
+      const stage = document.getElementById('top')
+      setOver(!!stage && window.scrollY < stage.offsetHeight - 72)
     }
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
@@ -22,7 +25,7 @@ export function Masthead() {
   }, [])
 
   return (
-    <header className="masthead">
+    <header className={over && !open ? 'masthead is_over' : 'masthead'}>
       <div className="masthead_inner wrap">
         <a href="#top" className="masthead_brand">
           <span className="masthead_name">{PERSONAL.name}</span>

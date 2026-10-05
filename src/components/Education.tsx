@@ -1,30 +1,29 @@
 import { SectionHead } from './ui/SectionHead'
+import { More } from './ui/More'
 import { EDUCATION } from '@/lib/data'
 
 export function Education() {
   return (
     <section className="sec" id="education">
-      <SectionHead
-        numeral="IV."
-        title="Education"
-        dek="Computer science at Manipal, with a minor in big data analytics."
-      />
+      <SectionHead numeral="IV." title="Education" />
 
       {EDUCATION.map(e => (
-        <article className="entry edu_entry" key={e.degree}>
+        <article className="entry edu_entry" key={e.degree} data-reveal>
           <div className="entry_aside">
             <span className="entry_when">{e.period}</span>
             <span className="entry_where">{e.location}</span>
           </div>
 
           <div>
-            <h3 className="entry_title edu_level">{e.degree}</h3>
+            <h3 className="entry_title entry_title_sm">{e.degree}</h3>
             <p className="entry_org">
               <em>{e.school}</em> · {e.note}
             </p>
-            <div className="entry_prose edu_prose">
-              <p>{e.summary}</p>
-            </div>
+            <More>
+              <div className="entry_prose">
+                <p>{e.summary}</p>
+              </div>
+            </More>
           </div>
 
           <div className="edu_figure">

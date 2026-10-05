@@ -1,58 +1,45 @@
-import { PERSONAL, STATS, HERO } from '@/lib/data'
+'use client'
+import { useEffect, useRef, useState } from 'react'
+import { PERSONAL, HERO } from '@/lib/data'
+import { startFluid } from '@/lib/fluid'
 
 export function Hero() {
+  const host = useRef<HTMLElement>(null)
+  const canvas = useRef<HTMLCanvasElement>(null)
+  const [live, setLive] = useState(false)
+
+  useEffect(() => {
+    if (!canvas.current || !host.current) return
+    const stop = startFluid(canvas.current, host.current)
+    setLive(!!stop)
+    return () => stop?.()
+  }, [])
+
   return (
-    <section className="hero" id="top">
-      <div className="hero_grid">
-        <div>
-          <div className="kicker">Curriculum Vitæ · {PERSONAL.location}</div>
+    <section className={live ? 'stage is_live' : 'stage'} id="top" ref={host}>
+      <canvas className="stage_canvas" ref={canvas} aria-hidden="true" />
 
-          <h1 className="hero_name">
-            Gautham
-            <br />
-            Manuru Prabhu
-          </h1>
-
-          <p className="hero_standfirst">{HERO.standfirst}</p>
-
-          <hr className="hero_rule" />
-
-          <div className="hero_columns">
-            {HERO.columns.map((c, i) => (
-              <p key={i}>{c}</p>
-            ))}
-          </div>
-
-          <div className="hero_actions">
-            <a href="#experience" className="btn_ed is_primary">
-              See the work
-            </a>
-            <a href={PERSONAL.resume} download className="btn_ed">
-              Résumé (PDF)
-            </a>
-          </div>
+      <div className="stage_inner wrap">
+        <div className="stage_kicker">{PERSONAL.location}</div>
+        <h1 className="stage_name">
+          Gautham
+          <br />
+          Manuru Prabhu
+        </h1>
+        <p className="stage_standfirst">{HERO.standfirst}</p>
+        <div className="stage_actions">
+          <a href="#about" className="stage_btn is_primary">
+            See the work
+          </a>
+          <a href={PERSONAL.resume} download className="stage_btn">
+            Résumé (PDF)
+          </a>
         </div>
-
-        <figure className="hero_plate">
-          <div className="plate_frame">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={PERSONAL.photo} alt={PERSONAL.name} />
-          </div>
-          <figcaption className="plate_caption">
-            <span>Manipal Institute of Technology</span>
-            <span className="tnum">2024</span>
-          </figcaption>
-        </figure>
       </div>
 
-      <div className="figures">
-        {STATS.map(s => (
-          <div className="figures_item" key={s.label}>
-            <div className="figures_value">{s.value}</div>
-            <div className="figures_label">{s.label}</div>
-          </div>
-        ))}
-      </div>
+      <a href="#about" className="stage_cue" aria-label="Scroll to content">
+        <span />
+      </a>
     </section>
   )
 }

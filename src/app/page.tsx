@@ -1,5 +1,7 @@
 import { Masthead } from '@/components/Masthead'
 import { Hero } from '@/components/Hero'
+import { About } from '@/components/About'
+import { Reveal } from '@/components/Reveal'
 import { Experience } from '@/components/Experience'
 import { Research } from '@/components/Research'
 import { Publications } from '@/components/Publications'
@@ -8,15 +10,16 @@ import { Stack } from '@/components/Stack'
 import { Colophon } from '@/components/Colophon'
 
 /*
-  One ground, one column of type, six numbered sections.
-  No aurora, no side rails, no terminal, no theme fork.
+  A dark stage with live fluid, then one column of type: an about block
+  and five numbered sections. Secondary detail folds behind "More".
 */
 export default function Page() {
   return (
     <>
       <Masthead />
+      <Hero />
       <main className="wrap">
-        <Hero />
+        <About />
         <Experience />
         <Research />
         <Publications />
@@ -24,6 +27,7 @@ export default function Page() {
         <Stack />
       </main>
       <Colophon />
+      <Reveal />
     </>
   )
 }
