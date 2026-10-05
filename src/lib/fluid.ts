@@ -3,9 +3,11 @@
   Blue fire, built on a trimmed copy of Pavel Dobryakov's
   WebGL-Fluid-Simulation (MIT, github.com/PavelDoGreat/WebGL-Fluid-Simulation).
   Navier–Stokes on a 128² velocity grid; the dye field is heat, not paint.
-  A noisy emitter band feeds heat along the bottom edge, buoyancy lifts it,
-  dissipation cools it, and the display pass maps temperature through a
-  blue flame ramp (indigo, electric blue, cyan, white) with a soft glow.
+  Dye .r is blue-flame heat, fed by noisy emitter bands along the bottom
+  and both side edges. Dye .g is a separate crimson heat for rare, short
+  tongues at the base (CRIMSON). Buoyancy lifts both, dissipation cools
+  them, and the display maps each through its own ramp, letting the hotter
+  one win per pixel so the colours never blend into purple.
 
   startFluid(canvas, host) runs the sim and returns a teardown function, or
   null if WebGL with half-float render targets is unavailable.
@@ -22,6 +24,8 @@ const CONFIG = {
   BUOYANCY: 26,
   EMIT_HEAT: 0.11,
   EMIT_LIFT: 9,
+  SIDE_STRENGTH: 0.4,
+  CRIMSON: true,
   SPLAT_RADIUS: 0.16,
   SPLAT_FORCE: 3200,
   POINTER_HEAT: 0.32,
@@ -78,25 +82,34 @@ void main () { gl_FragColor = value * texture2D(uTexture, vUv); }`
 const DISPLAY = HEAD + `
 uniform sampler2D uTexture;
 uniform highp vec2 texelSize;
-vec3 ramp (float t) {
+vec3 blueRamp (float t) {
   vec3 c = mix(vec3(0.01, 0.02, 0.16), vec3(0.06, 0.22, 0.95), smoothstep(0.0, 0.35, t));
   c = mix(c, vec3(0.30, 0.78, 1.00), smoothstep(0.30, 0.70, t));
   return mix(c, vec3(0.92, 0.98, 1.00), smoothstep(0.70, 1.00, t));
 }
+vec3 redRamp (float t) {
+  vec3 c = mix(vec3(0.18, 0.0, 0.02), vec3(0.78, 0.05, 0.06), smoothstep(0.0, 0.4, t));
+  c = mix(c, vec3(1.0, 0.36, 0.18), smoothstep(0.4, 0.8, t));
+  return mix(c, vec3(1.0, 0.86, 0.72), smoothstep(0.8, 1.0, t));
+}
 void main () {
-  float h = texture2D(uTexture, vUv).r;
-  float g = 0.0;
+  vec2 h = texture2D(uTexture, vUv).rg;
+  vec2 g = vec2(0.0);
   for (int i = 0; i < 8; i++) {
     float a = float(i) * 0.785398;
     vec2 d = vec2(cos(a), sin(a)) * texelSize;
-    g += texture2D(uTexture, vUv + d * 14.0).r + texture2D(uTexture, vUv + d * 34.0).r;
+    g += texture2D(uTexture, vUv + d * 14.0).rg + texture2D(uTexture, vUv + d * 34.0).rg;
   }
   g /= 16.0;
-  float t = clamp(h * 1.15, 0.0, 1.0);
-  float a = smoothstep(0.03, 0.4, t);
-  vec3 glow = vec3(0.05, 0.25, 1.0) * g * 0.8;
-  vec3 c = ramp(t) * a + glow;
-  gl_FragColor = vec4(c, clamp(max(a, g * 0.6), 0.0, 1.0));
+  float tb = clamp(h.x * 1.15, 0.0, 1.0);
+  float tr = clamp(h.y * 1.25, 0.0, 1.0);
+  float ab = smoothstep(0.03, 0.4, tb);
+  float ar = smoothstep(0.03, 0.4, tr);
+  float w = smoothstep(0.35, 0.65, tr / (tb + tr + 0.0001));
+  vec3 flame = mix(blueRamp(tb) * ab, redRamp(tr) * ar, w);
+  vec3 glow = vec3(0.05, 0.25, 1.0) * g.x * 0.8 * (1.0 - w) + vec3(0.9, 0.08, 0.05) * g.y * 0.7;
+  float a = max(ab, ar);
+  gl_FragColor = vec4(flame + glow, clamp(max(a, (g.x + g.y) * 0.6), 0.0, 1.0));
 }`
 
 const SPLAT = HEAD + `
@@ -218,8 +231,10 @@ void main () {
   gl_FragColor = vec4(velocity, 0.0, 1.0);
 }`
 
-// Feeds the fire: a flickering band of heat (and upward push) along the
-// bottom edge, shaped by two octaves of value noise scrolling in time.
+// Feeds the fire. Blue heat comes from a flickering band along the bottom
+// and two along the side edges (fading out with height); crimson heat comes
+// from rare, sparse flares at the base and cools fast. Two octaves of value
+// noise scrolling in time shape the tongues.
 const EMIT = `
 precision highp float;
 precision highp sampler2D;
@@ -227,9 +242,12 @@ varying vec2 vUv;
 uniform sampler2D uTarget;
 uniform float time;
 uniform float amount;
+uniform float dt;
 uniform float isVelocity;
 uniform float heat;
 uniform float lift;
+uniform float sides;
+uniform float crimson;
 float hash (vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
 float noise (vec2 p) {
   vec2 i = floor(p);
@@ -238,16 +256,34 @@ float noise (vec2 p) {
   return mix(mix(hash(i), hash(i + vec2(1.0, 0.0)), f.x),
              mix(hash(i + vec2(0.0, 1.0)), hash(i + vec2(1.0, 1.0)), f.x), f.y);
 }
+float tongues (float x, float t, float seed) {
+  float n = 0.6 * noise(vec2(x * 11.0 + seed, t * 1.6)) + 0.4 * noise(vec2(x * 29.0 + seed, t * 3.3));
+  return smoothstep(0.38, 0.85, n);
+}
 void main () {
   vec4 base = texture2D(uTarget, vUv);
-  float band = exp(-pow(vUv.y / 0.07, 2.0));
-  float n = 0.6 * noise(vec2(vUv.x * 11.0, time * 1.6)) + 0.4 * noise(vec2(vUv.x * 29.0, time * 3.3));
-  float tongues = smoothstep(0.38, 0.85, n);
-  float bias = 0.8 + 0.2 * sin(vUv.x * 3.14159);
-  float k = band * tongues * bias * amount;
-  float side = noise(vec2(vUv.x * 7.0 + 31.0, time * 0.9)) - 0.5;
-  vec3 add = mix(vec3(heat), vec3(side * lift * 1.6, lift, 0.0), isVelocity);
-  gl_FragColor = vec4(base.xyz + add * k, 1.0);
+  float x = vUv.x, y = vUv.y;
+
+  float flare = smoothstep(0.74, 0.92, noise(vec2(x * 6.0 + 50.0, time * 0.7))) * crimson;
+  float kC = exp(-pow(y / 0.06, 2.0)) * flare * tongues(x, time * 1.3, 91.0);
+
+  // Where a crimson flare is burning, the blue under it holds back.
+  float kB = exp(-pow(y / 0.07, 2.0)) * tongues(x, time, 0.0) * (0.8 + 0.2 * sin(x * 3.14159)) * (1.0 - flare);
+  float fade = 1.0 - smoothstep(0.1, 0.55, y);
+  float kL = exp(-pow(x / 0.035, 2.0)) * tongues(y * 0.8, time, 17.0) * fade * sides;
+  float kR = exp(-pow((1.0 - x) / 0.035, 2.0)) * tongues(y * 0.8, time, 43.0) * fade * sides;
+
+  if (isVelocity > 0.5) {
+    float side = noise(vec2(x * 7.0 + 31.0, time * 0.9)) - 0.5;
+    vec2 v = vec2(side * lift * 1.6, lift) * (kB + kC)
+           + vec2(lift * 0.5, lift * 0.8) * kL
+           + vec2(-lift * 0.5, lift * 0.8) * kR;
+    gl_FragColor = vec4(base.xy + v * amount, 0.0, 1.0);
+  } else {
+    float blue = base.r + heat * (kB + kL + kR) * amount;
+    float red = base.g * (1.0 - 1.2 * dt) + heat * 2.4 * kC * amount;
+    gl_FragColor = vec4(blue, red, 0.0, 1.0);
+  }
 }`
 
 const BUOYANCY = `
@@ -260,7 +296,8 @@ uniform float buoyancy;
 uniform float dt;
 void main () {
   vec2 v = texture2D(uVelocity, vUv).xy;
-  v.y += dt * buoyancy * texture2D(uHeat, vUv).r;
+  vec2 h = texture2D(uHeat, vUv).rg;
+  v.y += dt * buoyancy * (h.x + h.y);
   gl_FragColor = vec4(v, 0.0, 1.0);
 }`
 
@@ -591,7 +628,7 @@ export function startFluid(canvas: HTMLCanvasElement, host: HTMLElement): (() =>
     blit(v.write)
     v.swap()
     gl.uniform1i(progs.splat.u.uTarget, d.read.attach(0))
-    gl.uniform3f(progs.splat.u.color, heat, heat, heat)
+    gl.uniform3f(progs.splat.u.color, heat, 0, 0)
     blit(d.write)
     d.swap()
   }
@@ -603,6 +640,9 @@ export function startFluid(canvas: HTMLCanvasElement, host: HTMLElement): (() =>
     gl.uniform1f(progs.emit.u.amount, amount)
     gl.uniform1f(progs.emit.u.heat, CONFIG.EMIT_HEAT)
     gl.uniform1f(progs.emit.u.lift, CONFIG.EMIT_LIFT)
+    gl.uniform1f(progs.emit.u.dt, dt)
+    gl.uniform1f(progs.emit.u.sides, CONFIG.SIDE_STRENGTH)
+    gl.uniform1f(progs.emit.u.crimson, CONFIG.CRIMSON ? 1 : 0)
 
     gl.uniform1f(progs.emit.u.isVelocity, 1)
     gl.uniform1i(progs.emit.u.uTarget, velocity!.read.attach(0))
