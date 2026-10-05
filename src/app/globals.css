@@ -86,7 +86,7 @@ section[id] { scroll-margin-top: 104px; }
 .masthead.is_over { background: transparent; backdrop-filter: none; border-bottom-color: transparent; color: var(--color-paper); }
 .masthead.is_over .masthead_role { color: color-mix(in srgb, var(--color-paper) 55%, transparent); }
 .masthead.is_over .masthead_link { color: color-mix(in srgb, var(--color-paper) 70%, transparent); }
-.masthead.is_over .masthead_link:hover { color: var(--color-accent-400); border-bottom-color: var(--color-accent-400); }
+.masthead.is_over .masthead_link:hover { color: #8fd0ff; border-bottom-color: #8fd0ff; }
 .masthead.is_over .masthead_toggle { color: var(--color-paper); border-color: color-mix(in srgb, var(--color-paper) 30%, transparent); }
 .masthead_inner { display: flex; align-items: baseline; gap: 40px; padding-top: 14px; padding-bottom: 14px; }
 .masthead_brand { display: flex; flex-direction: column; gap: 1px; margin-right: auto; text-decoration: none; color: inherit; }
@@ -157,26 +157,23 @@ section[id] { scroll-margin-top: 104px; }
 .stage {
   position: relative; min-height: 100vh; min-height: 100svh; overflow: hidden;
   display: flex; align-items: center;
-  background: radial-gradient(120% 90% at 70% 30%, #2a2219 0%, var(--color-ink) 55%, #0e0d0c 100%);
+  --flame: #8fd0ff;
+  background: radial-gradient(120% 90% at 70% 110%, #0c1730 0%, #070a14 55%, #040509 100%);
   color: var(--color-paper);
 }
 .stage_canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; opacity: 0; transition: opacity 1.4s ease; }
-.stage.is_live .stage_canvas { opacity: 0.9; }
-.stage::after {
-  content: ""; position: absolute; inset: 0; pointer-events: none;
-  background: linear-gradient(180deg, transparent 62%, color-mix(in srgb, #0e0d0c 70%, transparent) 100%);
-}
+.stage.is_live .stage_canvas { opacity: 1; }
 .stage_inner { position: relative; z-index: 1; width: 100%; padding-top: 96px; padding-bottom: 96px; pointer-events: none; }
 .stage_inner a { pointer-events: auto; }
 .stage_kicker {
   display: flex; align-items: center; gap: 14px; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase;
-  color: var(--color-accent-400);
+  color: var(--flame);
 }
 .stage_kicker::before { content: ""; width: 44px; height: 1px; background: currentColor; display: block; }
 .stage_name {
   font-family: var(--font-heading); font-weight: 400; font-size: clamp(56px, 9vw, 148px);
   line-height: 0.92; letter-spacing: -0.03em; margin: 28px 0 22px; color: #f7f2ea;
-  text-shadow: 0 2px 40px rgba(0, 0, 0, 0.35);
+  text-shadow: 0 2px 30px rgba(2, 4, 12, 0.7), 0 0 2px rgba(2, 4, 12, 0.5);
 }
 .stage_standfirst {
   font-family: var(--font-heading); font-style: italic; font-size: clamp(20px, 2vw, 26px); line-height: 1.35;
@@ -187,18 +184,18 @@ section[id] { scroll-margin-top: 104px; }
   display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-heading); font-weight: 600;
   font-size: 15px; letter-spacing: 0.04em; text-decoration: none; padding: 12px 24px; border-radius: 999px;
   border: 1px solid color-mix(in srgb, var(--color-paper) 30%, transparent); color: var(--color-paper);
-  background: color-mix(in srgb, #0e0d0c 30%, transparent); backdrop-filter: blur(6px);
+  background: color-mix(in srgb, #04060c 45%, transparent); backdrop-filter: blur(6px);
   transition: background 220ms ease, border-color 220ms ease, color 220ms ease;
 }
 .stage_btn:hover { background: color-mix(in srgb, var(--color-paper) 12%, transparent); color: #fff; }
-.stage_btn.is_primary { border-color: var(--color-accent); color: var(--color-accent-400); }
-.stage_btn.is_primary:hover { background: color-mix(in srgb, var(--color-accent) 22%, transparent); color: #fff; }
+.stage_btn.is_primary { border-color: var(--flame); color: var(--flame); }
+.stage_btn.is_primary:hover { background: color-mix(in srgb, var(--flame) 20%, transparent); color: #fff; }
 
 .stage_cue {
   position: absolute; left: 50%; bottom: 28px; z-index: 1; transform: translateX(-50%);
   width: 1px; height: 56px; background: color-mix(in srgb, var(--color-paper) 18%, transparent); overflow: hidden;
 }
-.stage_cue span { position: absolute; left: 0; top: -40%; width: 1px; height: 40%; background: var(--color-accent-400); animation: cue 2.2s cubic-bezier(.6,0,.3,1) infinite; }
+.stage_cue span { position: absolute; left: 0; top: -40%; width: 1px; height: 40%; background: var(--flame); animation: cue 2.2s cubic-bezier(.6,0,.3,1) infinite; }
 @keyframes cue { to { top: 100%; } }
 
 /* staged entrance for the hero copy */

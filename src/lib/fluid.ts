@@ -1,9 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /*
-  WebGL fluid, trimmed from Pavel Dobryakov's WebGL-Fluid-Simulation
-  (MIT, github.com/PavelDoGreat/WebGL-Fluid-Simulation). Navier–Stokes on
-  a 128² velocity grid, dye advected at up to 1024². Bloom and sunrays are
-  dropped; shading is kept. Colours are drawn from the site's warm palette.
+  Blue fire, built on a trimmed copy of Pavel Dobryakov's
+  WebGL-Fluid-Simulation (MIT, github.com/PavelDoGreat/WebGL-Fluid-Simulation).
+  Navier–Stokes on a 128² velocity grid; the dye field is heat, not paint.
+  A noisy emitter band feeds heat along the bottom edge, buoyancy lifts it,
+  dissipation cools it, and the display pass maps temperature through a
+  blue flame ramp (indigo, electric blue, cyan, white) with a soft glow.
 
   startFluid(canvas, host) runs the sim and returns a teardown function, or
   null if WebGL with half-float render targets is unavailable.
@@ -12,15 +14,17 @@
 const CONFIG = {
   SIM_RESOLUTION: 128,
   DYE_RESOLUTION: 1024,
-  DENSITY_DISSIPATION: 0.9,
-  VELOCITY_DISSIPATION: 0.25,
+  DENSITY_DISSIPATION: 1.35,
+  VELOCITY_DISSIPATION: 0.55,
   PRESSURE: 0.8,
   PRESSURE_ITERATIONS: 20,
-  CURL: 28,
-  SPLAT_RADIUS: 0.22,
-  SPLAT_FORCE: 5200,
-  COLOR_UPDATE_SPEED: 8,
-  AMBIENT_EVERY_MS: 3800,
+  CURL: 34,
+  BUOYANCY: 26,
+  EMIT_HEAT: 0.11,
+  EMIT_LIFT: 9,
+  SPLAT_RADIUS: 0.16,
+  SPLAT_FORCE: 3200,
+  POINTER_HEAT: 0.32,
 }
 
 type FBO = {
@@ -41,7 +45,6 @@ type DoubleFBO = {
   write: FBO
   swap: () => void
 }
-type RGB = { r: number; g: number; b: number }
 
 const VERT = `
 precision highp float;
@@ -75,19 +78,25 @@ void main () { gl_FragColor = value * texture2D(uTexture, vUv); }`
 const DISPLAY = HEAD + `
 uniform sampler2D uTexture;
 uniform highp vec2 texelSize;
+vec3 ramp (float t) {
+  vec3 c = mix(vec3(0.01, 0.02, 0.16), vec3(0.06, 0.22, 0.95), smoothstep(0.0, 0.35, t));
+  c = mix(c, vec3(0.30, 0.78, 1.00), smoothstep(0.30, 0.70, t));
+  return mix(c, vec3(0.92, 0.98, 1.00), smoothstep(0.70, 1.00, t));
+}
 void main () {
-  vec3 c = texture2D(uTexture, vUv).rgb;
-  vec3 lc = texture2D(uTexture, vL).rgb;
-  vec3 rc = texture2D(uTexture, vR).rgb;
-  vec3 tc = texture2D(uTexture, vT).rgb;
-  vec3 bc = texture2D(uTexture, vB).rgb;
-  float dx = length(rc) - length(lc);
-  float dy = length(tc) - length(bc);
-  vec3 n = normalize(vec3(dx, dy, length(texelSize)));
-  float diffuse = clamp(dot(n, vec3(0.0, 0.0, 1.0)) + 0.7, 0.7, 1.0);
-  c *= diffuse;
-  float a = max(c.r, max(c.g, c.b));
-  gl_FragColor = vec4(c, a);
+  float h = texture2D(uTexture, vUv).r;
+  float g = 0.0;
+  for (int i = 0; i < 8; i++) {
+    float a = float(i) * 0.785398;
+    vec2 d = vec2(cos(a), sin(a)) * texelSize;
+    g += texture2D(uTexture, vUv + d * 14.0).r + texture2D(uTexture, vUv + d * 34.0).r;
+  }
+  g /= 16.0;
+  float t = clamp(h * 1.15, 0.0, 1.0);
+  float a = smoothstep(0.03, 0.4, t);
+  vec3 glow = vec3(0.05, 0.25, 1.0) * g * 0.8;
+  vec3 c = ramp(t) * a + glow;
+  gl_FragColor = vec4(c, clamp(max(a, g * 0.6), 0.0, 1.0));
 }`
 
 const SPLAT = HEAD + `
@@ -209,27 +218,51 @@ void main () {
   gl_FragColor = vec4(velocity, 0.0, 1.0);
 }`
 
-// Hue bands: gold/amber/ember for most splats, an occasional deep blue for depth.
-function generateColor(): RGB {
-  const warm = Math.random() < 0.78
-  const h = warm ? 0.02 + Math.random() * 0.11 : 0.56 + Math.random() * 0.07
-  const s = warm ? 0.7 + Math.random() * 0.3 : 0.6 + Math.random() * 0.3
-  const c = hsvToRgb(h, s, 1)
-  return { r: c.r * 0.15, g: c.g * 0.15, b: c.b * 0.15 }
+// Feeds the fire: a flickering band of heat (and upward push) along the
+// bottom edge, shaped by two octaves of value noise scrolling in time.
+const EMIT = `
+precision highp float;
+precision highp sampler2D;
+varying vec2 vUv;
+uniform sampler2D uTarget;
+uniform float time;
+uniform float amount;
+uniform float isVelocity;
+uniform float heat;
+uniform float lift;
+float hash (vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
+float noise (vec2 p) {
+  vec2 i = floor(p);
+  vec2 f = fract(p);
+  f = f * f * (3.0 - 2.0 * f);
+  return mix(mix(hash(i), hash(i + vec2(1.0, 0.0)), f.x),
+             mix(hash(i + vec2(0.0, 1.0)), hash(i + vec2(1.0, 1.0)), f.x), f.y);
 }
+void main () {
+  vec4 base = texture2D(uTarget, vUv);
+  float band = exp(-pow(vUv.y / 0.07, 2.0));
+  float n = 0.6 * noise(vec2(vUv.x * 11.0, time * 1.6)) + 0.4 * noise(vec2(vUv.x * 29.0, time * 3.3));
+  float tongues = smoothstep(0.38, 0.85, n);
+  float bias = 0.45 + 0.55 * smoothstep(0.15, 0.85, vUv.x);
+  float k = band * tongues * bias * amount;
+  float side = noise(vec2(vUv.x * 7.0 + 31.0, time * 0.9)) - 0.5;
+  vec3 add = mix(vec3(heat), vec3(side * lift * 1.6, lift, 0.0), isVelocity);
+  gl_FragColor = vec4(base.xyz + add * k, 1.0);
+}`
 
-function hsvToRgb(h: number, s: number, v: number): RGB {
-  const i = Math.floor(h * 6)
-  const f = h * 6 - i
-  const p = v * (1 - s)
-  const q = v * (1 - f * s)
-  const t = v * (1 - (1 - f) * s)
-  const table: [number, number, number][] = [
-    [v, t, p], [q, v, p], [p, v, t], [p, q, v], [t, p, v], [v, p, q],
-  ]
-  const [r, g, b] = table[i % 6]
-  return { r, g, b }
-}
+const BUOYANCY = `
+precision highp float;
+precision highp sampler2D;
+varying vec2 vUv;
+uniform sampler2D uVelocity;
+uniform sampler2D uHeat;
+uniform float buoyancy;
+uniform float dt;
+void main () {
+  vec2 v = texture2D(uVelocity, vUv).xy;
+  v.y += dt * buoyancy * texture2D(uHeat, vUv).r;
+  gl_FragColor = vec4(v, 0.0, 1.0);
+}`
 
 function getContext(canvas: HTMLCanvasElement) {
   const params = { alpha: true, depth: false, stencil: false, antialias: false, preserveDrawingBuffer: false }
@@ -329,6 +362,8 @@ export function startFluid(canvas: HTMLCanvasElement, host: HTMLElement): (() =>
       vorticity: program(VORTICITY),
       pressure: program(PRESSURE),
       gradient: program(GRADIENT_SUBTRACT),
+      emit: program(EMIT),
+      buoyancy: program(BUOYANCY),
     }
   } catch {
     return null
@@ -472,6 +507,14 @@ export function startFluid(canvas: HTMLCanvasElement, host: HTMLElement): (() =>
     blit(v.write)
     v.swap()
 
+    progs.buoyancy.bind()
+    gl.uniform1i(progs.buoyancy.u.uVelocity, v.read.attach(0))
+    gl.uniform1i(progs.buoyancy.u.uHeat, d.read.attach(1))
+    gl.uniform1f(progs.buoyancy.u.buoyancy, CONFIG.BUOYANCY)
+    gl.uniform1f(progs.buoyancy.u.dt, dt)
+    blit(v.write)
+    v.swap()
+
     progs.divergence.bind()
     gl.uniform2f(progs.divergence.u.texelSize, v.texelSizeX, v.texelSizeY)
     gl.uniform1i(progs.divergence.u.uVelocity, v.read.attach(0))
@@ -536,7 +579,7 @@ export function startFluid(canvas: HTMLCanvasElement, host: HTMLElement): (() =>
     return aspect > 1 ? radius * aspect : radius
   }
 
-  const splat = (x: number, y: number, dx: number, dy: number, color: RGB) => {
+  const splat = (x: number, y: number, dx: number, dy: number, heat: number) => {
     const v = velocity!
     const d = dye!
     progs.splat.bind()
@@ -548,21 +591,32 @@ export function startFluid(canvas: HTMLCanvasElement, host: HTMLElement): (() =>
     blit(v.write)
     v.swap()
     gl.uniform1i(progs.splat.u.uTarget, d.read.attach(0))
-    gl.uniform3f(progs.splat.u.color, color.r, color.g, color.b)
+    gl.uniform3f(progs.splat.u.color, heat, heat, heat)
     blit(d.write)
     d.swap()
   }
 
-  const randomSplats = (amount: number) => {
-    for (let i = 0; i < amount; i++) {
-      const c = generateColor()
-      c.r *= 10; c.g *= 10; c.b *= 10
-      splat(Math.random(), Math.random(), 1000 * (Math.random() - 0.5), 1000 * (Math.random() - 0.5), c)
-    }
+  const emit = (time: number, dt: number) => {
+    const amount = dt * 60
+    progs.emit.bind()
+    gl.uniform1f(progs.emit.u.time, time)
+    gl.uniform1f(progs.emit.u.amount, amount)
+    gl.uniform1f(progs.emit.u.heat, CONFIG.EMIT_HEAT)
+    gl.uniform1f(progs.emit.u.lift, CONFIG.EMIT_LIFT)
+
+    gl.uniform1f(progs.emit.u.isVelocity, 1)
+    gl.uniform1i(progs.emit.u.uTarget, velocity!.read.attach(0))
+    blit(velocity!.write)
+    velocity!.swap()
+
+    gl.uniform1f(progs.emit.u.isVelocity, 0)
+    gl.uniform1i(progs.emit.u.uTarget, dye!.read.attach(0))
+    blit(dye!.write)
+    dye!.swap()
   }
 
   // ── pointer ─────────────────────────────────────────────────
-  const pointer = { x: 0, y: 0, prevX: 0, prevY: 0, dx: 0, dy: 0, moved: false, primed: false, color: generateColor() }
+  const pointer = { x: 0, y: 0, prevX: 0, prevY: 0, dx: 0, dy: 0, moved: false, primed: false }
 
   const onMove = (clientX: number, clientY: number) => {
     const rect = canvas.getBoundingClientRect()
@@ -606,8 +660,7 @@ export function startFluid(canvas: HTMLCanvasElement, host: HTMLElement): (() =>
   // ── loop ────────────────────────────────────────────────────
   let raf = 0
   let last = performance.now()
-  let colorTimer = 0
-  let ambientAt = last + CONFIG.AMBIENT_EVERY_MS
+  const born = last
   let visible = true
   let frames = 0
 
@@ -619,31 +672,24 @@ export function startFluid(canvas: HTMLCanvasElement, host: HTMLElement): (() =>
 
     if (resizeCanvas()) initFramebuffers()
 
-    colorTimer += dt * CONFIG.COLOR_UPDATE_SPEED
-    if (colorTimer >= 1) {
-      colorTimer %= 1
-      pointer.color = generateColor()
-    }
     if (pointer.moved) {
       pointer.moved = false
-      splat(pointer.x, pointer.y, pointer.dx * CONFIG.SPLAT_FORCE, pointer.dy * CONFIG.SPLAT_FORCE, pointer.color)
+      const speed = Math.min(Math.hypot(pointer.dx, pointer.dy) * 40, 1)
+      splat(pointer.x, pointer.y, pointer.dx * CONFIG.SPLAT_FORCE, pointer.dy * CONFIG.SPLAT_FORCE, CONFIG.POINTER_HEAT * (0.4 + speed))
     }
-    if (!reduced && now >= ambientAt) {
-      ambientAt = now + CONFIG.AMBIENT_EVERY_MS
-      randomSplats(1 + Math.floor(Math.random() * 3))
-    }
+    emit((now - born) / 1000, dt)
 
     step(dt)
     render()
     frames++
 
-    // Reduced motion: let the opening bloom settle into a still, then stop.
-    if (reduced && frames > 90) return
+    // Reduced motion: let the fire build, then hold it as a still.
+    if (reduced && frames > 150) return
     if (visible && !document.hidden) raf = requestAnimationFrame(frame)
   }
 
   const resume = () => {
-    if (raf || !visible || document.hidden || (reduced && frames > 90)) return
+    if (raf || !visible || document.hidden || (reduced && frames > 150)) return
     last = performance.now()
     raf = requestAnimationFrame(frame)
   }
@@ -656,7 +702,6 @@ export function startFluid(canvas: HTMLCanvasElement, host: HTMLElement): (() =>
   const onVisibility = () => { if (!document.hidden) resume() }
   document.addEventListener('visibilitychange', onVisibility)
 
-  randomSplats(small ? 6 : 9)
   resume()
 
   return () => {
