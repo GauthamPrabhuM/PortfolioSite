@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Gautham Manuru Prabhu · AI Engineer & ML Researcher',
     description:
-      'Agentic AI in production at Cisco. Temporal graph learning at San José State. Six peer-reviewed publications.',
+      'Agentic AI in production at Cisco. Temporal graph learning at San José State, with a first-author poster at the Stanford Graph Learning Workshop 2026.',
     type: 'website',
     locale: 'en_US',
   },

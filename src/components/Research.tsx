@@ -12,6 +12,7 @@ export function Research() {
           <div className="entry_aside">
             <span className="entry_when">{a.period}</span>
             <span className="entry_where">{a.location}</span>
+            {a.badge && <span className="mark">{a.badge}</span>}
           </div>
 
           <div>

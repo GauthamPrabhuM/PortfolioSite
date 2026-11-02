@@ -26,8 +26,8 @@ export const NAV_ITEMS = [
 // ── Hero ──────────────────────────────────────────────────────
 export const HERO = {
   columns: [
-    "I work on Cisco's AI Acceleration team, inside Supply Chain Operations. I own retrieval quality, evaluation and guardrails for LLM-backed agents that now close 35% of incoming support cases with no human in the loop, and brought mean time to resolution down by 40%. I joined as an intern in January 2024 and was promoted twice in the 18 months that followed.",
-    'I work with Dr. Saptarishi Sengupta at MiCoSys Lab, San José State University, on training Temporal Graph Neural Networks over dynamic graphs under a fixed memory and compute budget. Six of my papers are peer reviewed, across quantum machine learning, retinal imaging and NLP.',
+    "I work on Cisco's AI Acceleration team, in Supply Chain Operations. I led an agentic suite that root-causes 70% of previously undiagnosed hardware test failures and now runs in factories worldwide. I joined as an intern in January 2024 and was promoted twice in 18 months.",
+    'At MiCoSys Lab, San José State University, I work with Dr. Saptarshi Sengupta on when LLM text features help temporal link prediction. I am first author on our poster at the Stanford Graph Learning Workshop 2026. Six of my papers are peer reviewed.',
   ],
 }
 
@@ -48,9 +48,9 @@ export const WORK_EXPERIENCE = [
     to: 'Present',
     isCurrent: true,
     highlights: [
-      'Four agents run in production today: service-request resolution, knowledge-base indexing, case follow-up, and proactive alerting. Between them they close 35% of incoming cases with no human in the loop, took 40% off mean time to resolution, and return roughly 10,000 engineer-hours a quarter to the supply chain organisation.',
-      'Under the Quality Transformation Program I built failure-analysis and predictive-maintenance agents for the manufacturing side. They root-caused 70% of failures that previously went undiagnosed, improved upstream defect detection and brought down repeat failure rates across global sites.',
-      'I also found coverage gaps in Paladin edge connectors across 10 production lines, and wired SplunkAI observability into legacy systems that had none. I now own the research-to-production path for these agents end to end: retrieval quality, evaluation, guardrails.',
+      'When a hardware test fails, someone has to work out whether the script, the environment or the product is at fault, usually with no past data to go on. I led an agentic suite that does this with MCP tool calls over troubleshooting knowledge and engineering tools. It root-causes 70% of previously undiagnosed failures and runs in factories worldwide.',
+      "I contributed to a support-queue agent that closes 30% of routine requests (MAC address allocation, access issues, expired certificates) on its own. Case volume is down 35% and mean time to resolution down 40%. The two systems save an estimated $450,000 a year, and I presented them to Cisco's Chief Supply Chain Officer.",
+      'Found coverage gaps in Paladin edge connectors across 10 production lines, and added SplunkAI observability to legacy systems that had none.',
     ],
     stack: ['Python', 'FastAPI', 'Agentic AI', 'LLMs', 'RAG', 'LangChain', 'LangGraph', 'LangSmith', 'SplunkAI', 'Docker', 'Kubernetes', 'OpenShift', 'ArgoCD', 'PostgreSQL', 'Snowflake'],
   },
@@ -63,8 +63,8 @@ export const WORK_EXPERIENCE = [
     to: 'Aug 2025',
     isCurrent: false,
     highlights: [
-      'Promoted from SE1 to SE2 in 12 months, the second promotion on the same team inside 18.',
-      'The year was a rewrite. Legacy failure-analysis workflows became event-driven microservices on Kubernetes, built with FastAPI, Cassandra and Redis. I added anomaly detection over manufacturing telemetry, and SLA dashboards in Prometheus and Grafana so that an on-call engineer saw a breach before the customer did.',
+      'Moved legacy failure-analysis workflows to event-driven microservices on Kubernetes (FastAPI, Cassandra, Redis), added anomaly detection over manufacturing telemetry, and built SLA dashboards in Prometheus and Grafana.',
+      'Promoted to SE2 in 12 months.',
     ],
     stack: ['FastAPI', 'Cassandra', 'Redis', 'Kubernetes', 'Prometheus', 'Grafana', 'Python', 'Microservices'],
   },
@@ -77,24 +77,35 @@ export const WORK_EXPERIENCE = [
     to: 'Aug 2024',
     isCurrent: false,
     highlights: [
-      'I converted from intern to SE1 in six months. I built microservices with circuit breakers and retry logic, and a release pipeline automated with Jenkins, Docker and Kubernetes that took deployments from six hours to two minutes.',
-      "For Cisco's intern case study competition I built an NLP pipeline that standardised supplier names across 50,000 records, and it placed third of more than 100 entries.",
+      'Rebuilt a hand-deployed Python 2 manufacturing service as containerized code on Jenkins, Docker and Kubernetes. Deploys went from about six hours to four minutes. Converted to SE1 in six months.',
+      "Built an NLP pipeline that standardised supplier names across 50,000 records for Cisco's intern case study competition. Second runner-up of 100+ entries.",
     ],
     stack: ['Python', 'Flask', 'Jenkins', 'Docker', 'Kubernetes', 'REST', 'OpenAPI', 'NLP'],
   },
 ]
 
 // ── Research experience ─────────────────────────────────────
-export const RESEARCH_EXPERIENCE = [
+// `badge` shows under the dates, like "Current" on work entries.
+export const RESEARCH_EXPERIENCE: {
+  id: number
+  title: string
+  institution: string
+  location: string
+  period: string
+  advisor: string
+  summary: string
+  badge?: string
+}[] = [
   {
     id: 1,
     title: 'Research Associate, MiCoSys Lab',
     institution: 'San José State University',
     location: 'Remote',
     period: '2025 – Present',
-    advisor: 'Advisor: Dr. Saptarishi Sengupta',
+    advisor: 'Advisor: Dr. Saptarshi Sengupta',
+    badge: 'First author',
     summary:
-      'The problem is adaptation: models are trained once on a snapshot, and real graphs keep moving. I work on training Temporal Graph Neural Networks over dynamic graphs with millions of edges, under a fixed memory and compute budget, using PyTorch Geometric, DGL and CUDA across several GPUs.',
+      'First-author poster at the Stanford Graph Learning Workshop 2026 (Nov 3). Recent methods report large gains from adding LLM summaries to temporal graph networks. We reproduced one, CROSS (NeurIPS 2025), then ranked it against 100 sampled negatives instead of in-batch ones. Most of its lead over a text-aware baseline disappeared. Text still helped on new nodes, and a text encoder 15 times larger lowered accuracy. Full paper in preparation.',
   },
   {
     id: 2,
@@ -104,7 +115,7 @@ export const RESEARCH_EXPERIENCE = [
     period: 'Jun – Aug 2023',
     advisor: 'Advisors: Dr. Subhamoy Mandal, Ms. Pragya Gupta',
     summary:
-      'Optical coherence tomography scans are noisy and the classes are badly unbalanced. I proposed an ensemble feature-fusion approach for anomaly detection, tuning preprocessing, augmentation and colour-space features against a multi-class benchmark, and contributed to a set of 3,000 annotated retinal scans.',
+      'Retinal scans for macular degeneration came in at mixed resolutions, and many patients were missing a modality. I encoded each modality separately before fusing features, and gave the model each scan in several colour spaces. Presented at the Digital Health Symposium, IIT Kharagpur.',
   },
   {
     id: 3,
@@ -114,7 +125,7 @@ export const RESEARCH_EXPERIENCE = [
     period: 'Feb 2022 – Nov 2023',
     advisor: 'Mentor: Dr. Vivekananda Bhat',
     summary:
-      'We tested whether quantum models could beat classical baselines at detecting cardiovascular disease from ECG images. QSVC, Pegasos QSVC and a quanvolutional neural network reached 97% accuracy, 10 to 14 points above the classical baselines we trained ourselves. The work was funded by a MeitY and AWS grant, and took us to the top 16 of 1,600 teams at the QETCI hackathon.',
+      'Quantum models against classical baselines for detecting heart disease from ECG images. QSVC, Pegasos QSVC and a quanvolutional neural network reached 97% accuracy, 10 to 14 points above the classical models. Funded by MeitY and AWS, and top 16 of 1,600 teams at the QETCI hackathon.',
   },
   {
     id: 4,
@@ -124,7 +135,7 @@ export const RESEARCH_EXPERIENCE = [
     period: 'Jul 2022 – Oct 2023',
     advisor: 'Mentors: Dr. Srikanth Prabhu, Mr. Govardhan Hegde',
     summary:
-      "Retinal vessel segmentation across 3,000 fundus images, combining CLAHE, Gaussian blur and edge detection. Because the images left Kasturba Medical College's network, we also had to encrypt them properly, so the pipeline carries Diffie–Hellman key exchange and AES-256. Published in Springer LNCS and presented at ATIS.",
+      "Retinal vessel segmentation on 3,000 fundus images with CLAHE, Gaussian blur and edge detection. The images left Kasturba Medical College's network, so the pipeline encrypts them with Diffie–Hellman and AES-256. Published in Springer CCIS.",
   },
   {
     id: 5,
@@ -134,15 +145,30 @@ export const RESEARCH_EXPERIENCE = [
     period: 'Sep 2022 – Jul 2023',
     advisor: 'Mentor: Dr. Nisha P. Shetty',
     summary:
-      'We modelled how vaccine misinformation travels, running BERT and XLNet over a corpus of 10,000 posts alongside a graph model of who repeats whom. Classification passed 90% F1 on the benchmark. The user-association signal did more work than the language model did.',
+      'Vaccine misinformation detection with BERT and XLNet over 10,000 posts, plus a graph of who repeats whom. Over 90% F1. Published in Procedia Computer Science.',
   },
 ]
 
 // ── Publications ──────────────────────────────────────────────
 export const PUBLICATIONS = [
   {
-    id: 1,
+    id: 0,
     num: '01',
+    mark: 'Poster · Stanford',
+    quiet: null,
+    citations: null,
+    title:
+      'On Link Prediction Using Node-Pair LLM Semantics and Structure in Temporal Text-Attributed Graphs',
+    authorsBefore: '',
+    authorsAfter: ', S. Gupta, A. Nagarajan, M. Choudhary, K. Potika, S. Sengupta',
+    venue: 'Stanford Graph Learning Workshop 2026',
+    ref: ', Stanford University, Nov 2026 · Poster, first author',
+    doi: null,
+    link: null,
+  },
+  {
+    id: 1,
+    num: '02',
     mark: 'Q1 · IEEE Access',
     quiet: null,
     citations: '60+ citations',
@@ -157,7 +183,7 @@ export const PUBLICATIONS = [
   },
   {
     id: 2,
-    num: '02',
+    num: '03',
     mark: null,
     quiet: 'Journal · Elsevier',
     citations: null,
@@ -172,7 +198,7 @@ export const PUBLICATIONS = [
   },
   {
     id: 3,
-    num: '03',
+    num: '04',
     mark: null,
     quiet: 'Springer CCIS',
     citations: null,
@@ -186,7 +212,7 @@ export const PUBLICATIONS = [
   },
   {
     id: 4,
-    num: '04',
+    num: '05',
     mark: null,
     quiet: 'Springer CCIS',
     citations: null,
@@ -200,7 +226,7 @@ export const PUBLICATIONS = [
   },
   {
     id: 5,
-    num: '05',
+    num: '06',
     mark: null,
     quiet: 'IOP Journal',
     citations: null,
@@ -215,7 +241,7 @@ export const PUBLICATIONS = [
   },
   {
     id: 6,
-    num: '06',
+    num: '07',
     mark: null,
     quiet: 'Workshop · IISc',
     citations: null,
@@ -240,7 +266,7 @@ export const EDUCATION = [
     gradeLabel: 'CGPA / 10',
     note: 'Minor in Big Data Analytics',
     summary:
-      'I graduated in the top 15% of the cohort, with coursework in artificial intelligence, quantum computing, deep learning, algorithms and distributed systems. I spent most of the four years inside three research labs, which is where the publications came from and where I learned to read a paper properly.',
+      'Top 15% of the cohort. Coursework in AI, quantum computing, deep learning, algorithms and distributed systems. Most of my publications came out of three research labs here.',
   },
   {
     degree: 'All India Senior School Certificate',
@@ -251,7 +277,7 @@ export const EDUCATION = [
     gradeLabel: 'Aggregate',
     note: 'Physics, Chemistry, Mathematics & Computer Science',
     summary:
-      'Third rank nationally in the AISSCE 2020 examinations, which carried the Thayil Lonappan George Memorial Endowment Award, and the G. Chenthamarakshan Award for the best computer science project. NTSE state scholar, ranked 21 of 151,000 candidates.',
+      'Third rank nationally in AISSCE 2020 (Thayil Lonappan George Memorial Endowment Award), and the G. Chenthamarakshan Award for the best computer science project. NTSE state scholar, rank 21 of 151,000.',
   },
 ]
 
@@ -294,7 +320,7 @@ export const SKILLS = [
 // ── Contact ───────────────────────────────────────────────────
 export const CONTACT = {
   lede:
-    'I am open to collaborations on agentic AI, graph machine learning and applied ML. Email reaches me fastest. If you are writing about one of the papers, say which one and I will send the code.',
+    'Email reaches me fastest. If it is about one of the papers, tell me which one and I will send the code.',
 }
 
 export const CHANNELS = [
