@@ -4,7 +4,7 @@ import './globals.css'
 export const metadata: Metadata = {
   title: 'Gautham Manuru Prabhu · AI Engineer & ML Researcher',
   description:
-    'Software Engineer 2 at Cisco Systems building agentic AI for supply chain operations. Research associate at MiCoSys Lab, San José State University. Six peer-reviewed publications.',
+    'Software Engineer II at Cisco Systems building agentic AI for supply chain. Research intern at MiCoSys Lab, San José State University. Six peer-reviewed publications.',
   keywords: [
     'Gautham Manuru Prabhu',
     'AI Engineer',
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Gautham Manuru Prabhu · AI Engineer & ML Researcher',
     description:
-      'Agentic AI in production at Cisco. Temporal graph learning at San José State, with a first-author poster at the Stanford Graph Learning Workshop 2026.',
+      'Agentic AI in production at Cisco. Temporal graph learning at San José State, with a first-author poster at the Stanford Data-Centric AI Workshop 2026.',
     type: 'website',
     locale: 'en_US',
   },
