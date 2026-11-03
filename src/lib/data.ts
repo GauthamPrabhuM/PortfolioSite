@@ -10,7 +10,7 @@ export const PERSONAL = {
   github: 'https://github.com/GauthamPrabhuM',
   linkedin: 'https://www.linkedin.com/in/gautham-prabhu-5b2342192/',
   scholar: 'https://scholar.google.com/citations?user=eFGVT2UAAAAJ&hl=en',
-  resume: '/assets/Gautham_Manuru_Prabhu_CV_Nov2026.pdf',
+  resume: '/assets/Gautham_Manuru_Prabhu_CV_EECS_Nov2026.pdf',
   photo: '/assets/me.png',
 }
 
@@ -29,6 +29,7 @@ export const HERO = {
   columns: [
     "I am a Software Engineer II on Cisco's AI Acceleration team, and my work sits on the hardware test and manufacturing side of the supply chain. I am lead developer of an agentic test-triage platform that works out why a hardware test failed on the factory line. It finds root causes for about 70% of previously undiagnosed failures and runs in factories worldwide. Before that I deployed a computer-vision system that checks connectors for edge gaps on assembly lines.",
     'In college I co-founded Project Kalpana, a student radio telescope, and led its software-defined radio and signal processing. I also research temporal graph learning at MiCoSys Lab, San José State University, and I am first author on a poster at the Stanford Graph Learning Workshop (SNAP) 2026. Six of my papers are peer reviewed.',
+    'Areas: hardware test and failure analysis · computer vision for manufacturing inspection · software-defined radio and signal processing · quantum circuits · distributed systems.',
   ],
 }
 
@@ -152,7 +153,7 @@ export const RESEARCH_EXPERIENCE: {
     period: '2022 – 2023',
     advisor: 'Advisor: Dr. Vivekananda Bhat K.',
     summary:
-      'QSVC, Pegasos QSVC and quanvolutional networks for classifying heart disease from ECG images. The quanvolutional model reached 97.31% accuracy, 3.88 points above a comparable CNN. I extended Pegasos QSVC from binary to four-class. Supported by a $10,200 MeitY–AWS QCAL grant, and top 16 of 1,626 teams at the Global Quantum Science and Technology Hackathon.',
+      'QSVC, Pegasos QSVC and quanvolutional networks for classifying heart disease from ECG images. The quanvolutional model reached 97.31% accuracy, 3.88 points above a comparable CNN. I extended Pegasos QSVC from binary to four-class and tuned feature maps, qubit counts and circuit depth. Supported by a $10,200 MeitY–AWS QCAL grant, and top 16 of 1,626 teams at the Global Quantum Science and Technology Hackathon.',
   },
   {
     id: 4,
@@ -313,6 +314,12 @@ const L = (name: string, file: string) => ({ name, src: '/assets/logos/' + file 
 
 export const SKILLS = [
   {
+    id: 0,
+    category: 'Hardware & Test',
+    logos: [],
+    items: ['Hardware test triage', 'Failure analysis on factory test lines', 'Computer-vision inspection', 'Software-defined radio', 'Signal processing', 'Quantum circuits (Qiskit)'],
+  },
+  {
     id: 1,
     category: 'Machine Learning',
     logos: [L('PyTorch', 'pytorch.png'), L('scikit-learn', 'scikit.png'), L('NumPy', 'numpy.png'), L('pandas', 'pandas.png')],
@@ -338,7 +345,7 @@ export const SKILLS = [
   },
   {
     id: 5,
-    category: 'Infrastructure',
+    category: 'Systems & Infrastructure',
     logos: [L('Docker', 'docker.png'), L('Amazon Web Services', 'aws.png'), L('Git', 'git.png'), L('MATLAB', 'matlab.png')],
     items: ['Docker', 'Kubernetes', 'OpenShift', 'ArgoCD', 'Jenkins', 'GitHub Actions', 'SplunkAI', 'Prometheus', 'Grafana', 'AWS', 'Azure', 'CUDA'],
   },
