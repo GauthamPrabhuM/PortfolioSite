@@ -10,7 +10,7 @@ export const PERSONAL = {
   github: 'https://github.com/GauthamPrabhuM',
   linkedin: 'https://www.linkedin.com/in/gautham-prabhu-5b2342192/',
   scholar: 'https://scholar.google.com/citations?user=eFGVT2UAAAAJ&hl=en',
-  resume: '/assets/Gautham_Manuru_Prabhu_CV_EECS_Nov2026.pdf',
+  resume: '/assets/Gautham_Manuru_Prabhu_CV_EECS_3Nov2026.pdf',
   photo: '/assets/me.png',
 }
 
@@ -27,9 +27,8 @@ export const NAV_ITEMS = [
 // ── Hero ──────────────────────────────────────────────────────
 export const HERO = {
   columns: [
-    "I am a Software Engineer II on Cisco's AI Acceleration team, and my work sits on the hardware test and manufacturing side of the supply chain. I am lead developer of an agentic test-triage platform that works out why a hardware test failed on the factory line. It finds root causes for about 70% of previously undiagnosed failures and runs in factories worldwide. Before that I deployed a computer-vision system that checks connectors for edge gaps on assembly lines.",
-    'In college I co-founded Project Kalpana, a student radio telescope, and led its software-defined radio and signal processing. I also research temporal graph learning at MiCoSys Lab, San José State University, and I am first author on a poster at the Stanford Graph Learning Workshop (SNAP) 2026. Six of my papers are peer reviewed.',
-    'Areas: hardware test and failure analysis · computer vision for manufacturing inspection · software-defined radio and signal processing · quantum circuits · distributed systems.',
+    "I am a Software Engineer II on Cisco's AI Acceleration team. As the sole engineer, I designed and built an agentic test-triage platform over 3.5M+ manufacturing test records from switches, routers, line cards and ASIC-based boards. It reads FCT, ICT, JTAG and burn-in logs, traces each failure to the likely board, component or ASIC, and finds root causes for about 70% of test failures that were previously undiagnosed.",
+    'Before that I built a failure-classification suite for FCT, ICT and burn-in stations, and deployed automated optical inspection on assembly lines in several global factories. In college I led an 8-person team building a radio telescope. At MiCoSys Lab, San José State University, I work on LLMs for temporal link prediction, and my first-author poster was accepted at Stanford\'s Graph Learning Workshop.',
   ],
 }
 
@@ -50,11 +49,11 @@ export const WORK_EXPERIENCE = [
     to: 'Present',
     isCurrent: true,
     highlights: [
-      'When a hardware test fails on a factory line, someone has to work out whether the test script, the test environment or the product itself is at fault. I am lead developer of an agentic test-triage platform (RAG, LLM diagnosis, MCP) that does this. It finds root causes for about 70% of previously undiagnosed failures and runs in factories worldwide.',
-      "I contributed to a support-queue agent that resolves 30% of routine requests (MAC address allocation, access issues, expired certificates). Together the two systems cut case volume 35% and MTTR 40%, saving $450,000 a year. I presented the work to Cisco's Chief Supply Chain Officer.",
-      "I took the platform from prototype to production with the security, platform, infrastructure and transformation teams, and turned test and quality engineers' manual triage steps into agent workflows. I mentor 5+ junior engineers and have received 25+ Cisco Connected Recognition awards.",
+      'As the sole engineer, I designed and built an agentic hardware test-triage platform (RAG, LLM diagnosis, MCP servers) over 3.5M+ manufacturing test records from switches, routers, line cards and ASIC-based boards. It runs in factories worldwide and finds root causes for about 70% of previously undiagnosed test failures, including on new product introductions (NPI) with no failure history.',
+      'The agent reads functional test (FCT), in-circuit and boundary-scan (ICT, JTAG) and burn-in (ESS) logs, and traces each failure to the likely board, component or ASIC behind it. I took it from prototype to production with the security, platform, infrastructure and transformation teams, and turned the manual failure-analysis steps of test and quality engineers into agent workflows.',
+      "I contributed to a support-queue agent that resolves 30% of routine requests. Together the two systems cut case volume 35% and MTTR 40%, saving $450,000 a year, and I presented the work to Cisco's Chief Supply Chain Officer. I mentor 5+ junior engineers.",
     ],
-    stack: ['Python', 'FastAPI', 'Agentic AI', 'LLMs', 'RAG', 'MCP', 'LangChain', 'LangGraph', 'LangSmith', 'Docker', 'Kubernetes', 'OpenShift', 'ArgoCD', 'PostgreSQL', 'Snowflake'],
+    stack: ['Python', 'RAG', 'MCP', 'LangGraph', 'LangChain', 'LangSmith', 'FastAPI', 'Docker', 'Kubernetes', 'PostgreSQL'],
   },
   {
     id: 2,
@@ -65,10 +64,10 @@ export const WORK_EXPERIENCE = [
     to: 'Sep 2025',
     isCurrent: false,
     highlights: [
-      'I added agentic AI to failure analysis on factory test lines, with a failure-classification suite that groups test failures by likely cause before engineers review them. I also deployed a computer-vision inspection system on assembly lines (see Projects).',
-      'I built Quality Transformation metrics engines that track 10+ quality metrics across 200+ product lines, and split legacy monoliths into 10+ FastAPI microservices on Kubernetes across 8 global sites.',
+      'I built a failure-classification suite that groups hardware test failures from FCT, ICT and burn-in stations by likely cause, and added agentic AI to failure analysis on test lines for ASIC-based networking hardware.',
+      'I built metrics engines that track 10+ manufacturing quality metrics across 200+ hardware product lines, and split legacy monoliths into 10+ FastAPI microservices on Kubernetes serving 8 global manufacturing sites. I also deployed automated optical inspection on assembly lines, described under Projects.',
     ],
-    stack: ['Python', 'FastAPI', 'Kubernetes', 'Microservices', 'Agentic AI', 'Computer Vision', 'OpenCV'],
+    stack: ['Python', 'FastAPI', 'Kubernetes', 'Microservices', 'OpenCV'],
   },
   {
     id: 3,
@@ -82,22 +81,22 @@ export const WORK_EXPERIENCE = [
       'I rebuilt a Python 2 workflow as microservices with CI/CD, and deployment went from six hours to four minutes.',
       "I built a supplier-name standardisation pipeline across 50,000+ records. It finished second runner-up in Cisco's Intern Case Study Competition.",
     ],
-    stack: ['Python', 'Flask', 'Jenkins', 'Docker', 'Kubernetes', 'REST', 'NLP'],
+    stack: ['Python', 'Jenkins', 'Docker', 'Kubernetes', 'CI/CD'],
   },
 ]
 
 // ── Projects ─────────────────────────────────────────────
 export const PROJECTS = [
   {
-    id: 'connector-inspection',
-    title: 'Computer-vision connector inspection',
+    id: 'aoi',
+    title: 'Automated optical inspection for connectors',
     org: 'Cisco Systems',
     role: 'Software Engineer I',
     period: '2024 – 2025',
     where: 'Global factories',
     summary:
-      'Connectors on the assembly line were checked for edge gaps by eye. I deployed a computer-vision inspection system that flags those gaps from camera images, on assembly lines in multiple global factories, replacing the manual visual checks.',
-    stack: ['Computer Vision'],
+      'Connectors on the assembly line were checked for edge gaps by eye. I deployed a computer-vision AOI system that flags those gaps from camera images, on assembly lines in multiple global factories, and it replaced the manual visual checks.',
+    stack: ['Computer Vision', 'OpenCV', 'AOI'],
   },
   {
     id: 'kalpana',
@@ -107,7 +106,7 @@ export const PROJECTS = [
     period: '2022 – 2023',
     where: 'Manipal, India',
     summary:
-      'I co-founded a student group to build a radio telescope. My proposal won the $13,000 university grant, and I led the software-defined radio and signal processing work.',
+      'I co-founded a student group to build a radio telescope and led its 8-person team on a $13,000 R&D grant. I led the software-defined radio and signal processing work.',
     stack: ['Software-defined radio', 'Signal processing'],
   },
 ]
@@ -133,7 +132,7 @@ export const RESEARCH_EXPERIENCE: {
     advisor: 'Advisor: Dr. Saptarshi Sengupta',
     badge: 'First author',
     summary:
-      'First-author poster at the Stanford Graph Learning Workshop (SNAP) 2026. We tested whether LLM-generated semantics improve temporal link prediction once every model is evaluated under one protocol. I reproduced CROSS, a reported state-of-the-art model, matched its published results, and compared it with DyGFormer and a lightweight structure-aware gate over 5 seeds. The gains depend on protocol and dataset: CROSS helps most on unseen nodes but turns seed-dependent on ICEWS1819, and larger text encoders do not help. Full paper in preparation.',
+      'We tested whether LLM semantics help temporal link prediction on DTGB graphs (Enron, ICEWS1819) under a common protocol. I reproduced CROSS and compared it with DyGFormer and a structure-aware gate, over 100 negatives and 5 seeds. The gains varied by dataset and showed up mainly on unseen nodes. My first-author poster was accepted at Stanford\'s Graph Learning Workshop (SNAP).',
   },
   {
     id: 2,
@@ -143,7 +142,7 @@ export const RESEARCH_EXPERIENCE: {
     period: 'Summer 2023',
     advisor: 'Advisor: Dr. Subhamoy Mandal',
     summary:
-      'I built dual-encoder, cross-attention models to detect macular degeneration from thermal and structural OCT, robust to missing modalities and mixed resolutions. I also compared RGB, HSV and thermal inputs for detection. Presented at the Digital Health Symposium, IIT Kharagpur.',
+      'I built dual-encoder, cross-attention vision models to detect age-related macular degeneration from thermal and structural OCT, robust to missing modalities. Presented at the Digital Health Symposium, IIT Kharagpur.',
   },
   {
     id: 3,
@@ -153,7 +152,7 @@ export const RESEARCH_EXPERIENCE: {
     period: '2022 – 2023',
     advisor: 'Advisor: Dr. Vivekananda Bhat K.',
     summary:
-      'QSVC, Pegasos QSVC and quanvolutional networks for classifying heart disease from ECG images. The quanvolutional model reached 97.31% accuracy, 3.88 points above a comparable CNN. I extended Pegasos QSVC from binary to four-class and tuned feature maps, qubit counts and circuit depth. Supported by a $10,200 MeitY–AWS QCAL grant, and top 16 of 1,626 teams at the Global Quantum Science and Technology Hackathon.',
+      'I benchmarked QSVC, Pegasos QSVC (which I extended to four classes) and quanvolutional networks for classifying heart disease from ECG images. The quanvolutional network reached 97.31% accuracy, 3.88 points above a CNN. Funded by a $10,200 MeitY–AWS QCAL grant and published in IEEE Access.',
   },
   {
     id: 4,
@@ -163,7 +162,7 @@ export const RESEARCH_EXPERIENCE: {
     period: '2022 – 2023',
     advisor: 'Advisor: Dr. Srikanth Prabhu',
     summary:
-      "Co-developed EyeEncrypt, secure retinal vessel segmentation for 3,000+ fundus images with Diffie–Hellman and AES-256. Demonstrated it to Kasturba Medical College's ophthalmologists. Published at ATIS 2022 and in a review.",
+      'I co-developed EyeEncrypt, secure retinal vessel segmentation for 3,000+ fundus images using Diffie–Hellman and AES-256, and demonstrated it to ophthalmologists at Kasturba Medical College.',
   },
   {
     id: 5,
@@ -173,7 +172,7 @@ export const RESEARCH_EXPERIENCE: {
     period: '2022 – 2023',
     advisor: 'Advisor: Dr. Nisha P. Shetty',
     summary:
-      'Fine-tuned BERT and XLNet on the 15,073-tweet ANTi-Vax dataset to separate misinformation from general vaccine discussion. Linked Reddit authors by post-comment cosine similarity and used NetworkX to find misinformation clusters. Published in Procedia Computer Science.',
+      'I fine-tuned BERT and XLNet on 15,073 anti-vaccine tweets and mapped misinformation clusters in a Reddit user graph. Published in Procedia Computer Science.',
   },
 ]
 
@@ -190,7 +189,7 @@ export const PUBLICATIONS = [
     authorsBefore: '',
     authorsAfter: ', S. Gupta, M. Choudhary, A. Nagarajan, K. Potika, S. Sengupta',
     venue: 'Stanford Graph Learning Workshop (SNAP) 2026',
-    ref: ', Stanford University, Nov 2026 · Poster, first author',
+    ref: ', Stanford University, 2026 · Poster, first author',
     doi: null,
     link: null,
   },
@@ -294,7 +293,7 @@ export const EDUCATION = [
     gradeLabel: 'CGPA / 10',
     note: 'Minor in Big Data Analytics',
     summary:
-      'Top 15% of the cohort. Coursework in AI, quantum computing, deep learning, algorithms and distributed systems. Most of my publications came out of three research labs here.',
+      'Top 15% of the cohort. Most of my publications came out of three research labs here.',
   },
   {
     degree: 'All India Senior School Certificate',
@@ -305,50 +304,21 @@ export const EDUCATION = [
     gradeLabel: 'Aggregate',
     note: 'Physics, Chemistry, Mathematics & Computer Science',
     summary:
-      'Third rank nationally in AISSCE 2020 (Thayil Lonappan George Memorial Endowment Award), and the G. Chenthamarakshan Award for the best computer science project. NTSE state scholar, rank 21 of 151,000.',
+      'Third rank in school in AISSCE 2020 (Thayil Lonappan George Memorial Endowment Award), and the G. Chenthamarakshan Award for the best computer science project. NTSE state scholar, rank 21 of 151,000.',
   },
 ]
 
 // ── Stack ─────────────────────────────────────────────────────
-const L = (name: string, file: string) => ({ name, src: '/assets/logos/' + file })
 
 export const SKILLS = [
-  {
-    id: 0,
-    category: 'Hardware & Test',
-    logos: [],
-    items: ['Hardware test triage', 'Failure analysis on factory test lines', 'Computer-vision inspection', 'Software-defined radio', 'Signal processing', 'Quantum circuits (Qiskit)'],
-  },
-  {
-    id: 1,
-    category: 'Machine Learning',
-    logos: [L('PyTorch', 'pytorch.png'), L('scikit-learn', 'scikit.png'), L('NumPy', 'numpy.png'), L('pandas', 'pandas.png')],
-    items: ['Agentic AI', 'LLMs', 'RAG', 'MCP', 'LangChain', 'LangGraph', 'LangSmith', 'Hugging Face', 'NetworkX', 'OpenCV', 'PyTorch', 'PyTorch Geometric', 'DGL', 'TensorFlow', 'Keras', 'scikit-learn', 'Qiskit', 'GraphML', 'NLP', 'Computer Vision'],
-  },
-  {
-    id: 2,
-    category: 'Languages',
-    logos: [L('Python', 'python.png'), L('C++', 'cpp.png'), L('Java', 'java.png'), L('JavaScript', 'js.png'), L('TypeScript', 'typescript.png')],
-    items: ['Python', 'C++', 'C', 'Java', 'JavaScript', 'TypeScript', 'SQL'],
-  },
-  {
-    id: 3,
-    category: 'Services & APIs',
-    logos: [L('FastAPI', 'fastapi.png'), L('Django', 'django.png'), L('React', 'react.png'), L('Next.js', 'next.png')],
-    items: ['FastAPI', 'Flask', 'Django', 'REST', 'gRPC', 'OpenAPI', 'Event-driven microservices', 'React', 'Next.js'],
-  },
-  {
-    id: 4,
-    category: 'Data Stores',
-    logos: [L('PostgreSQL', 'postgres.png'), L('MongoDB', 'mongodb.png'), L('MySQL', 'mysql.png')],
-    items: ['PostgreSQL', 'Snowflake', 'Cassandra', 'Redis', 'MongoDB', 'MySQL', 'Spark', 'Hadoop', 'Celery'],
-  },
-  {
-    id: 5,
-    category: 'Systems & Infrastructure',
-    logos: [L('Docker', 'docker.png'), L('Amazon Web Services', 'aws.png'), L('Git', 'git.png'), L('MATLAB', 'matlab.png')],
-    items: ['Docker', 'Kubernetes', 'OpenShift', 'ArgoCD', 'Jenkins', 'GitHub Actions', 'SplunkAI', 'Prometheus', 'Grafana', 'AWS', 'Azure', 'CUDA'],
-  },
+  { id: 1, category: 'Hardware Test', items: ['Manufacturing test (FCT, ICT, boundary scan / JTAG, burn-in / ESS)', 'Hardware failure analysis', 'NPI', 'Board- and ASIC-level test data', 'Automated optical inspection (AOI)'] },
+  { id: 2, category: 'Computer Engineering', items: ['Digital logic design', 'Computer architecture', 'Embedded systems', 'Microcontrollers', 'Arduino'] },
+  { id: 3, category: 'Languages', items: ['Python', 'C', 'C++', 'Embedded C', 'SQL', 'Bash'] },
+  { id: 4, category: 'Systems', items: ['Linux', 'Distributed systems', 'Microservices', 'REST APIs', 'CI/CD', 'FastAPI', 'Next.js'] },
+  { id: 5, category: 'Cloud & DevOps', items: ['Docker', 'Kubernetes', 'AWS', 'GCP', 'Jenkins', 'GitHub Actions', 'Git'] },
+  { id: 6, category: 'Databases', items: ['PostgreSQL', 'MySQL', 'MongoDB', 'Redis', 'Elasticsearch', 'Neo4j'] },
+  { id: 7, category: 'LLMs & Agents', items: ['LangChain', 'LangGraph', 'LangSmith', 'MCP', 'RAG', 'Ragas', 'DeepEval', 'Pinecone', 'Weaviate'] },
+  { id: 8, category: 'Machine Learning', items: ['PyTorch', 'PyG', 'DGL', 'Hugging Face', 'PEFT (LoRA)', 'scikit-learn', 'OpenCV', 'NetworkX', 'Qiskit'] },
 ]
 
 // ── Contact ───────────────────────────────────────────────────
