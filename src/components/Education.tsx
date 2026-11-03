@@ -5,7 +5,7 @@ import { EDUCATION } from '@/lib/data'
 export function Education() {
   return (
     <section className="sec" id="education">
-      <SectionHead numeral="IV." title="Education" />
+      <SectionHead numeral="V." title="Education" />
 
       {EDUCATION.map(e => (
         <article className="entry edu_entry" key={e.degree} data-reveal>

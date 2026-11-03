@@ -10,12 +10,13 @@ export const PERSONAL = {
   github: 'https://github.com/GauthamPrabhuM',
   linkedin: 'https://www.linkedin.com/in/gautham-prabhu-5b2342192/',
   scholar: 'https://scholar.google.com/citations?user=eFGVT2UAAAAJ&hl=en',
-  resume: '/assets/GauthamManuruPrabhu_Resume_Apr2026.pdf',
+  resume: '/assets/Gautham_Manuru_Prabhu_CV.pdf',
   photo: '/assets/me.png',
 }
 
 export const NAV_ITEMS = [
   { id: 'experience', label: 'Experience' },
+  { id: 'projects', label: 'Projects' },
   { id: 'research', label: 'Research' },
   { id: 'publications', label: 'Publications' },
   { id: 'education', label: 'Education' },
@@ -26,8 +27,8 @@ export const NAV_ITEMS = [
 // ── Hero ──────────────────────────────────────────────────────
 export const HERO = {
   columns: [
-    "I work on Cisco's AI Acceleration team. I am lead developer of an agentic test-triage platform that finds root causes for about 70% of previously undiagnosed hardware test failures and runs in factories worldwide. I joined as an intern in January 2024 and have been promoted twice since.",
-    'At MiCoSys Lab, San José State University, I work with Dr. Saptarshi Sengupta on when LLM text features help temporal link prediction. I am first author on our poster at the Stanford Data-Centric AI Workshop 2026. Six of my papers are peer reviewed.',
+    "I am a Software Engineer II on Cisco's AI Acceleration team, and my work sits on the hardware test and manufacturing side of the supply chain. I am lead developer of an agentic test-triage platform that works out why a hardware test failed on the factory line. It finds root causes for about 70% of previously undiagnosed failures and runs in factories worldwide. Before that I deployed a computer-vision system that checks connectors for edge gaps on assembly lines.",
+    'In college I co-founded Project Kalpana, a student radio telescope, and led its software-defined radio and signal processing. I also research temporal graph learning at MiCoSys Lab, San José State University, and I am first author on a poster at the Stanford Graph Learning Workshop (SNAP) 2026. Six of my papers are peer reviewed.',
   ],
 }
 
@@ -48,9 +49,9 @@ export const WORK_EXPERIENCE = [
     to: 'Present',
     isCurrent: true,
     highlights: [
-      'When a hardware test fails, someone has to work out whether the script, the environment or the product is at fault. I am lead developer of an agentic test-triage platform (RAG, LLM diagnosis, MCP) that does this. It finds root causes for about 70% of previously undiagnosed failures, even on new products, and runs in factories worldwide.',
+      'When a hardware test fails on a factory line, someone has to work out whether the test script, the test environment or the product itself is at fault. I am lead developer of an agentic test-triage platform (RAG, LLM diagnosis, MCP) that does this. It finds root causes for about 70% of previously undiagnosed failures and runs in factories worldwide.',
       "I contributed to a support-queue agent that resolves 30% of routine requests (MAC address allocation, access issues, expired certificates). Together the two systems cut case volume 35% and MTTR 40%, saving $450,000 a year. I presented the work to Cisco's Chief Supply Chain Officer.",
-      'I took the platform from prototype to production with the security, platform, infrastructure and transformation teams. I mentor 5+ junior engineers and have received 25+ Cisco Connected Recognition awards.',
+      "I took the platform from prototype to production with the security, platform, infrastructure and transformation teams, and turned test and quality engineers' manual triage steps into agent workflows. I mentor 5+ junior engineers and have received 25+ Cisco Connected Recognition awards.",
     ],
     stack: ['Python', 'FastAPI', 'Agentic AI', 'LLMs', 'RAG', 'MCP', 'LangChain', 'LangGraph', 'LangSmith', 'Docker', 'Kubernetes', 'OpenShift', 'ArgoCD', 'PostgreSQL', 'Snowflake'],
   },
@@ -63,8 +64,8 @@ export const WORK_EXPERIENCE = [
     to: 'Sep 2025',
     isCurrent: false,
     highlights: [
+      'I added agentic AI to failure analysis on factory test lines, with a failure-classification suite that groups test failures by likely cause before engineers review them. I also deployed a computer-vision inspection system on assembly lines (see Projects).',
       'I built Quality Transformation metrics engines that track 10+ quality metrics across 200+ product lines, and split legacy monoliths into 10+ FastAPI microservices on Kubernetes across 8 global sites.',
-      'I added agentic AI to failure analysis on factory test lines, with a suite that groups test failures by likely cause before engineers see them. I also deployed a computer-vision system on assembly lines in several global factories that flags connector edge gaps from camera images, replacing manual checks.',
     ],
     stack: ['Python', 'FastAPI', 'Kubernetes', 'Microservices', 'Agentic AI', 'Computer Vision', 'OpenCV'],
   },
@@ -81,6 +82,32 @@ export const WORK_EXPERIENCE = [
       "I built a supplier-name standardisation pipeline across 50,000+ records. It finished second runner-up in Cisco's Intern Case Study Competition.",
     ],
     stack: ['Python', 'Flask', 'Jenkins', 'Docker', 'Kubernetes', 'REST', 'NLP'],
+  },
+]
+
+// ── Projects ─────────────────────────────────────────────
+export const PROJECTS = [
+  {
+    id: 'connector-inspection',
+    title: 'Computer-vision connector inspection',
+    org: 'Cisco Systems',
+    role: 'Software Engineer I',
+    period: '2024 – 2025',
+    where: 'Global factories',
+    summary:
+      'Connectors on the assembly line were checked for edge gaps by eye. I deployed a computer-vision inspection system that flags those gaps from camera images, on assembly lines in multiple global factories, replacing the manual visual checks.',
+    stack: ['Computer Vision'],
+  },
+  {
+    id: 'kalpana',
+    title: 'Project Kalpana: a student radio telescope',
+    org: 'Manipal Institute of Technology',
+    role: 'Co-founder & Technical Head',
+    period: '2022 – 2023',
+    where: 'Manipal, India',
+    summary:
+      'I co-founded a student group to build a radio telescope. My proposal won the $13,000 university grant, and I led the software-defined radio and signal processing work.',
+    stack: ['Software-defined radio', 'Signal processing'],
   },
 ]
 
@@ -105,7 +132,7 @@ export const RESEARCH_EXPERIENCE: {
     advisor: 'Advisor: Dr. Saptarshi Sengupta',
     badge: 'First author',
     summary:
-      'First-author poster at the Stanford Data-Centric AI Workshop 2026 (Nov 3). Recent methods report large gains from adding LLM summaries to temporal graph networks. We reproduced one, CROSS (NeurIPS 2025), on Enron and ICEWS1819, then ranked it against 100 sampled negatives instead of in-batch ones. Most of its lead over a text-aware baseline disappeared. Text still helped on new nodes, and a text encoder 15 times larger lowered accuracy. Full paper in preparation.',
+      'First-author poster at the Stanford Graph Learning Workshop (SNAP) 2026. We tested whether LLM-generated semantics improve temporal link prediction once every model is evaluated under one protocol. I reproduced CROSS, a reported state-of-the-art model, matched its published results, and compared it with DyGFormer and a lightweight structure-aware gate over 5 seeds. The gains depend on protocol and dataset: CROSS helps most on unseen nodes but turns seed-dependent on ICEWS1819, and larger text encoders do not help. Full paper in preparation.',
   },
   {
     id: 2,
@@ -145,7 +172,7 @@ export const RESEARCH_EXPERIENCE: {
     period: '2022 – 2023',
     advisor: 'Advisor: Dr. Nisha P. Shetty',
     summary:
-      'Fine-tuned BERT and XLNet on the 15,073-tweet ANTi-Vax dataset to separate misinformation from general vaccine discussion, and built a Reddit user-association graph from vaccine threads. Published in Procedia Computer Science.',
+      'Fine-tuned BERT and XLNet on the 15,073-tweet ANTi-Vax dataset to separate misinformation from general vaccine discussion. Linked Reddit authors by post-comment cosine similarity and used NetworkX to find misinformation clusters. Published in Procedia Computer Science.',
   },
 ]
 
@@ -160,8 +187,8 @@ export const PUBLICATIONS = [
     title:
       'On Link Prediction Using Node-Pair LLM Semantics and Structure in Temporal Text-Attributed Graphs',
     authorsBefore: '',
-    authorsAfter: ', S. Gupta, A. Nagarajan, M. Choudhary, K. Potika, S. Sengupta',
-    venue: 'Stanford Data-Centric AI Workshop 2026',
+    authorsAfter: ', S. Gupta, M. Choudhary, A. Nagarajan, K. Potika, S. Sengupta',
+    venue: 'Stanford Graph Learning Workshop (SNAP) 2026',
     ref: ', Stanford University, Nov 2026 · Poster, first author',
     doi: null,
     link: null,
@@ -328,5 +355,5 @@ export const CHANNELS = [
   { label: 'LinkedIn', value: 'gautham-prabhu-5b2342192', href: PERSONAL.linkedin, external: true, download: false },
   { label: 'Google Scholar', value: 'Publication record', href: PERSONAL.scholar, external: true, download: false },
   { label: 'GitHub', value: '@GauthamPrabhuM', href: PERSONAL.github, external: true, download: false },
-  { label: 'Résumé', value: 'PDF, April 2026', href: PERSONAL.resume, external: false, download: true },
+  { label: 'Résumé', value: 'PDF, November 2026', href: PERSONAL.resume, external: false, download: true },
 ]

@@ -5,7 +5,7 @@ import { RESEARCH_EXPERIENCE } from '@/lib/data'
 export function Research() {
   return (
     <section className="sec" id="research">
-      <SectionHead numeral="II." title="Research" />
+      <SectionHead numeral="III." title="Research" />
 
       {RESEARCH_EXPERIENCE.map((a, i) => (
         <article className="entry" key={a.id} data-reveal>

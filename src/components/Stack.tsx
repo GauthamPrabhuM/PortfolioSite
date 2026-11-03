@@ -4,7 +4,7 @@ import { SKILLS } from '@/lib/data'
 export function Stack() {
   return (
     <section className="sec" id="stack">
-      <SectionHead numeral="V." title="Stack" />
+      <SectionHead numeral="VI." title="Stack" />
 
       <div className="stack_grid">
         {SKILLS.map(g => (

@@ -4,7 +4,7 @@ import { PUBLICATIONS } from '@/lib/data'
 export function Publications() {
   return (
     <section className="sec" id="publications">
-      <SectionHead numeral="III." title="Publications" />
+      <SectionHead numeral="IV." title="Publications" />
 
       <ol className="biblio">
         {PUBLICATIONS.map(p => {

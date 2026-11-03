@@ -3,6 +3,7 @@ import { Hero } from '@/components/Hero'
 import { About } from '@/components/About'
 import { Reveal } from '@/components/Reveal'
 import { Experience } from '@/components/Experience'
+import { Projects } from '@/components/Projects'
 import { Research } from '@/components/Research'
 import { Publications } from '@/components/Publications'
 import { Education } from '@/components/Education'
@@ -11,7 +12,7 @@ import { Colophon } from '@/components/Colophon'
 
 /*
   A dark stage with live fluid, then one column of type: an about block
-  and five numbered sections. Secondary detail folds behind "More".
+  and six numbered sections. Secondary detail folds behind "More".
 */
 export default function Page() {
   return (
@@ -21,6 +22,7 @@ export default function Page() {
       <main className="wrap">
         <About />
         <Experience />
+        <Projects />
         <Research />
         <Publications />
         <Education />
