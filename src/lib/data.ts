@@ -10,7 +10,7 @@ export const PERSONAL = {
   github: 'https://github.com/GauthamPrabhuM',
   linkedin: 'https://www.linkedin.com/in/gautham-prabhu-5b2342192/',
   scholar: 'https://scholar.google.com/citations?user=eFGVT2UAAAAJ&hl=en',
-  resume: '/assets/Gautham_Manuru_Prabhu_CV.pdf',
+  resume: '/assets/Gautham_Manuru_Prabhu_CV_Nov2026.pdf',
   photo: '/assets/me.png',
 }
 
